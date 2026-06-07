@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import bannerImg from '../assets/allLawyers.jpg'; 
 import andrewImg from '../assets/Andrew.jpg';
 import joeImg from '../assets/Joe.jpg';
-import saraImg from '../assets/sara.jpg';
+import saraImg from '../assets/Sara.jpg';
 import mikeImg from '../assets/mike.jpg'; 
 import monneyImg from '../assets/money.jpg';
 import buildingImg from '../assets/building.jpg';

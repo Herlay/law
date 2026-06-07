@@ -9,7 +9,7 @@ import pic3 from '../assets/JAMS.jpg';
 import whatPic from '../assets/What.jpg';
 import lawPic from '../assets/dispute.jpg';
 import whoPic from '../assets/Who.jpg';
-import tieImage from '../assets/tieimage.jpg';
+import tieImage from '../assets/tieImage.jpg';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
