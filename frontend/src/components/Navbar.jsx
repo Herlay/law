@@ -248,7 +248,7 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-            <Link to="/Attorneys"  className="hover:text-brand-yellow transition">
+            <Link to="/Attorneys" className="hover:text-brand-yellow transition">
           ATTORNEYS
         </Link>
 
