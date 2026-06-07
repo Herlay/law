@@ -138,7 +138,7 @@ const Navbar = () => {
         </div>
 
        {/* --- NORMAL LINK: ATTORNEYS --- */}
-        <Link to="/attorneys" className="hover:text-brand-yellow transition">
+        <Link to="/Attorneys" className="hover:text-brand-yellow transition">
           ATTORNEYS
         </Link>
 
@@ -248,7 +248,7 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-            <Link href="/attorneys" className="hover:text-brand-yellow transition">
+            <Link href="/Attorneys" className="hover:text-brand-yellow transition">
           ATTORNEYS
         </Link>
 
@@ -274,9 +274,9 @@ const Navbar = () => {
               </div>
 
               {/* Normal Link */}
-              <a href="#" className="hover:text-brand-yellow transition border-b border-gray-800 pb-4">
-                CASE RESULTS
-              </a>
+               <Link to="/Case" className="hover:text-brand-yellow transition">
+          CASE RESULTS
+        </Link>
               
               <button className="bg-brand-yellow text-gray-900 px-6 py-4 rounded font-bold hover:bg-yellow-400 transition mt-8 shadow-lg w-full text-center tracking-widest text-sm">
                 GET IN TOUCH
