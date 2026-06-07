@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Homepage from './pages/Homepage';
+import Homepage from './pages/HomePage';
 import Attorneys from './pages/Attorneys'; 
 import ContactUs from './pages/ContactUs';
 import Arbitation from './pages/Arbitation';
-import CaseResults from './pages/CaseResults';
+import CaseResults from './pages/CaseResults'
 
 const App = () => {
   return (

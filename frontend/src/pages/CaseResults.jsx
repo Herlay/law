@@ -7,7 +7,7 @@ import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const CaseResults = () => {
-  // Separate states for each accordion so they toggle independently
+  // Separate states for each accordion so they toggle independent
   const [isPonziOpen, setIsPonziOpen] = useState(true);
   const [isArbitrationOpen, setIsArbitrationOpen] = useState(true);
 
