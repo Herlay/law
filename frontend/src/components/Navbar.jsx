@@ -30,7 +30,7 @@ const Navbar = () => {
   ];
 
   const finra = [
-    "FINRA Attorneys",
+    <Link to="/Attorneys" className="hover:text-brand-yellow transition">FINRA Attorneys</Link>,
     "FINRA Arbitration",
   ];
 
@@ -248,7 +248,7 @@ const Navbar = () => {
                 </AnimatePresence>
               </div>
 
-            <Link href="/Attorneys" className="hover:text-brand-yellow transition">
+            <Link to="/Attorneys" className="hover:text-brand-yellow transition">
           ATTORNEYS
         </Link>
 
