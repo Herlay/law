@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'; 
 import Navbar from '../components/Navbar';
-import bannerImg from '../assets/lawyers.jpg';
+import bannerImg from '../assets/tieImage.jpg';
 import goggleImg from '../assets/GoogleCustomer.png';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';

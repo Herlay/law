@@ -5,6 +5,9 @@ import Attorneys from './pages/Attorneys';
 import ContactUs from './pages/ContactUs';
 import Arbitation from './pages/Arbitation';
 import CaseResults from './pages/CaseResults'
+import PracticeAreas from './pages/PracticeAreas';
+import Finra from './pages/Finra';
+import Lawsuits from './pages/Lawsuits';
 
 const App = () => {
   return (
@@ -18,7 +21,11 @@ const App = () => {
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/Arbitration" element={<Arbitation />} />
         <Route path="/Case" element={<CaseResults />} />
+        <Route path="/Practice" element={<PracticeAreas />} />
+        <Route path="/Finra" element={<Finra />} />
+        <Route path="/Lawsuits" element={<Lawsuits />} />
       </Routes>
+
     </div>
   );
 }

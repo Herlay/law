@@ -13,14 +13,13 @@ const Footer = () => {
       <div className="bg-[#1A1A1A] py-12 px-6 flex flex-col items-center text-center text-white">
         
         {/* Navigation Links */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-xs font-bold tracking-widest uppercase mb-12">
-          <a href="#" className="hover:text-brand-yellow transition">Practice Areas</a>
-          <a href="#" className="hover:text-brand-yellow transition">Attorneys</a>
-          <a href="#" className="hover:text-brand-yellow transition">In The Media</a>
-          <a href="#" className="hover:text-brand-yellow transition">Disclaimer</a>
-          <a href="#" className="hover:text-brand-yellow transition">Privacy Policy</a>
-          <a href="#" className="hover:text-brand-yellow transition">Accessibility</a>
-        </div>
+        {/* <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-xs font-bold tracking-widest uppercase mb-12">
+          <link to="/Practice" className="hover:text-brand-yellow transition">Practice Areas</link>
+          <link to="/Attorneys" className="hover:text-brand-yellow transition">Attorneys</link>
+         <link to="/ContactUs" className="hover:text-brand-yellow transition">Disclaimer</link>
+         <link to="/ContactUs" className="hover:text-brand-yellow transition">Privacy Policy</link>
+         <link to="/ContactUs" className="hover:text-brand-yellow transition">Accessibility</link>
+        </div> */}
         
         {/* Badges Placeholder */}
         <div className="flex flex-row flex-wrap justify-center items-center gap-8 md:gap-16 mb-12">

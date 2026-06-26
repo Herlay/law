@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import footerImg from '../assets/footer-bg.jpg';
+import footerImg from '../assets/foot.jpg';
 import formImg from '../assets/formImage.png';
 
 const ContactSection = () => {
@@ -48,14 +48,14 @@ const ContactSection = () => {
 </h2>
           
         <p className="text-white mb-4 text-[1.08rem] font-light leading-snug text-justify">
-  Since its inception in March 2005, <a href="/" className="text-brand-yellow font-medium hover:text-yellow-400 transition duration-300">Stoltmann Law Offices, P.C.</a> has dedicated its practice to representing investors in lawsuits and arbitration claims against brokers, financial advisors, investment advisors, and the companies they work for. Our Chicago investment fraud attorneys offer their clients a combined 35 years of experience fighting for investor rights from offices in Chicago, Illinois and suburban Barrington, Illinois and Downers Grove, Illinois.
+  Since its inception in March 2005,<span className="text-red-500 font-bold"> Stoltmann Law Offices, P.C.</span> has dedicated its practice to representing investors in lawsuits and arbitration claims against brokers, financial advisors, investment advisors, and the companies they work for. Our Chicago investment fraud attorneys offer their clients a combined 35 years of experience fighting for investor rights from offices in Chicago, Illinois and suburban Barrington, Illinois and Downers Grove, Illinois.
 </p>
 
 <p className="text-white mb-10 text-[1.08rem] font-light leading-snug text-justify">
   The attorneys at Stoltmann Law Offices have dedicated their life’s work to representing investors who have been cheated or defrauded by those professionals they trusted with their hard-earned money and retirement savings, recovering in excess of $200 million for investors over the years.
 </p>
           
-          <div className="text-brand-yellow text-5xl hover:text-red-700 cursor-pointer font-bold mb-2">Ph 312-332-4200</div>
+          <div className="text-red-700 text-5xl hover:text-brand-yellow cursor-pointer font-bold mb-2">Ph 312-332-4200</div>
           <a href="mailto:Andrew@StoltLaw.com" className="text-white hover:text-brand-yellow transition text-lg font-bold text-5xl tracking-wide">Andrew@StoltLaw.com</a>
           
         </motion.div>
@@ -83,7 +83,7 @@ const ContactSection = () => {
             
            
             {/* 6. SHRANK BUTTON: Changed py-4 to py-3 */}
-            <button className="w-full bg-brand-yellow text-gray-900 font-bold py-3 rounded cursor-pointer hover:bg-gray-600 hover:text-white transition duration-300 mt-1 text-sm tracking-widest shadow-md">
+            <button className="w-full bg-brand-yellow text-white font-bold py-3 rounded cursor-pointer hover:bg-gray-600 hover:text-white transition duration-300 mt-1 text-sm tracking-widest shadow-md">
              SUBMIT
             </button>
 

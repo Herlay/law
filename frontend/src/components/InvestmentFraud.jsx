@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import fraudAttorneys from '../assets/fraudAttorneys.png'; 
+import fraudAttorneys from '../assets/att1.png'; 
 import fraudAttorneysBack from '../assets/Securities-Fraud-Attorneys-in-Chicago.jpg'; 
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const InvestmentFraud = () => {
           viewport={{ once: true }}
           src={fraudAttorneysBack} 
           alt="Wall Street" 
-          className="absolute inset-0 w-full h-full object-cover object-[80%_center] opacity-40"
+          className="absolute inset-0 w-full h-full object-cover object-[60%_center] opacity-40"
         />
         
         {/* Dark gradient fading left to right - uncommented so your text is readable! */}
@@ -51,7 +51,7 @@ const InvestmentFraud = () => {
     
   {/* CONTACT US BUTTON */}
 <Link to="/ContactUs" className="w-[180px] block no-underline">
-  <div className="w-full flex items-center justify-center bg-[#ffffff] text-[#000000] font-extrabold py-4 px-10 rounded cursor-pointer hover:bg-[#fbbf24] hover:text-[#ffffff] transition duration-300 text-[14px] tracking-widest uppercase shadow-md whitespace-nowrap border border-[#e5e7eb]">
+  <div className="w-full flex items-center justify-center bg-brand-yellow text-white font-extrabold py-4 px-10 rounded cursor-pointer hover:bg-white hover:text-brand-yellow transition duration-300 text-[14px] tracking-widest uppercase shadow-md whitespace-nowrap border border-[#e5e7eb]">
     CONTACT US
   </div>
 </Link>

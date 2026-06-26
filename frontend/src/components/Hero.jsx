@@ -1,59 +1,68 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '../assets/hero.png';
+import img1 from '../assets/hero.jpg';
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
-      {/* Background Image Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-100"
-        style={{ backgroundImage: `url(${img1})` }}
-      />
+<div className="relative w-full min-h-[100svh] flex flex-col justify-end bg-[#111111] overflow-hidden pt-24 lg:pt-0">
       
+  {/* Background Image Overlay */}
+  <div 
+    className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-90 z-0"
+    style={{ backgroundImage: `url(${img1})` }} // Replace with your background image
+  />
+  
+  {/* Content Layer */}
+  <div className="relative z-20 w-full max-w-[1440px] mx-auto px-4 sm:px-12 lg:px-16 flex flex-col lg:flex-row items-center justify-between flex-1 h-full">
     
-{/* Hero Text */}
-      <motion.div 
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-20 flex flex-col items-center w-full px-4 mt-[25vh] md:mt-[40vh]"
-      >
-        {/* The relative anchor container */}
-        <div className="relative inline-flex flex-col items-center justify-center">
-          
-          {/* 'You' - pinned to the left and slightly up from 'Found Hope' */}
-          <span className="absolute right-[88%] md:right-[80%] bottom-[25%] md:bottom-[1%] font-cursive text-brand-yellow text-[6rem] md:text-[8.5rem] leading-none z-0 drop-shadow-xl select-none pointer-events-none">
-            You
-          </span>
-
-        {/* 'Found Hope' - sits cleanly on top and moved to the right */}
-          <h1 className="text-[3.5rem] md:text-[7rem] font-bold text-white tracking-tight relative z-10 drop-shadow-2xl whitespace-nowrap ml-8 md:ml-45">
-            Found Hope
-          </h1>
-        </div>
+    {/* Left Text Content */}
+    <motion.div 
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      // Increased width to 60% on desktop to use the available left space
+      className="w-full lg:w-[60%] flex flex-col items-center lg:items-start justify-center text-center lg:text-left z-20 pb-8 lg:pb-16"
+    >
+      {/* Heading Row: 'You' and 'Found Hope' */}
+      <div className="flex flex-row items-end justify-center lg:justify-start w-full leading-none">
         
-     {/* Subtitle - flushed right up against the text above */}
-        <p className="text-white mt-0 text-[0.8rem] md:text-[2rem] tracking-[0.1rem] font-semibold drop-shadow-md z-10 text-center uppercase">
-          Regain Your Financial Freedom
-        </p>
-      </motion.div>
+        {/* 'You' */}
+        <span className="font-cursive text-brand-yellow text-[5rem] mt-80 lg:mt-18 sm:text-[6rem] lg:text-[8rem] leading-[0.8]  drop-shadow-xl select-none pointer-events-none mr-2 sm:mr-4 lg:mr-6 transform translate-y-2 lg:translate-y-4">
+          You
+        </span>
 
-      {/* Curved bottom separator (Perfect Downward Dip) */}
-      <div className="absolute bottom-0 w-full z-30 pointer-events-none translate-y-[1px]">
-        <svg 
-          viewBox="0 0 1440 120" 
-          className="w-full h-[50px] md:h-[120px] block" 
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path 
-            d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" 
-            fill="white" 
-          />
-        </svg>
+        {/* 'Found Hope' */}
+        <h1 className="text-[3.3rem] sm:text-[4.5rem] lg:text-[5rem] font-bold text-white tracking-tight drop-shadow-2xl whitespace-nowrap leading-[0.8]">
+          Found Hope
+        </h1>
+        
       </div>
-    </div>
+
+      {/* Subtitle - Removed conflicting tracking classes and applied a specific left margin for desktop */}
+      <p className="text-white mt-6 sm:mt-8 text-[1.2rem] sm:text-[1.2rem] lg:text-[1.7rem] font-bold drop-shadow-md z-10 uppercase tracking-[0.15em] lg:ml-[90px]">
+        Regain Your Financial Freedom
+      </p>
+
+    </motion.div>
+
+  </div>
+
+  {/* Curved bottom separator (Perfect Downward Dip) */}
+  <div className="absolute bottom-0 w-full z-30 pointer-events-none translate-y-[1px]">
+    <svg 
+      viewBox="0 0 1440 120" 
+      className="w-full h-[40px] sm:h-[80px] md:h-[120px] block" 
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path 
+        d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z" 
+        fill="white" 
+      />
+    </svg>
+  </div>
+  
+</div>
   );
 };
 

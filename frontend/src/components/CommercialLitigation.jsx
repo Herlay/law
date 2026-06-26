@@ -30,7 +30,7 @@ const CommercialLitigation = () => {
             Commercial Litigation
           </h2>
           
-          <p className="text-black text-[1rem] leading-relaxed mb-10 max-w-xl">
+          <p className="text-gray-800 text-[1rem] leading-relaxed mb-10 max-w-xl">
  Stoltmann Law Offices Commercial Litigation Group is a Chicago-based law firm representing individuals and corporations in all different types of business and commercial litigation. Our investment fraud attorneys have litigated approximately one thousand fraud cases and related court cases.
            </p>
 
@@ -43,7 +43,7 @@ const CommercialLitigation = () => {
                 </div>
                 <a 
                   href={pt.href} 
-                  className="text-gray-600 text-sm lg:text-base hover:text-black transition duration-300"
+                  className="text-gray-900 text-sm lg:text-base hover:text-black font-semi-bold transition duration-300"
                 >
                   {pt.text}
                 </a>
@@ -60,7 +60,7 @@ const CommercialLitigation = () => {
 
             {/* Outlined Button specific to this section */}
             <Link to="/ContactUs" className="w-[250px] block no-underline">
-            <button className="bg-brand-yellow text-gray-600 font-bold cursor-pointer py-3.5 px-8 rounded hover:bg-gray-600 hover:text-white transition duration-300 text-sm tracking-wide">
+            <button className="bg-brand-yellow text-white font-bold cursor-pointer py-3.5 px-8 rounded hover:bg-white hover:text-brand-yellow border-[1px] transition duration-300 text-sm tracking-wide">
               CONTACT US
             </button>
             </Link>

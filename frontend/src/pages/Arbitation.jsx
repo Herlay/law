@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion'; 
-import bannerImg from '../assets/Arbitration1.jpg';
+import bannerImg from '../assets/arb.jpg';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import pic1 from '../assets/aaa.jpg';
@@ -8,7 +8,7 @@ import pic2 from '../assets/finra.jpg';
 import pic3 from '../assets/JAMS.jpg';
 import whatPic from '../assets/What.jpg';
 import lawPic from '../assets/dispute.jpg';
-import whoPic from '../assets/Who.jpg';
+import whoPic from '../assets/whoare.jpg';
 import tieImage from '../assets/tieImage.jpg';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -67,7 +67,7 @@ const Arbitration = () => {
           <img 
             src={bannerImg} 
             alt="Stoltmann Law Attorneys" 
-            className="w-full h-full object-cover object-[center_top] grayscale opacity-90"
+            className="w-full h-full object-cover object-[center_top] grayscale opacity-50"
           />
         </div>
 
@@ -131,9 +131,9 @@ const Arbitration = () => {
                 viewport={{ once: true }}
               >
                 In addition to initiating an arbitration, investors may file their complaints with the appropriate regulatory authorities, such as the{" "}
-                <a href="#" className="text-amber-500 font-medium hover:text-amber-600 transition-colors duration-300">
+                <span className="text-red-500 font-medium transition-colors duration-300">
                   Securities and Exchange Commission
-                </a>
+                </span>
                 , state securities commissions, or one of the self-regulatory organizations listed in the Services Directory, when they believe there has been fraud or that other investors may be at risk. The regulatory agencies may then investigate the complaint and, if warranted, censure, fine, or suspend a wrongdoer.
               </motion.p>
 
@@ -184,12 +184,12 @@ const Arbitration = () => {
                 </div>
 
                 {/* Content */}
-                <div className="bg-[#f6bc2f] p-10 flex flex-col flex-1">
+                <div className="bg-brand-yellow p-10 flex flex-col flex-1">
                   <h3 className="text-[20px] font-bold text-black mb-6 leading-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-black/85 leading-relaxed text-[16px] flex-1">
+                  <p className="text-white leading-relaxed text-[16px] flex-1">
                     {item.description}
                   </p>
                 </div>
@@ -246,7 +246,7 @@ const Arbitration = () => {
  Arbitration is a method of having a dispute between two or more parties resolved by impartial persons who are knowledgeable in the areas in controversy. Those persons are called arbitrators. Arbitration of broker/dealer disputes has long been used as an alternative to the courts because it is a prompt and inexpensive means of resolving complicated issues. There are certain laws governing the conduct of an arbitration proceeding that must be considered by those planning to use arbitration to resolve the dispute. Most importantly, perhaps, is the fact that an arbitration award is final and binding, subject to review by a court only on a very limited basis. Parties should recognize, too, that in choosing arbitration as a means of resolving a dispute, they generally give up their right to pursue the matter through the courts.
           </p>
             <Link to="/ContactUs" className="w-[250px] block no-underline">
-          <button className="bg-brand-yellow text-gray-600 font-bold py-3.5 px-8 rounded cursor-pointer hover:bg-gray-400 hover:text-white transition duration-300 text-sm tracking-wide">
+          <button className="bg-brand-yellow text-white font-bold py-3.5 px-8 rounded cursor-pointer hover:bg-white hover:text-brand-yellow border-[1px] transition duration-300 text-sm tracking-wide">
            CONTACT US TODAY
           </button>
             </Link>
@@ -410,7 +410,7 @@ The Director of Arbitration will inform the parties of the names and business af
 
             {/* Button */}
             <Link to="/ContactUs" className="w-[250px] block no-underline">
-            <button className="w-full sm:w-auto self-start bg-brand-yellow text-gray-900 px-10 py-4 rounded-sm font-extrabold text-[14px] tracking-widest uppercase hover:bg-gray-800 hover:text-white cursor-pointer transition-colors duration-300 shadow-lg">
+            <button className="w-full sm:w-auto self-start bg-brand-yellow text-white px-10 py-4 rounded-sm font-extrabold text-[12px] tracking-widest uppercase hover:bg-gray-800 hover:text-white cursor-pointer transition-colors duration-300 shadow-lg">
               CONTACT US TODAY
             </button>
             </Link>

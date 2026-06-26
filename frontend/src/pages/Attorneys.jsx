@@ -1,44 +1,84 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar'; 
-import bannerImg from '../assets/allLawyers.jpg'; 
-import andrewImg from '../assets/Andrew.jpg';
+import { Link } from 'react-router-dom';
+import bannerImg from '../assets/tieImage.jpg'; 
 import joeImg from '../assets/Joe.jpg';
-import saraImg from '../assets/Sara.jpg';
-import mikeImg from '../assets/mike.jpg'; 
+import saraImg from '../assets/Sara.jpg'; 
 import monneyImg from '../assets/money.jpg';
 import buildingImg from '../assets/building.jpg';
 import metricsImg from '../assets/metrics.jpg';
 import tieImage from '../assets/tieImage.jpg';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import meganPic from '../assets/Megan.jpg';
+import jamesPic from '../assets/James.jpg';
+import davidPic from '../assets/David.jpg';
+
 
 const Attorneys = () => {
   // --- DATA ---
-  const attorneysList = [
+ const attorneysList = [
+  {
+    name: "Joe Wojciechowski, Esq",
+    image: joeImg, 
+    contact: {
+      phone: "312-332-4200",
+      fax: "312-332-4201",
+      email: "Joe@stoltlaw.com",
+      address: "161 N Clark St 16th Floor Chicago, Illinois 60601",
+    },
+    overview: [
+      "Joe Wojciechowski has been a licensed attorney since November 2009 and been with Stoltmann Law Offices since March 2005. Prior to Stoltmann Law Offices, I had a short stint as a paralegal with a Chicago securities defense firm. I am currently managing partner at Stoltmann Law Offices and am responsible for the day to day operations of the firm, docket and case management. Personally, I handle all aspects of case management from potential client/case intake to trying the case. I have successfully briefed, argued, and defeated numerous motions to dismiss before dozens of FINRA arbitration panels and courts of law.",
+      "I have successfully briefed motions to vacate arbitration awards before the Central District of California, Northern District of Illinois, and participated in appeals before the Ninth Circuit Court of Appeals. I have appeared before FINRA arbitration panels in hundreds of cases and successfully mediated over one hundred investor cases. I also have experience appearing in the Circuit Court of Cook County, Circuit Court of DuPage County, Northern District of Illinois, American Arbitration Association (“AAA”) both under the Commercial Rules and Consumer Rules, and the Judicial Arbitration/Mediation Services (JAMS). My legal practice experience is almost exclusively in representation of investor interests, whatever the venue. I also do a small amount of commercial disputes and civl litigation work.",
+      "I have been a member of PIABA since 2009, and I was elected to a three-year term to serve on the PIABA Board of Directors and I am the organization’s treasurer. I have participated as a member of the SRO committee, annual meeting committee, and other subcommittees on discovery abuses and E-discovery. I used to serve as the Editor-in-Chief of the PIABA Bar Journal. Previously, I served as the Managing Editor of the PIABA Bar Journal, I have served as an editor since 2014, have authored the “Cases and Materials” article which appears in every journal, and have previously authored the “Investors, Cornered” piece which appears in the journal regularly."
+    ],
+    practiceAreas: [
+      "Arbitration Process",
+      "Investment and Securities Fraud",
+      "Consumer Law",
+      "Securities Law"
+    ],
+    education: [
+      "J.D., The John Marshall Law School, 2009",
+      "B.A., Western Michigan University, 2004"
+    ],
+    jurisdictions: [
+      "Illinois",
+      "Northern District of Illinois",
+      "United States Tax Court",
+      "Central District of Illinois",
+      "U.S. Court of Appeals for the Ninth Circuit"
+    ],
+    memberships: [
+      "Member of the PIABA Board of Directors and Chairperson of the Federal Legislation Committee",
+      "Chicago Bar Association",
+      "Association of Certified Fraud Examiners"
+    ]
+  },
+];
+ const staffList = [
     {
-      name: "Andrew Stoltmann, Esq.",
-      image: andrewImg,
-      vcard: "#",
-      phone: "",
-      fax: ""
+      name: "Michelle W",
+      role: "Partner",
+      image: saraImg, 
+    },
+     {
+      name: "James Barnett",
+      role: "Partner",
+      image: jamesPic, 
     },
     {
-      name: "Joe Wojciechowski, Esq.",
-      image: joeImg,
-      vcard: "#",
-      phone: "",
-      fax: ""
+      name: "Megan Barry",
+      role: "Partner",
+      image: meganPic, 
     },
     {
-      name: "Sara Hanley, Esq",
-      image: saraImg,
-      vcard: "#",
-      phone: "",
-      fax: ""
-    }
+      name: "David Andrew",
+      role: "Partner",
+      image: davidPic, 
+    },
   ];
-
   // --- ANIMATION VARIANTS ---
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,7 +115,7 @@ const Attorneys = () => {
           <img 
             src={bannerImg} 
             alt="Stoltmann Law Attorneys" 
-            className="w-full h-full object-cover object-[center_top] grayscale opacity-90"
+            className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
           />
         </div>
 
@@ -86,80 +126,225 @@ const Attorneys = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
+            className="text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
           >
             Attorneys
           </motion.h1>
         </div>
       </header>
 
-      {/* --- ATTORNEYS GRID SECTION --- */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
-        >
-          {attorneysList.map((attorney, index) => (
-            <motion.div 
+{/* --- ATTORNEYS DIRECTORY SECTION --- */}
+<section className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
+  <motion.div
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
+    className="flex flex-col gap-16 xl:gap-24"
+  >
+    {attorneysList.map((attorney, index) => (
+      <motion.div
+        key={index}
+        variants={cardVariants}
+        // Removed the heavy hover animations to match the clean, professional look of the reference
+        className="w-full bg-white border border-gray-200 shadow-sm overflow-hidden flex flex-col"
+      >
+        
+        {/* =========================================
+            TOP PROFILE HEADER (Matches Reference Image)
+        ========================================= */}
+        <div className="w-full bg-[#f7f8f9] flex flex-col md:flex-row items-end justify-between pt-12 md:pt-16 px-8 md:px-16 lg:px-20 overflow-hidden">
+          
+          {/* Left Text Column */}
+          <div className="w-full md:w-[60%] pb-12 md:pb-16 flex flex-col justify-end">
+            
+            <h3 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-medium text-brand-yellow tracking-tight leading-none mb-3">
+              {attorney.name}
+            </h3>
+            
+            {/* If you have a title in your data, it goes here. Otherwise, it defaults to Attorney */}
+            <p className="text-[#333333] text-base md:text-lg font-bold tracking-wide">
+              {attorney.title || "Attorney"}
+            </p>
+
+            {/* Contact Row (Email | Phone) */}
+            <div className="flex flex-wrap items-center gap-4 mt-8 md:mt-12 text-[15px] md:text-[17px]">
+              <a 
+                href={`mailto:${attorney.contact.email}`} 
+                className="text-[#1a365d] underline underline-offset-4 hover:text-brand-yellow transition-colors"
+              >
+                {attorney.contact.email}
+              </a>
+              <span className="text-gray-300 font-light">|</span>
+              <span className="text-[#333333]">
+                {/* Optional Location Prefix */}
+                {attorney.contact.location ? `${attorney.contact.location}: ` : ""} 
+                {attorney.contact.phone}
+              </span>
+            </div>
+
+          </div>
+
+          {/* Right Image Column */}
+          {/* Pushed to the bottom right, flush with the container */}
+          <div className="w-full md:w-[40%] flex justify-center md:justify-end items-end relative h-full">
+            <img
+              src={attorney.image}
+              alt={attorney.name}
+              className="w-[80%] md:w-full max-w-[400px] h-auto object-contain object-bottom"
+            />
+          </div>
+
+        </div>
+
+        {/* =========================================
+            BOTTOM DETAILS SECTION (Bio & Lists)
+        ========================================= */}
+        <div className="w-full bg-white px-8 md:px-16 lg:px-20 py-12 md:py-16 text-gray-800 font-sans">
+          
+          {/* Bio / Overview */}
+          <div className="space-y-5 mb-12 text-[15px] md:text-[16px] text-justify leading-relaxed max-w-5xl">
+            {attorney.overview.map((paragraph, pIndex) => (
+              <p key={pIndex}>{paragraph}</p>
+            ))}
+          </div>
+
+          {/* Lists mapped cleanly */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 max-w-5xl">
+            
+            {/* Practice Areas */}
+            {attorney.practiceAreas?.length > 0 && (
+              <div>
+                <h4 className="text-[17px] text-brand-yellow font-bold text-[#1a365d] mb-4 border-b border-gray-200 pb-2">
+                  Practice Areas
+                </h4>
+                <ul className="list-disc list-outside ml-4 space-y-2 text-[15px] text-gray-700">
+                  {attorney.practiceAreas.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Education */}
+            {attorney.education?.length > 0 && (
+              <div>
+                <h4 className="text-[17px] font-bold text-brand-yellow mb-4 border-b border-gray-200 pb-2">
+                  Education
+                </h4>
+                <ul className="list-disc list-outside ml-4 space-y-2 text-[15px] text-gray-700">
+                  {attorney.education.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Jurisdictions */}
+            {attorney.jurisdictions?.length > 0 && (
+              <div>
+                <h4 className="text-[17px] font-bold text-brand-yellow mb-4 border-b border-gray-200 pb-2">
+                  Jurisdictions Admitted to Practice
+                </h4>
+                <ul className="list-disc list-outside ml-4 space-y-2 text-[15px] text-gray-700">
+                  {attorney.jurisdictions.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Professional Memberships */}
+            {attorney.memberships?.length > 0 && (
+              <div>
+                <h4 className="text-[17px] font-bold text-brand-yellow mb-4 border-b border-gray-200 pb-2">
+                  Professional Memberships
+                </h4>
+                <ul className="list-disc list-outside ml-4 space-y-2 text-[15px] text-gray-700">
+                  {attorney.memberships.map((item, i) => (
+                    <li key={i} className="pl-1">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+          </div>
+
+        </div>
+
+      </motion.div>
+    ))}
+  </motion.div>
+</section>
+
+{/* ---2nd ATTORNEYS DIRECTORY SECTION --- */}
+      <section className="w-full bg-[#f8f9fa] py-16 lg:py-24">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-10 flex flex-col items-center">
+        
+        {/* Section Header */}
+        <div className="mb-16 flex flex-col items-center text-center">
+          {/* Yellow Top Border Line */}
+          <div className="w-24 h-1 bg-brand-yellow mb-5" />
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-black uppercase tracking-wide">
+            Staff
+          </h2>
+        </div>
+
+        {/* Staff Grid Container */}
+        <div className="flex flex-wrap justify-center gap-12 md:gap-16 lg:gap-20">
+          {staffList.map((staff, index) => (
+            <motion.div
               key={index}
-              variants={cardVariants}
-              className="group flex flex-col h-full bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 rounded-br-[3rem] overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              // Group class allows the image overlay to trigger when hovering anywhere on the card
+              className="group flex flex-col items-center text-center w-48 md:w-56"
             >
-              <div className="w-full h-[300px] lg:h-[350px] overflow-hidden bg-gray-200 shrink-0">
-                <img 
-                  src={attorney.image} 
-                  alt={attorney.name}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              
+              {/* Circular Image Container */}
+              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.12)] overflow-hidden mb-6">
+                <img
+                  src={staff.image}
+                  alt={staff.name}
+                  className="w-full h-full object-cover grayscale-[60%] group-hover:grayscale-0 transition-all duration-300"
                 />
+                
+                {/* Reddish Hover Overlay Effect */}
+                <div className="absolute inset-0 bg-red-300/30 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full pointer-events-none" />
               </div>
 
-              <div className="bg-brand-yellow p-8 flex-1 flex flex-col justify-center relative">
-                <h3 className="text-xl md:text-[22px] font-extrabold text-gray-900 tracking-tight m-0">
-                  {attorney.name}
-                </h3>
-              </div>
+              {/* Staff Name */}
+              <h3 className="text-xl md:text-2xl font-medium text-gray-900 uppercase tracking-wider">
+                {staff.name}
+              </h3>
+
+              {/* Staff Role */}
+              <p className="mt-1.5 text-brand-yellow font-bold italic text-base md:text-lg">
+                {staff.role}
+              </p>
+              
             </motion.div>
           ))}
-        </motion.div>
-      </section>
-
+        </div>
+        
+      </div>
+    </section>
+    
+      
       {/* --- HIGHLIGHT & PROMO SECTION --- */}
       <section className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12 items-stretch">
           
-          {/* Mike Mungovan Card */}
-          <motion.div 
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="group flex flex-col h-full bg-white shadow-md hover:shadow-2xl transition-shadow duration-300 rounded-br-[3rem] overflow-hidden"
-          >
-            <div className="w-full h-[300px] lg:h-[350px] overflow-hidden bg-gray-200 shrink-0">
-              <img 
-                src={mikeImg} 
-                alt="Mike Mungovan"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-
-            <div className="bg-brand-yellow p-8 flex-1 flex flex-col justify-center relative">
-              <h3 className="text-xl md:text-[22px] font-extrabold text-gray-900 tracking-tight m-0">
-                Mike Mungovan
-              </h3>
-            </div>
-          </motion.div>
-
-          {/* Wide Promotional Banner */}
+                  {/* Wide Promotional Banner */}
           <motion.div 
             variants={bannerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-2 relative flex flex-col justify-center rounded-br-[4rem] overflow-hidden shadow-xl min-h-[400px]"
+            className="lg:col-span-7 relative flex flex-col justify-center rounded-br-[4rem] overflow-hidden shadow-xl min-h-[400px]"
           >
             <div className="absolute inset-0 z-0 bg-[#121212]">
               <img 
@@ -175,12 +360,13 @@ const Attorneys = () => {
               </h2>
               
               <p className="text-white text-base md:text-[18px] leading-relaxed mb-8">
-                If you have suffered <span className="text-brand-yellow font-medium">financial losses</span> because of the negligence or fraud of your financial advisor or broker through unsuitable investment recommendations, over-concentration, churning, misrepresenting risks, conversion or selling away, you have legal rights and options to pursue recovery of those losses.
+                If you have suffered <span className="text-red-500 font-bold">financial losses</span> because of the negligence or fraud of your financial advisor or broker through unsuitable investment recommendations, over-concentration, churning, misrepresenting risks, conversion or selling away, you have legal rights and options to pursue recovery of those losses.
               </p>
 
-              <button className="self-start bg-brand-yellow cursor-pointer text-black px-8 py-3.5 rounded-sm font-extrabold text-[13px] tracking-widest uppercase hover:bg-yellow-400 transition-colors duration-300 shadow-lg">
+               <Link to="/ContactUs"><button className="self-start bg-brand-yellow cursor-pointer text-white px-8 py-3.5 rounded-sm font-extrabold text-[13px] tracking-widest uppercase hover:bg-white hover:text-brand-yellow border-[1px] transition-colors duration-300 shadow-lg">
                 CONTACT US TODAY
               </button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -201,20 +387,21 @@ const Attorneys = () => {
             variants={cardVariants}
             className="group relative flex flex-col p-10 sm:p-12 xl:p-16 bg-brand-yellow overflow-hidden h-full min-h-[400px]"
           >
-            <div className="absolute inset-0 z-0 opacity-25 mix-blend-multiply">
+            <div className="absolute inset-0 z-0 opacity-75 mix-blend-multiply">
               <img src={metricsImg} alt="Charts" className="w-full h-full object-cover object-bottom" />
             </div>
             
             <div className="relative z-10 flex flex-col h-full items-start">
-              <h3 className="text-2xl sm:text-[28px] md:text-3xl font-extrabold text-gray-900 mb-5 tracking-tight">
+              <h3 className="text-2xl sm:text-[28px] md:text-3xl font-extrabold text-white mb-5 tracking-tight">
                 Firms Litigated Against
               </h3>
-              <p className="text-gray-900 text-[16px] leading-relaxed mb-10 max-w-[90%] font-medium">
+              <p className="text-white text-[16px] leading-relaxed mb-10 max-w-[90%] font-medium">
                 Check out a list of all the firms we have litigated against.
               </p>
-              <button className="mt-auto bg-[#CC0000] text-white px-8 py-3.5 rounded font-extrabold text-[13px] tracking-widest uppercase hover:bg-black cursor-pointer transition-colors duration-300 shadow-lg w-60 sm:w-auto">
+              <Link to="/ContactUs"><button className="mt-auto bg-[#CC0000] text-white px-8 py-3.5 rounded font-extrabold text-[13px] tracking-widest uppercase hover:bg-black cursor-pointer transition-colors duration-300 shadow-lg w-60 sm:w-auto">
                 LEARN MORE
               </button>
+              </Link>
             </div>
           </motion.div>
 
@@ -235,9 +422,10 @@ const Attorneys = () => {
               <p className="text-gray-700 text-[16px] leading-relaxed mb-10 max-w-[95%]">
                 "How will I pay my lawyer" is a common question clients ask. Law firms can work on many different fee arrangements with clients.
               </p>
-              <button className="mt-auto bg-[#CC0000] text-white px-8 py-3.5 rounded font-extrabold text-[13px] tracking-widest uppercase hover:bg-black cursor-pointer transition-colors duration-300 shadow-lg w-60 sm:w-auto">
+              <Link to="/ContactUs"><button className="mt-auto bg-[#CC0000] text-white px-8 py-3.5 rounded font-extrabold text-[13px] tracking-widest uppercase hover:bg-black cursor-pointer transition-colors duration-300 shadow-lg w-60 sm:w-auto">
                 LEARN MORE
               </button>
+              </Link>
             </div>
           </motion.div>
 
@@ -258,9 +446,10 @@ const Attorneys = () => {
               <p className="text-gray-300 text-[16px] leading-relaxed mb-10 max-w-[95%]">
                 Check out arbitration awards. These represent only a small fraction of the Awards received by our law firm.
               </p>
-              <button className="mt-auto bg-[#CC0000] text-white px-8 py-3.5 rounded font-extrabold text-[13px] tracking-widest uppercase hover:bg-brand-yellow hover:text-black cursor-pointer transition-colors duration-300 shadow-lg w-60 sm:w-auto">
+               <Link to="/ContactUs"><button className="mt-auto bg-[#CC0000] text-white px-8 py-3.5 rounded font-extrabold text-[13px] tracking-widest uppercase hover:bg-brand-yellow hover:text-black cursor-pointer transition-colors duration-300 shadow-lg w-60 sm:w-auto">
                 LEARN MORE
               </button>
+              </Link>
             </div>
           </motion.div>
 
@@ -298,9 +487,10 @@ const Attorneys = () => {
             </p>
 
             {/* Button */}
-            <button className="w-full sm:w-auto self-start bg-brand-yellow text-gray-900 px-10 py-4 rounded-sm font-extrabold text-[14px] tracking-widest uppercase hover:bg-gray-800 hover:text-white cursor-pointer transition-colors duration-300 shadow-lg">
+            <Link to="/ContactUs"><button className="w-full sm:w-auto self-start bg-brand-yellow text-white px-10 py-4 rounded-sm font-extrabold text-[14px] tracking-widest uppercase hover:bg-white hover:text-brand-yellow border-[1px] cursor-pointer transition-colors duration-300 shadow-lg">
               CONTACT US TODAY
             </button>
+            </Link>
           </div>
         </motion.div>
       </section>

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import bannerImg from '../assets/paid.jpg';
 import Navbar from '../components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
-import attImg from '../assets/att.png';
+import { Link } from 'react-router-dom';
+import attImg from '../assets/att1.png';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
@@ -131,7 +132,7 @@ const CaseResults = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-[5.5rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
+            className="text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
           >
             Case Results
           </motion.h1>
@@ -151,13 +152,13 @@ const CaseResults = () => {
           >
             <div>
               {/* Intro Text */}
-              <p className="text-gray-800 text-lg md:text-[15px] leading-relaxed mb-6">
+              <p className="text-gray-800 text-[15px] md:text-[15px] leading-relaxed mb-6">
                 <span className="text-red-600 font-bold">Stoltmann Law Offices</span> has a depth of experience representing investors who have suffered losses as a result of stockbroker misconduct, securities frauds and <span className="text-red-600 font-bold">ponzi schemes</span>. here are some of our case results.
               </p>
 
               {/* Red Alert Banner */}
               <div className="bg-red-600 text-white text-center p-3 rounded-sm shadow-md mb-8">
-                <p className="font-bold text-sm md:text-[13px] tracking-wide">
+                <p className="font-bold text-[12px] md:text-[13px] tracking-wide">
                   Arbitrator awarded $329,665.12 + $150,000 in additional damages, $95,602 in attorney's fees, & $41,947 in costs against Coinbase
                 </p>
               </div>
@@ -167,12 +168,12 @@ const CaseResults = () => {
             <div className="border border-gray-200 bg-gray-100 rounded-sm overflow-hidden shadow-sm">
               <button 
                 onClick={() => setIsPonziOpen(!isPonziOpen)}
-                className="w-full bg-[#fdbd26] p-4 flex items-center cursor-pointer justify-start gap-4 hover:bg-[#eab022] transition-colors"
+                className="w-full bg-brand-yellow p-4 flex items-center cursor-pointer justify-start gap-4 transition-colors"
               >
                 <div className="bg-black text-white w-6 h-6 flex items-center justify-center font-bold text-xl leading-none pb-1">
                   {isPonziOpen ? '-' : '+'}
                 </div>
-                <h3 className="text-black font-bold text-[15px] md:text-xl">Sample of Ponzi Scams</h3>
+                <h3 className="text-white font-bold text-[15px] md:text-xl">Sample of Ponzi Scams</h3>
               </button>
 
               <AnimatePresence>
@@ -200,12 +201,12 @@ const CaseResults = () => {
             <div className="border border-gray-200 bg-gray-100 rounded-sm overflow-hidden shadow-sm">
               <button 
                 onClick={() => setIsArbitrationOpen(!isArbitrationOpen)}
-                className="w-full bg-[#fdbd26] p-4 flex items-center cursor-pointer justify-start gap-4 hover:bg-[#eab022] transition-colors"
+                className="w-full bg-brand-yellow p-4 flex items-center cursor-pointer justify-start gap-4 transition-colors"
               >
                 <div className="bg-black text-white w-6 h-6 flex items-center justify-center font-bold text-xl leading-none pb-1 shrink-0">
                   {isArbitrationOpen ? '-' : '+'}
                 </div>
-                <h3 className="text-black font-bold text-[15px] md:text-xl text-left">
+                <h3 className="text-white font-bold text-[15px] md:text-xl text-left">
                   Sample Arbitration Cases
                 </h3>
               </button>
@@ -232,37 +233,41 @@ const CaseResults = () => {
 
           </motion.div>
 
-      {/* --- RIGHT COLUMN: SIDEBAR --- */}
+    {/* --- RIGHT COLUMN: SIDEBAR --- */}
     <motion.div 
       initial={{ opacity: 0, x: 30 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
       viewport={{ once: true }}
-      // ADD 'self-start' TO THIS LINE
       className="w-full lg:w-1/3 flex flex-col self-start" 
     >
-      <div className="bg-[#fbc537] rounded-2xl flex flex-col h-full overflow-hidden shadow-lg relative pt-10 px-8 pb-0">
+      {/* Note: relative and pb-0 allow the image to sit flush at the bottom */}
+      <div className="bg-brand-yellow rounded-2xl flex flex-col h-full overflow-hidden shadow-lg relative pt-10 px-8 pb-0">
         
-        <h2 className="text-2xl md:text-2xl font-black text-black leading-tight mb-6">
+        <h2 className="text-1xl md:text-2xl font-black text-white leading-tight mb-6">
           Chicago Investment Fraud Attorneys Offering Nationwide Representation to Investors
         </h2>
         
-        <p className="text-black text-base md:text-[17px] leading-relaxed mb-8">
+        <p className="text-white text-[15px] md:text-[15px] leading-relaxed mb-8">
           If you have suffered financial losses because of the negligence or fraud of your financial advisor or broker through unsuitable investment recommendations, over-concentration, churning, misrepresenting risks, conversion or selling away, you have legal rights and options to pursue recovery of those losses.
         </p>
         
         <motion.button 
-          className="bg-[#d40505] text-white font-bold py-3 px-8 rounded-sm self-start shadow-md hover:bg-white hover:text-black cursor-pointer"
+          className="bg-[#d40505] text-white font-bold py-3 px-8 rounded-sm self-start shadow-md hover:bg-white hover:text-black transition-colors duration-300 cursor-pointer z-10"
         >
-          CONTACT US TODAY
+        <Link to="/ContactUs">
+            CONTACT US TODAY
+            </Link>
         </motion.button>
 
         {/* Attorneys Image Overlay */}
-        <div className="mt-8 flex justify-center items-end flex-1">
+        {/* CHANGED: 'justify-left' to 'justify-end' and added 'w-full' to push it right */}
+        <div className="mt-8 flex justify-end items-end flex-1 w-full">
+          {/* If you want the image completely flush against the right edge (ignoring the parent's px-8 padding), add mr-[-32px] to the img classes */}
           <img 
             src={attImg} 
             alt="Chicago Investment Fraud Attorneys" 
-            className="w-[95%] object-cover object-top"
+            className="w-[50%] sm:w-[60%] lg:w-[70%] mr-[-32px] object-contain object-bottom"
           />
         </div>
 

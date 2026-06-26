@@ -55,7 +55,7 @@ const ArbitrationSection = () => {
             Arbitration Process
           </h2>
           
-          <p className="text-gray-500 text-[1.1rem] leading-relaxed mb-10 max-w-xl">
+          <p className="text-gray-800 text-[1.1rem] leading-relaxed mb-10 max-w-xl">
             Although most business in the securities industry is completed without a problem, disputes and controversies will occasionally arise from time to time.
           </p>
 
@@ -71,7 +71,7 @@ const ArbitrationSection = () => {
                 {/* 3. Changed span to an <a> tag and added hover colors */}
                 <a 
                   href={pt.href} 
-                  className="text-gray-500 font-medium hover:text-brand-yellow transition duration-300"
+                  className="text-gray-800 font-medium hover:text-brand-yellow transition duration-300"
                 >
                   {pt.text}
                 </a>
@@ -79,7 +79,7 @@ const ArbitrationSection = () => {
             ))}
           </div>
              <Link to="/Arbitration" className="w-[250px] block no-underline">
-              <button className="bg-brand-yellow text-gray-600 font-bold py-3.5 px-8 rounded cursor-pointer hover:bg-gray-400 hover:text-white transition duration-300 text-sm tracking-wide">
+              <button className="bg-brand-yellow text-white font-bold py-3.5 px-8 rounded cursor-pointer hover:bg-white hover:text-brand-yellow border-[1px] transition duration-300 text-sm tracking-wide">
                 LEARN MORE
               </button>
             </Link>

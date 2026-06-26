@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import MediaAndVideos from '../components/MediaAndVideos';
+// import MediaAndVideos from '../components/MediaAndVideos';
 import InfoSections from '../components/InfoSections';
 import InvestmentFraud from '../components/InvestmentFraud';
 import CommercialLitigation from '../components/CommercialLitigation';
@@ -14,7 +14,7 @@ function HomePage() {
     <div className="w-full min-h-screen font-sans text-gray-800">
       <Navbar />
       <Hero />
-      <MediaAndVideos />
+      {/* <MediaAndVideos /> */}
       <InfoSections />
       <InvestmentFraud />
       <CommercialLitigation />
