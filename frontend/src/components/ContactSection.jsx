@@ -48,11 +48,11 @@ const ContactSection = () => {
 </h2>
           
         <p className="text-white mb-4 text-[1.08rem] font-light leading-snug text-justify">
-  Since its inception in March 2005,<span className="text-red-500 font-bold"> Stoltmann Law Offices, P.C.</span> has dedicated its practice to representing investors in lawsuits and arbitration claims against brokers, financial advisors, investment advisors, and the companies they work for. Our Chicago investment fraud attorneys offer their clients a combined 35 years of experience fighting for investor rights from offices in Chicago, Illinois and suburban Barrington, Illinois and Downers Grove, Illinois.
+  Since its inception in March 2005,<span className="text-red-500 font-bold"> Guardian Property Law Group, P.C.</span> has dedicated its practice to representing investors in lawsuits and arbitration claims against brokers, financial advisors, investment advisors, and the companies they work for. Our Chicago investment fraud attorneys offer their clients a combined 35 years of experience fighting for investor rights from offices in Chicago, Illinois and suburban Barrington, Illinois and Downers Grove, Illinois.
 </p>
 
 <p className="text-white mb-10 text-[1.08rem] font-light leading-snug text-justify">
-  The attorneys at Stoltmann Law Offices have dedicated their life’s work to representing investors who have been cheated or defrauded by those professionals they trusted with their hard-earned money and retirement savings, recovering in excess of $200 million for investors over the years.
+  The attorneys at Guardian Property Law Group Offices have dedicated their life’s work to representing investors who have been cheated or defrauded by those professionals they trusted with their hard-earned money and retirement savings, recovering in excess of $200 million for investors over the years.
 </p>
           
           <div className="text-red-700 text-5xl hover:text-brand-yellow cursor-pointer font-bold mb-2">Ph 312-332-4200</div>
@@ -69,7 +69,7 @@ const ContactSection = () => {
         >
           {/* 2. TIGHTENED HEADERS: Reduced bottom margins */}
           <h3 className="text-3xl font-black text-black mb-1 tracking-tight">Tell us your story</h3>
-          <p className="text-red-600 font-bold text-[1.1rem] mb-5 pr-4 leading-snug">The #1 Most Trusted Investment Fraud Attorneys in Chicago</p>
+          <p className="text-red-600 font-bold text-[1.1rem] mb-5 pr-4 leading-snug">The #1 Most Trusted Investment Fraud Attorneys</p>
           
           {/* 3. REDUCED SPACING: Changed space-y-4 to space-y-3 to pull inputs closer together */}
           <form className="space-y-3">

@@ -66,7 +66,7 @@ const Arbitration = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={bannerImg} 
-            alt="Stoltmann Law Attorneys" 
+            alt="Guardian Property Law Group" 
             className="w-full h-full object-cover object-[center_top] grayscale opacity-50"
           />
         </div>
@@ -238,11 +238,11 @@ const Arbitration = () => {
           viewport={{ once: true }}
           className="w-full lg:w-1/2 px-6 sm:px-12 lg:px-16 mt-16 lg:mt-0"
         >
-          <h2 className="text-4xl sm:text-[2.5rem] font-black text-gray-900 mb-6 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-[2.5rem] font-black text-gray-900 mb-6 tracking-tight leading-tight">
           What is Arbitration?
           </h2>
           
-          <p className="text-gray-500 text-[1rem] leading-relaxed mb-10 text-justify max-w-xl">
+          <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-10 text-justify max-w-xl">
  Arbitration is a method of having a dispute between two or more parties resolved by impartial persons who are knowledgeable in the areas in controversy. Those persons are called arbitrators. Arbitration of broker/dealer disputes has long been used as an alternative to the courts because it is a prompt and inexpensive means of resolving complicated issues. There are certain laws governing the conduct of an arbitration proceeding that must be considered by those planning to use arbitration to resolve the dispute. Most importantly, perhaps, is the fact that an arbitration award is final and binding, subject to review by a court only on a very limited basis. Parties should recognize, too, that in choosing arbitration as a means of resolving a dispute, they generally give up their right to pursue the matter through the courts.
           </p>
             <Link to="/ContactUs" className="w-[250px] block no-underline">
@@ -279,7 +279,7 @@ const Arbitration = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-tight"
+            className="text-2xl md:text-4xl font-bold text-white mb-8 tracking-tight"
           >
             What Disputes are Eligible for Arbitration?
           </motion.h2>
@@ -319,11 +319,11 @@ const Arbitration = () => {
           viewport={{ once: true }}
           className="w-full lg:w-1/2 px-6 sm:px-12 lg:pl-24 lg:pr-16 mt-16 lg:mt-0"
         >
-          <h2 className="text-4xl sm:text-[2.5rem] font-black text-gray-900 mb-6 tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-[2.5rem] font-black text-gray-900 mb-6 tracking-tight leading-tight">
       Who are the Arbitrators
           </h2>
           
-          <p className="text-gray-800 text-[1rem] leading-relaxed text-justify mb-10 max-w-xl">
+          <p className="text-gray-800 text-[0.95rem] leading-relaxed text-justify mb-10 max-w-xl">
  Arbitrators are impartial persons who are knowledgeable in the areas in controversy. Each sponsoring organization maintains a roster of individuals whose professional qualifications and experience qualify them for service as arbitrators. The arbitrators are not employees of the sponsoring organization and they, not the sponsoring organization, will decide your dispute. The arbitrators do, however, receive an honorarium from the SROs.          
  </p>
 
@@ -383,7 +383,7 @@ The Director of Arbitration will inform the parties of the names and business af
           <div className="absolute inset-0 z-0">
             <img 
               src={tieImage} 
-              alt="Stoltmann Law Offices"
+              alt="Guardian Property Law Group"
               className="w-full h-full object-cover object-[center_top] grayscale opacity-80"
             />
             {/* White gradients to blend the image softly */}
@@ -396,15 +396,15 @@ The Director of Arbitration will inform the parties of the names and business af
      Can I be Represented by an Attorney?
             </h2>
             
-            <p className="text-gray-800 text-[17px] text-base leading-relaxed mb-8  text-left md:text-justify">
+            <p className="text-gray-800 text-[0.95rem] text-base leading-relaxed mb-8  text-left md:text-justify">
   Parties have an absolute right to be represented by an attorney and may do so at any stage of the arbitration. Parties should be aware that, even if they do not elect to be represented by counsel, the other party may have an attorney, and they can assume that broker/dealers will be represented by an attorney.          
   </p>
       
-            <p className="text-gray-800 text-[17px] text-base leading-relaxed mb-8  text-left md:text-justify">
+            <p className="text-gray-800 text-[0.95rem] text-base leading-relaxed mb-8  text-left md:text-justify">
  Any party represented by counsel should notify the Director of Arbitration of the counsel’s name and address either in the Statement of Claim or the Statement of Answer or by a separate written notice. After such notification, communications concerning the case will be addressed to the counsel.
   </p>
       
-            <p className="text-gray-800 text-[17px] text-base leading-relaxed mb-8  text-left md:text-justify">
+            <p className="text-gray-800 text-[0.95rem] text-base leading-relaxed mb-8  text-left md:text-justify">
  The sponsoring organizations cannot recommend or provide counsel in the arbitration nor can employees of that organization provide legal advice. Parties who do not have counsel and wish to be represented may want to contact the local bar association for a referral.
   </p>
 

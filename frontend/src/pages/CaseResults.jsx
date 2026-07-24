@@ -120,7 +120,7 @@ const CaseResults = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={bannerImg} 
-            alt="Stoltmann Law Attorneys" 
+            alt="Guardian Property Law Group" 
             className="w-full h-full object-cover object-[center_top] grayscale opacity-90"
           />
         </div>
@@ -153,7 +153,7 @@ const CaseResults = () => {
             <div>
               {/* Intro Text */}
               <p className="text-gray-800 text-[15px] md:text-[15px] leading-relaxed mb-6">
-                <span className="text-red-600 font-bold">Stoltmann Law Offices</span> has a depth of experience representing investors who have suffered losses as a result of stockbroker misconduct, securities frauds and <span className="text-red-600 font-bold">ponzi schemes</span>. here are some of our case results.
+                <span className="text-red-600 font-bold">Guardian Property Law Group</span> has a depth of experience representing investors who have suffered losses as a result of stockbroker misconduct, securities frauds and <span className="text-red-600 font-bold">ponzi schemes</span>. here are some of our case results.
               </p>
 
               {/* Red Alert Banner */}

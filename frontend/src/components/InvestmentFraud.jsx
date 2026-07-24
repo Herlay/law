@@ -44,7 +44,7 @@ const InvestmentFraud = () => {
           </h2>
           
          <p className="text-white font-light leading-relaxed text-[0.95rem] md:text-[1rem] mb-8 md:mb-10 max-w-full lg:max-w-xl text-left md:text-justify hyphens-auto">
-  The Stoltmann Law Offices exclusively represents investors from across the country in securities litigation and arbitration actions including claims for fraud, unsuitable investment recommendations, excessive trading, churning, unauthorized trading, breach of fiduciary duty and misrepresentations and omissions.
+  The Guardian Property Law Group exclusively represents investors from across the country in securities litigation and arbitration actions including claims for fraud, unsuitable investment recommendations, excessive trading, churning, unauthorized trading, breach of fiduciary duty and misrepresentations and omissions.
 </p>
 
     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-6">

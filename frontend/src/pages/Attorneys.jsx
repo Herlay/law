@@ -28,11 +28,14 @@ const Attorneys = () => {
       email: "Joe@stoltlaw.com",
       address: "161 N Clark St 16th Floor Chicago, Illinois 60601",
     },
-    overview: [
-      "Joe Wojciechowski has been a licensed attorney since November 2009 and been with Stoltmann Law Offices since March 2005. Prior to Stoltmann Law Offices, I had a short stint as a paralegal with a Chicago securities defense firm. I am currently managing partner at Stoltmann Law Offices and am responsible for the day to day operations of the firm, docket and case management. Personally, I handle all aspects of case management from potential client/case intake to trying the case. I have successfully briefed, argued, and defeated numerous motions to dismiss before dozens of FINRA arbitration panels and courts of law.",
-      "I have successfully briefed motions to vacate arbitration awards before the Central District of California, Northern District of Illinois, and participated in appeals before the Ninth Circuit Court of Appeals. I have appeared before FINRA arbitration panels in hundreds of cases and successfully mediated over one hundred investor cases. I also have experience appearing in the Circuit Court of Cook County, Circuit Court of DuPage County, Northern District of Illinois, American Arbitration Association (“AAA”) both under the Commercial Rules and Consumer Rules, and the Judicial Arbitration/Mediation Services (JAMS). My legal practice experience is almost exclusively in representation of investor interests, whatever the venue. I also do a small amount of commercial disputes and civl litigation work.",
-      "I have been a member of PIABA since 2009, and I was elected to a three-year term to serve on the PIABA Board of Directors and I am the organization’s treasurer. I have participated as a member of the SRO committee, annual meeting committee, and other subcommittees on discovery abuses and E-discovery. I used to serve as the Editor-in-Chief of the PIABA Bar Journal. Previously, I served as the Managing Editor of the PIABA Bar Journal, I have served as an editor since 2014, have authored the “Cases and Materials” article which appears in every journal, and have previously authored the “Investors, Cornered” piece which appears in the journal regularly."
-    ],
+  overview: [
+"Joe Wojciechowski is a licensed attorney with more than 15 years of legal experience. He previously served in key legal and leadership roles at Guardian Property Law Group, where he gained extensive experience managing complex litigation, client representation, case strategy, and the day-to-day operations of a high-performing law firm. During his tenure, he successfully represented clients in arbitration proceedings, mediation, and state and federal court matters, building a reputation for meticulous preparation, strategic advocacy, and exceptional client service.",
+
+"Joe now serves as an attorney at Guardian Property Law Group, where he focuses on real estate and property law. His practice includes residential and commercial real estate transactions, title review, contract drafting and negotiation, landlord-tenant matters, property disputes, land use issues, and real estate litigation. He works closely with individuals, investors, developers, and businesses to provide practical legal solutions that protect their property interests and help clients navigate complex legal matters with confidence.",
+
+"Throughout his career, Joe has remained committed to delivering responsive, results-driven legal counsel built on integrity, professionalism, and attention to detail. His background in complex litigation, negotiation, and dispute resolution allows him to effectively advocate for clients while minimizing legal risks. At Guardian Property Law Group, he continues to provide trusted legal guidance, helping clients safeguard their investments and achieve successful outcomes in every stage of their property transactions and legal disputes."
+]
+,
     practiceAreas: [
       "Arbitration Process",
       "Investment and Securities Fraud",
@@ -114,7 +117,7 @@ const Attorneys = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={bannerImg} 
-            alt="Stoltmann Law Attorneys" 
+            alt="Guardian Property Law Group" 
             className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
           />
         </div>
@@ -469,7 +472,7 @@ const Attorneys = () => {
           <div className="absolute inset-0 z-0">
             <img 
               src={tieImage} 
-              alt="Stoltmann Law Offices"
+              alt="Guardian Property Law Group"
               className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
             />
             {/* White gradients to blend the image softly */}
@@ -479,7 +482,7 @@ const Attorneys = () => {
           
           <div className="relative z-10 p-6 sm:p-10 lg:p-16 flex flex-col justify-center h-full max-w-9xl mx-auto">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold  text-black mb-6 sm:mb-8 leading-tight tracking-tight">
-              Stoltmann Law Offices, P.C. prides itself on aggressively prosecuting investment fraud across the country
+              Guardian Property Law Group prides itself on aggressively prosecuting investment fraud across the country
             </h2>
             
             <p className="text-gray-800 text-base leading-relaxed mb-8 font-light text-left md:text-justify">

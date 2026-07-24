@@ -26,7 +26,7 @@ const ContactUs = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={bannerImg} 
-            alt="Stoltmann Law Attorneys" 
+            alt="Guardian Property Law Group" 
             className="w-full h-full object-cover object-[center_top] grayscale opacity-90"
           />
         </div>
@@ -40,7 +40,7 @@ const ContactUs = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-5xl sm:text-6xl md:text-[4rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
           >
-            Contact Stoltmann Law
+            Contact Guardian Property Law Group
           </motion.h1>
         </div>
       </header>
@@ -58,10 +58,10 @@ const ContactUs = () => {
     {/* Left Column: Disclaimer */}
     <motion.div variants={contactVariants} className="lg:col-span-2">
       <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6 tracking-tight">
-        Contact Stoltmann Law Offices, PC
+        Contact Guardian Property Law Group
       </h2>
       <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed text-justify sm:text-left">
-        The information contained in this web site is provided solely for general interest and may not reflect current legal developments and therefore should not be relied upon or construed as legal advice. Further, the sending or receipt of this information does not create an attorney-client relationship between us. For more specific, comprehensive and up-to-date information, or for help with particular factual situations, you should seek the opinion of legal counsel. Reproduction, distribution, republication and/or retransmission of material contained within this web site is prohibited unless you have obtained our prior written permission. Your communication with us through this web site may not be considered as privileged or confidential. Stoltmann Law Offices P.C. is a professional corporation.
+        The information contained in this web site is provided solely for general interest and may not reflect current legal developments and therefore should not be relied upon or construed as legal advice. Further, the sending or receipt of this information does not create an attorney-client relationship between us. For more specific, comprehensive and up-to-date information, or for help with particular factual situations, you should seek the opinion of legal counsel. Reproduction, distribution, republication and/or retransmission of material contained within this web site is prohibited unless you have obtained our prior written permission. Your communication with us through this web site may not be considered as privileged or confidential. Guardian Property Law Group is a professional corporation.
       </p>
     </motion.div>
 

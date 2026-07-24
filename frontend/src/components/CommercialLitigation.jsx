@@ -31,7 +31,7 @@ const CommercialLitigation = () => {
           </h2>
           
           <p className="text-gray-800 text-[1rem] leading-relaxed mb-10 max-w-xl">
- Stoltmann Law Offices Commercial Litigation Group is a Chicago-based law firm representing individuals and corporations in all different types of business and commercial litigation. Our investment fraud attorneys have litigated approximately one thousand fraud cases and related court cases.
+Guardian Property Law Group is a Chicago-based law firm representing individuals and corporations in all different types of business and commercial litigation. Our investment fraud attorneys have litigated approximately one thousand fraud cases and related court cases.
            </p>
 
           {/* 2-Column Grid for Custom List Items */}

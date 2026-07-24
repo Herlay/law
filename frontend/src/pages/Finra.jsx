@@ -88,7 +88,7 @@ const floatAnimation = {
   <div className="absolute inset-0 z-0 overflow-hidden">
     <img 
       src={bannerImg} 
-      alt="Stoltmann Law Attorneys" 
+      alt="Guardian Property Law Group" 
       className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
     />
   </div>
@@ -120,7 +120,7 @@ const floatAnimation = {
           <div className="absolute inset-0 z-0 text-justify">
             <img 
               src={bgImg} 
-              alt="Stoltmann Law Offices"
+              alt="Guardian Property Law Group"
               className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
             />
             {/* White gradients to blend the image softly */}
@@ -136,7 +136,7 @@ const floatAnimation = {
             <p className="text-gray-600 text-[15px] leading-relaxed mb-8 font-medium text-left md:text-justify">
  Navigating the complex world of financial investments requires vigilant oversight and a keen understanding of one’s rights and protections under the law. In Illinois, the Financial Industry Regulatory Authority (FINRA) and a robust legal framework serve as guardians for investors. For those seeking to protect their financial interests, turning to a seasoned Illinois FINRA & Securities attorney is a crucial step.
 
-When investors first come to us for our services, they find that they are struggling with understanding the extent of their financial losses and identifying the underlying causes. Our preliminary approach involves a comprehensive forensic analysis of your investment portfolios to help figure out the nature of the losses and whether they stem from broker misconduct. At Stoltmann Law, we specialize in cases related to churning, broker theft, unsuitable investment recommendations by brokers and broker-dealers, failures in broker-dealer supervision, violations of FINRA regulations, and instances of selling away from authorized investment channels.
+When investors first come to us for our services, they find that they are struggling with understanding the extent of their financial losses and identifying the underlying causes. Our preliminary approach involves a comprehensive forensic analysis of your investment portfolios to help figure out the nature of the losses and whether they stem from broker misconduct. At Guardian Property Law Group, we specialize in cases related to churning, broker theft, unsuitable investment recommendations by brokers and broker-dealers, failures in broker-dealer supervision, violations of FINRA regulations, and instances of selling away from authorized investment channels.
 
 There are times when investment advisers and broker-dealers might prioritize their commissions over the investors’ risk tolerance by pushing unsuitable investment products. We also handle cases where clients have suffered from churning, unauthorized trades, or have been advised to invest in unsuitable securities. Claims of securities fraud and breaches of FINRA regulations are also among some of the common grievances we address.
             </p>
@@ -284,7 +284,7 @@ There are times when investment advisers and broker-dealers might prioritize the
           <br /><br />
           Once the hearing concludes, the arbitrators have thirty days to issue their award. Unless the parties request it, this award will not be “reasoned”. It will be a simple form that states whether the claim is denied, or if not, how much money the arbitrators awarded. These awards are final and absent truly extraordinary circumstances, will not be overturned by a court of law.
           <br /><br />
-          The attorneys at Stoltmann Law Offices have tried FINRA arbitration cases on behalf of investors since 1999 from coast to coast. We have represented more than 2,000 individual investors and secured over fifty million dollars in recovery for our clients. We have unparalleled experience with FINRA arbitration and its unique rules and procedures.
+          The attorneys at Guardian Property Law Group have tried FINRA arbitration cases on behalf of investors since 1999 from coast to coast. We have represented more than 2,000 individual investors and secured over fifty million dollars in recovery for our clients. We have unparalleled experience with FINRA arbitration and its unique rules and procedures.
      </motion.p>
      
            </div>

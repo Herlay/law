@@ -105,7 +105,7 @@ const PracticeAreas = () => {
   <div className="absolute inset-0 z-0 overflow-hidden">
     <img 
       src={bannerImg} 
-      alt="Stoltmann Law Attorneys" 
+      alt="Guardian Property Law Group Attorneys" 
       className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
     />
   </div>
@@ -133,7 +133,7 @@ const PracticeAreas = () => {
         </h2>
         
         <div className="space-y-6 text-gray-800 text-[14px] sm:text-[14px] leading-relaxed">
-          <p>The Chicago-based investment and consumer fraud attorneys at Stoltmann Law Offices are time-tested lawyers who have a combined fifty years of experience arbitrating, mediating, and litigating disputes on behalf of victims of investment, securities, and consumer fraud. Investment loss can be devastating. For many, the funds lost due to fraud or incompetence of investment advisors or brokerage firms, can have tragic repercussions on retirement savings and lifestyle. You work your entire life to build a retirement nest egg you deem sufficient to maintain your lifestyle into retirement – You have finally made it. And then an unscrupulous financial advisor sells you unsuitable investments, commits fraud, or does something that loses your retirement nest egg. If you are the victim of financial negligence or fraud, rest assured, the attorneys at Stoltmann Law Offices, P.C. have the experience, the grit, and the determination to secure the settlement, arbitration award, or jury verdict you are entitled to in order to put you back on your financial feet. We offer representation to our clients nationwide and offer contingency fee engagements which mean we do not get paid until you do. </p>
+          <p>The Chicago-based investment and consumer fraud attorneys at Guardian Property Law Group are time-tested lawyers who have a combined fifty years of experience arbitrating, mediating, and litigating disputes on behalf of victims of investment, securities, and consumer fraud. Investment loss can be devastating. For many, the funds lost due to fraud or incompetence of investment advisors or brokerage firms, can have tragic repercussions on retirement savings and lifestyle. You work your entire life to build a retirement nest egg you deem sufficient to maintain your lifestyle into retirement – You have finally made it. And then an unscrupulous financial advisor sells you unsuitable investments, commits fraud, or does something that loses your retirement nest egg. If you are the victim of financial negligence or fraud, rest assured, the attorneys at Guardian Property Law Group have the experience, the grit, and the determination to secure the settlement, arbitration award, or jury verdict you are entitled to in order to put you back on your financial feet. We offer representation to our clients nationwide and offer contingency fee engagements which mean we do not get paid until you do. </p>
           <p>If you are the victim of investment or securities fraud or negligence, there are several types of damages you can pursue. Traditionally, compensatory damages in investment cases are referred to as “net out of pocket”. Simply put, if you lost $100,000 in a bad investment that was unsuitable for you or sold to you based on misrepresentations or omissions of material facts, you can bring a claim against the company that sold you that investment. In this example, if you invested $100,000, received $10,000 back in the form of distributions or interest, your “net loss” would be $90,000.</p>
         </div>
         </div>
@@ -170,7 +170,7 @@ const PracticeAreas = () => {
       </h2>
       
       <p className="text-gray-200 font-sans leading-relaxed text-[0.95rem] sm:text-[1rem] mb-8 max-w-full lg:max-w-xl text-left">
-        If your Coinbase account was hacked, scammed, or accessed without permission, you may have legal rights. Stoltmann Law Offices helps crypto users recover losses and hold Coinbase accountable. Learn your options and how our experienced attorneys can help you fight back.
+        If your Coinbase account was hacked, scammed, or accessed without permission, you may have legal rights. Guardian Property Law Group helps crypto users recover losses and hold Coinbase accountable. Learn your options and how our experienced attorneys can help you fight back.
       </p>
 
       {/* Buttons Container */}
@@ -294,12 +294,12 @@ const PracticeAreas = () => {
            viewport={{ once: true }}
            className="w-full lg:w-[55%] flex flex-col justify-center"
          >
-           <h2 className="text-4xl sm:text-[2.5rem] font-bold text-white mb-6 tracking-tight leading-[1.1]">
+           <h2 className="text-3xl sm:text-[2.5rem] font-bold text-white mb-6 tracking-tight leading-[1.1]">
             Financial Abuse of the Elderly
            </h2>
            
           <p className="text-white font-light leading-relaxed text-[0.95rem] md:text-[1rem] mb-8 md:mb-10 max-w-full lg:max-w-xl text-left md:text-justify hyphens-auto">
-Senior investors are becoming an increasingly large percentage of those utilizing the services of financial services firms and the sad reality is, seniors, especially those who are vulnerable as a result of cognitive decline, are all too often victims of financial exploitation. The attorneys at Stoltmann Law Offices will stop at nothing to recover those financial losses. </p>
+Senior investors are becoming an increasingly large percentage of those utilizing the services of financial services firms and the sad reality is, seniors, especially those who are vulnerable as a result of cognitive decline, are all too often victims of financial exploitation. The attorneys at Guardian Property Law Group will stop at nothing to recover those financial losses. </p>
  
      <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-6">
      
@@ -347,7 +347,7 @@ Senior investors are becoming an increasingly large percentage of those utilizin
           <div className="absolute inset-0 z-0">
             <img 
               src={tieImage} 
-              alt="Stoltmann Law Offices"
+              alt="Guardian Property Law Group"
               className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
             />
             {/* White gradients to blend the image softly */}
@@ -357,7 +357,7 @@ Senior investors are becoming an increasingly large percentage of those utilizin
           
           <div className="relative z-10 p-6 sm:p-10 lg:p-16 flex flex-col justify-center h-full max-w-9xl mx-auto">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold  text-black mb-6 sm:mb-8 leading-tight tracking-tight">
-              Stoltmann Law Offices, P.C. prides itself on aggressively prosecuting investment fraud across the country
+              Guardian Property Law Group prides itself on aggressively prosecuting investment fraud across the country
             </h2>
             
             <p className="text-gray-800 text-base leading-relaxed mb-8 font-light text-left md:text-justify">

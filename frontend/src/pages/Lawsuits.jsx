@@ -37,10 +37,10 @@ const itemVariants = {
 // ==========================================
 const iulData = [
   {
-    title: "What Stoltmann Law Wants You to Know",
+    title: "What Guardian Property Law Group Wants You to Know",
     content: (
       <p className="text-gray-700 leading-relaxed">
-        If you purchased an Ameritas indexed universal life (IUL) policy and the cash value or projected retirement benefit has fallen short of what you were promised, you’re not alone and you may have legal options. At Stoltmann Law, we represent policyholders who suspect they were sold IULs using misleading illustrations, deceptive sales tactics, or omissions about costs and risks. Below we explain what an Ameritas IUL Fraud Lawsuit typically alleges, the evidence plaintiffs rely on, recent developments, and how our firm helps clients pursue recovery.
+        If you purchased an Ameritas indexed universal life (IUL) policy and the cash value or projected retirement benefit has fallen short of what you were promised, you’re not alone and you may have legal options. At Guardian Property Law Group, we represent policyholders who suspect they were sold IULs using misleading illustrations, deceptive sales tactics, or omissions about costs and risks. Below we explain what an Ameritas IUL Fraud Lawsuit typically alleges, the evidence plaintiffs rely on, recent developments, and how our firm helps clients pursue recovery.
       </p>
     )
   },
@@ -112,7 +112,7 @@ const iulData = [
           <li>Economists/actuaries to model realistic policy performance under disclosed caps and participation rates, and</li>
           <li>Strategic litigation planning (e.g., whether to push for class treatment, focus on individual rescission, or seek negotiated remediation).</li>
         </ul>
-        <p>At Stoltmann Law, we pair investigative rigor with litigation experience so clients can make an informed choice about pursuing claims.</p>
+        <p>At Guardian Property Law Group, we pair investigative rigor with litigation experience so clients can make an informed choice about pursuing claims.</p>
       </div>
     )
   }
@@ -120,11 +120,11 @@ const iulData = [
 
 const pacificData = [
   {
-    title: "How Stoltmann Law Helps with Pacific Life IUL Lawsuits",
+    title: "How Guardian Property Law Group Helps with Pacific Life IUL Lawsuits",
     content: (
       <div>
  <p className="text-gray-700 leading-relaxed">
-    If you bought an Indexed Universal Life (IUL) policy from Pacific Life because a sales illustration promised steady growth and low risk, and you wound up facing shrinking cash values, rising premiums, or even lapses in coverage, you’re not alone. At Stoltmann Law, we investigate whether those decisions were the result of misleading sales practices, faulty illustrations, or undisclosed policy features and we stand ready to hold insurers and advisors accountable on behalf of policyholders.
+    If you bought an Indexed Universal Life (IUL) policy from Pacific Life because a sales illustration promised steady growth and low risk, and you wound up facing shrinking cash values, rising premiums, or even lapses in coverage, you’re not alone. At Guardian Property Law Group, we investigate whether those decisions were the result of misleading sales practices, faulty illustrations, or undisclosed policy features and we stand ready to hold insurers and advisors accountable on behalf of policyholders.
           </p>
       <p className="text-gray-700 mt-5 leading-relaxed">
     Below we explain what policyholders are alleging about Pacific Life’s IUL products, why certain design features can create big surprises for buyers, and how our team evaluates and pursues Pacific Life IUL lawsuits on a client’s behalf.
@@ -175,7 +175,7 @@ const pacificData = [
     title: "Time matters but so does accuracy",
     content: (
       <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>Insurance and consumer protection laws vary by state, and statutes of limitations can limit how long you have to bring a claim. That said, rushing without a proper review isn’t helpful either. At Stoltmann Law we move quickly to preserve evidence, obtain policy documents, and evaluate statutes and deadlines, but we also methodically build a case that fairly presents the economic realities you suffered.</p>
+        <p>Insurance and consumer protection laws vary by state, and statutes of limitations can limit how long you have to bring a claim. That said, rushing without a proper review isn’t helpful either. At Guardian Property Law Group we move quickly to preserve evidence, obtain policy documents, and evaluate statutes and deadlines, but we also methodically build a case that fairly presents the economic realities you suffered.</p>
       </div>
     )
   },
@@ -296,7 +296,7 @@ const Lawsuits = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={bannerImg} 
-            alt="Stoltmann Law Attorneys" 
+            alt="Guardian Property Law Group Attorneys" 
             className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
           />
         </div>
@@ -327,10 +327,10 @@ const Lawsuits = () => {
           >
             <div>
               <p className="text-2xl sm:text-3xl lg:text-2xl font-extrabold text-black mb-6 sm:mb-2 leading-tight tracking-tight">
-                How Stoltmann Law Helps When Your IUL Isn’t Delivering
+                How Guardian Property Law Group Helps When Your IUL Isn’t Delivering
               </p>
               <p className="text-gray-600 text-[15px] leading-relaxed mb-8 font-medium text-justify">
-                If you purchased an indexed universal life insurance policy (commonly called an IUL) after being told it would serve as “tax-free retirement income,” a “guaranteed lifetime pension” or a “no-risk wealth-building vehicle,” and you’re now seeing troubling results then you’re in the right place. At Stoltmann Law, we represent policy-holders who have been misled or sold IUL products under false pretenses.
+                If you purchased an indexed universal life insurance policy (commonly called an IUL) after being told it would serve as “tax-free retirement income,” a “guaranteed lifetime pension” or a “no-risk wealth-building vehicle,” and you’re now seeing troubling results then you’re in the right place. At Guardian Property Law Group, we represent policy-holders who have been misled or sold IUL products under false pretenses.
                 <br /><br />
                 We understand that an IUL can seem like a flexible, promising financial instrument. You may have been told it would outperform market risks, fund itself, and provide a comfortable retirement. Unfortunately, what you may be discovering is very different: steady fees, rising costs, weak growth, shifting policy terms, and increased risk that eating away at your cash value. We know how these products are marketed and we know how to hold the sellers to account.
               </p>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import img1 from '../assets/hero.jpg';
+import companysLogo from "../assets/companyLogo.png";
 
 const Hero = () => {
   return (
+    <div>
+      
 <div className="relative w-full min-h-[100svh] flex flex-col justify-end bg-[#111111] overflow-hidden pt-24 lg:pt-0">
       
   {/* Background Image Overlay */}
@@ -61,8 +64,17 @@ const Hero = () => {
       />
     </svg>
   </div>
-  
 </div>
+ {/* Logos Section */}
+    <div className="flex w-full max-w-7xl mx-auto justify-center items-center mt-10 mb-10 px-4 sm:px-6 lg:px-10">
+  <img 
+    src={companysLogo} 
+    alt="Company_Logos" 
+    className="w-full h-auto object-contain" 
+  />
+</div>
+</div>
+
   );
 };
 

@@ -54,7 +54,7 @@ const Footer = () => {
         </p>
         
         <p className="text-[15px] text-white-500">Illinois Securities Law of 1953</p>
-        <p className="text-[15px] text-white-500 mt-1">Copyright © 2026, Stoltmann Law Offices</p>
+        <p className="text-[15px] text-white-500 mt-1">Copyright © 2026, Guardian Property Law Group</p>
       </div>
     </footer>
   );
