@@ -37,7 +37,7 @@ const Navbar = () => {
   const handleNavClick = (e, path) => {
     e.preventDefault(); 
     
-    // If clicking the current page, just close the menu (if on mobile) and do nothing
+    // If clicking the current page, close the menu and do nothing
     if (path === window.location.pathname) {
       setIsMobileOpen(false);
       return;
@@ -46,11 +46,11 @@ const Navbar = () => {
     setIsMobileOpen(false); // Hide mobile menu instantly 
     setIsNavigating(true);  // Trigger full-screen animation overlay
     
-    // Wait for the premium animation to play out before routing (1.2 seconds)
+    // Wait for the premium animation to play out before routing
     setTimeout(() => {
       navigate(path);
       setIsNavigating(false);
-    }, 1200); 
+    }, 1100); 
   };
 
   return (
@@ -59,40 +59,41 @@ const Navbar = () => {
       <AnimatePresence>
         {isNavigating && (
           <motion.div
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 w-screen h-screen bg-[#0a0a0a]/95 z-[999] flex items-center justify-center overflow-hidden"
+            className="fixed inset-0 w-screen h-screen bg-[#0a0a0a]/95 backdrop-blur-md z-[999] flex items-center justify-center overflow-hidden"
           >
             {/* Cinematic Pulsing Aura behind the logo */}
             <motion.div 
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ 
-                scale: [1, 1.5, 1.8], 
-                opacity: [0, 0.3, 0] 
+                scale: [1, 1.4, 1.6], 
+                opacity: [0, 0.4, 0] 
               }}
               transition={{ 
-                duration: 1.2, 
-                repeat: Infinity, 
+                duration: 1.1, 
                 ease: "easeOut" 
               }}
-              className="absolute w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full bg-brand-yellow/30 blur-[60px]"
+              className="absolute w-[250px] h-[250px] md:w-[400px] md:h-[400px] rounded-full bg-brand-yellow/30 blur-[50px]"
             />
             
-            {/* Premium Smooth Logo Reveal */}
-            <motion.img 
-              src={logo} 
-              alt="Loading Transition"
-              className="relative z-10 w-64 md:w-80 lg:w-96 h-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
-              initial={{ opacity: 0, scale: 0.85, y: 30 }}
+            {/* Premium Smooth Logo Reveal - Wrapped in div to prevent shakiness */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 1.1, y: -20, filter: "blur(10px)" }}
-              transition={{ 
-                duration: 0.8, 
-                ease: [0.16, 1, 0.3, 1] // Apple-style custom cubic-bezier for silky smooth deceleration
-              }}
-            />
+              exit={{ opacity: 0, scale: 1.05, y: -10 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative z-10"
+              style={{ willChange: "transform, opacity" }} // Hardware acceleration
+            >
+              <img 
+                src={logo} 
+                alt="Loading Transition"
+                className="w-56 md:w-80 lg:w-96 h-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+              />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -117,16 +118,17 @@ const Navbar = () => {
             aria-label="Home"
             onClick={(e) => handleNavClick(e, '/')}
           >
+            {/* Significantly increased logo size here (h-16 for mobile) */}
             <img 
               src={logo} 
               alt="Law Firm Logo" 
-              className="h-10 md:h-12 lg:h-14 w-auto object-contain transition-all duration-300" 
+              className="h-16 sm:h-18 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300" 
             />
           </Link>
 
           {/* --- MOBILE HAMBURGER BUTTON --- */}
           <button
-            className="lg:hidden relative z-[110] p-3 -mr-3 text-white hover:text-brand-yellow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-lg"
+            className="lg:hidden relative z-[110] p-2 text-white hover:text-brand-yellow transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded-lg"
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             aria-expanded={isMobileOpen}
             aria-label="Toggle navigation menu"
@@ -139,7 +141,7 @@ const Navbar = () => {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                {isMobileOpen ? <X size={28} /> : <Menu size={28} />}
+                {isMobileOpen ? <X size={32} /> : <Menu size={32} />}
               </motion.div>
             </AnimatePresence>
           </button>
@@ -178,9 +180,9 @@ const Navbar = () => {
             animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
             transition={{ type: "spring", stiffness: 40, damping: 15 }}
-            className="fixed inset-0 w-screen h-screen bg-[#121212]/95 backdrop-blur-xl text-white z-[90] flex flex-col pt-24 px-6 pb-10 overflow-y-auto lg:hidden"
+            className="fixed inset-0 w-screen h-screen bg-[#121212]/95 backdrop-blur-xl text-white z-[90] flex flex-col pt-28 px-6 pb-10 overflow-y-auto lg:hidden"
           >
-            <div className="flex flex-col gap-2 mt-8 w-full max-w-md mx-auto">
+            <div className="flex flex-col gap-2 w-full max-w-md mx-auto">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.path}
