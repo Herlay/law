@@ -65,7 +65,6 @@ const Navbar = () => {
             transition={{ duration: 0.4 }}
             className="fixed inset-0 w-screen h-screen bg-[#0a0a0a]/95 backdrop-blur-md z-[999] flex items-center justify-center overflow-hidden"
           >
-            {/* Cinematic Pulsing Aura behind the logo */}
             <motion.div 
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ 
@@ -79,14 +78,13 @@ const Navbar = () => {
               className="absolute w-[250px] h-[250px] md:w-[400px] md:h-[400px] rounded-full bg-brand-yellow/30 blur-[50px]"
             />
             
-            {/* Premium Smooth Logo Reveal - Wrapped in div to prevent shakiness */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 1.05, y: -10 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="relative z-10"
-              style={{ willChange: "transform, opacity" }} // Hardware acceleration
+              style={{ willChange: "transform, opacity" }}
             >
               <img 
                 src={logo} 
@@ -118,11 +116,11 @@ const Navbar = () => {
             aria-label="Home"
             onClick={(e) => handleNavClick(e, '/')}
           >
-            {/* Significantly increased logo size here (h-16 for mobile) */}
             <img 
               src={logo} 
               alt="Law Firm Logo" 
-              className="h-16 sm:h-18 md:h-20 lg:h-24 w-auto object-contain transition-all duration-300" 
+              // Adjusted sizes: Standard h-10 on mobile, growing larger on desktop. Added max-w-[65vw] to prevent edge-cutting.
+              className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto max-w-[65vw] md:max-w-none object-contain transition-all duration-300" 
             />
           </Link>
 
@@ -140,6 +138,7 @@ const Navbar = () => {
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
+                style={{ willChange: "transform, opacity" }}
               >
                 {isMobileOpen ? <X size={32} /> : <Menu size={32} />}
               </motion.div>
@@ -176,19 +175,20 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.nav
-            initial={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
-            animate={{ opacity: 1, clipPath: "circle(150% at 100% 0%)" }}
-            exit={{ opacity: 0, clipPath: "circle(0% at 100% 0%)" }}
-            transition={{ type: "spring", stiffness: 40, damping: 15 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            style={{ willChange: "transform, opacity" }}
             className="fixed inset-0 w-screen h-screen bg-[#121212]/95 backdrop-blur-xl text-white z-[90] flex flex-col pt-28 px-6 pb-10 overflow-y-auto lg:hidden"
           >
             <div className="flex flex-col gap-2 w-full max-w-md mx-auto">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.path}
-                  initial={{ x: 50, opacity: 0 }}
+                  initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: i * 0.05 + 0.1 }}
+                  transition={{ delay: i * 0.05 + 0.1, duration: 0.3, ease: "easeOut" }}
                 >
                   <a
                     href={link.path}
@@ -207,7 +207,7 @@ const Navbar = () => {
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: NAV_LINKS.length * 0.05 + 0.2 }}
+                transition={{ delay: NAV_LINKS.length * 0.05 + 0.2, duration: 0.3, ease: "easeOut" }}
                 className="mt-8"
               >
                 <a href="/ContactUs" onClick={(e) => handleNavClick(e, '/ContactUs')} tabIndex={-1}>
