@@ -395,7 +395,7 @@ const Arbitration = () => {
               <SectionMark label="Arbitration process" />
               <motion.h2
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={rise}
-                className="font-serif text-3xl md:text-4xl font-bold mb-10 tracking-tight max-w-2xl leading-tight"
+                className="font-serif text-2xl md:text-4xl font-bold mb-10 tracking-tight max-w-2xl leading-tight"
                 style={{ color: INK }}
               >
                 Resolving securities and financial disputes through arbitration
@@ -443,7 +443,7 @@ const Arbitration = () => {
             <motion.div
               variants={staggerParent(0.15)}
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-              className="relative grid grid-cols-1 md:grid-cols-3 gap-px"
+              className="relative grid grid-cols-1 md:grid-cols-3 text-justify gap-px"
               style={{ background: PAPER_DEEP }}
             >
               {understandingProcess.map((item) => (
@@ -505,7 +505,7 @@ const Arbitration = () => {
 
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={rise}
-            className="text-white text-[14px] leading-relaxed max-w-6xl mt-16 pl-6"
+            className="text-white text-[14px] text-justify leading-relaxed max-w-6xl mt-16 pl-6"
             style={{ borderLeft: `2px solid ${BRASS}` }}
           >
             A regulatory investigation and a private arbitration claim serve different purposes. Regulators generally focus on protecting the broader investing public, while arbitration provides an avenue for an individual investor to pursue relief for a particular dispute.
@@ -674,7 +674,7 @@ const Arbitration = () => {
         whileInView="visible"
         viewport={{ once: true, margin: "-40px" }}
         variants={rise}
-        className="leading-relaxed text-[15.5px] self-center"
+        className="leading-relaxed text-justify text-[15.5px] self-center"
         style={{ color: SLATE }}
       >
 
@@ -819,7 +819,7 @@ const Arbitration = () => {
 
         {/* CONTENT */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid text-justify grid-cols-1 lg:grid-cols-2">
 
           {/* Item 01 */}
 
@@ -1065,13 +1065,13 @@ const Arbitration = () => {
                      <h2 className="font-serif text-3xl sm:text-[2.4rem] font-bold mb-6 tracking-tight leading-tight" style={{ color: INK }}>
               What is arbitration?
             </h2>
-            <p className="text-[15px] leading-relaxed mb-5 max-w-xl" style={{ color: SLATE }}>
+            <p className="text-[15px] text-justify leading-relaxed mb-5 max-w-xl" style={{ color: SLATE }}>
    Arbitration is an alternative method of resolving disputes outside of traditional courtroom litigation. In an arbitration proceeding, the parties present their dispute to one or more neutral and impartial arbitrators who have experience evaluating legal, financial, or industry-specific issues relevant to the matter.
             </p>
-            <p className="text-[15px] leading-relaxed mb-9 max-w-xl" style={{ color: SLATE }}>
+            <p className="text-[15px] text-justify leading-relaxed mb-9 max-w-xl" style={{ color: SLATE }}>
   Arbitration is commonly used to resolve disputes involving businesses, financial professionals, brokerage firms, investors, and other parties. It can provide a structured forum for resolving complex disagreements without proceeding through the traditional court process.
             </p>
-            <p className="text-[15px] leading-relaxed mb-9 max-w-xl" style={{ color: SLATE }}>
+            <p className="text-[15px] text-justify leading-relaxed mb-9 max-w-xl" style={{ color: SLATE }}>
   One of the distinguishing features of arbitration is that the proceeding is governed by a specific set of procedural rules and requirements. These rules may address how a claim is initiated, how evidence and documents are exchanged, how arbitrators are selected, and how the hearing is conducted.
             </p>
              <Link to="/ContactUs">
@@ -1182,14 +1182,14 @@ const Arbitration = () => {
             <h2 className="font-serif text-2xl sm:text-[2.4rem] font-bold mb-6 tracking-tight leading-tight" style={{ color: INK }}>
               Who are the arbitrators?
             </h2>
-            <p className="text-[15px] leading-relaxed mb-8 max-w-xl" style={{ color: SLATE }}>
+            <p className="text-[15px] text-justify leading-relaxed mb-8 max-w-xl" style={{ color: SLATE }}>
 Arbitrators are independent professionals selected to hear and resolve disputes outside of the traditional court system. They are chosen based on their professional background, knowledge, and experience relevant to the types of disputes they may be called upon to consider.            </p>
 
- <p className="text-[15px] leading-relaxed mb-8 max-w-xl" style={{ color: SLATE }}>
+ <p className="text-[15px] text-justify leading-relaxed mb-8 max-w-xl" style={{ color: SLATE }}>
 Organizations that administer securities arbitration maintain rosters of qualified individuals who may serve as arbitrators. Although these arbitrators are selected through the administering organization, they are independent from that organization and are responsible for evaluating the evidence, considering the arguments presented by both sides, and ultimately deciding the dispute.
 </p>
             {/* interactive tab switcher — earns its motion because it responds to a click */}
-            <div className="max-w-xl mb-8 ">
+            <div className="max-w-xl mb-8 text-justify ">
               <div className="flex border-b" style={{ borderColor: PAPER_DEEP }}>
                 {arbitratorTypes.map((t, i) => (
                   <button
@@ -1224,7 +1224,7 @@ Organizations that administer securities arbitration maintain rosters of qualifi
               </AnimatePresence>
             </div>
 
-            <p className="text-[14px] leading-relaxed max-w-xl" style={{ color: SLATE }}>
+            <p className="text-[14px] text-justify leading-relaxed max-w-xl" style={{ color: SLATE }}>
               Before a panel is finalized, parties may receive information on proposed arbitrators &mdash; professional background, employment history, and disclosed conflicts &mdash; and may take part in selection under the applicable rules.
             </p>
           </motion.div>
@@ -1260,7 +1260,7 @@ Organizations that administer securities arbitration maintain rosters of qualifi
             </motion.h2>
             <motion.p
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={rise}
-              className="text-[15px] leading-relaxed mb-10 max-w-6xl"
+              className="text-[15px] text-justify leading-relaxed mb-10 max-w-6xl"
               style={{ color: INK }}
             >
 Yes. Parties involved in an arbitration generally have the right to retain legal counsel and may choose to be represented by an attorney throughout the arbitration process. aving legal representation can be particularly important when the opposing party is a brokerage firm, financial institution, or other sophisticated entity that is likely to have experienced counsel handling the matter. An attorney can help protect your interests, explain the applicable procedures, prepare and present your claims, respond to opposing arguments, and guide you through each stage of the proceeding.            </motion.p>
@@ -1294,7 +1294,7 @@ Yes. Parties involved in an arbitration generally have the right to retain legal
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
               <SectionMark label="Reference" />
-              <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight" style={{ color: INK }}>
+              <h2 className="font-serif text-2xl md:text-4xl font-bold tracking-tight" style={{ color: INK }}>
                 Securities arbitration glossary
               </h2>
               <p className="text-sm mt-3 max-w-lg" style={{ color: SLATE }}>
@@ -1347,10 +1347,10 @@ Yes. Parties involved in an arbitration generally have the right to retain legal
             style={{ background: INK }}
           >
             <h3 className="font-serif text-lg font-bold text-white mb-4">About this glossary</h3>
-            <p className="text-sm leading-relaxed text-gray-300 mb-3">
+            <p className="text-sm text-justify leading-relaxed text-gray-300 mb-3">
         The terminology used in securities arbitration can vary depending on the forum and the procedural rules governing a particular dispute. This glossary is intended as a general educational resource to help investors and other parties understand commonly used arbitration terminology.
             </p>
-            <p className="text-sm leading-relaxed text-gray-300">
+            <p className="text-sm text-justify leading-relaxed text-gray-300">
 The definitions provided here are simplified explanations and should not be considered a substitute for the applicable arbitration rules, governing agreements, or individualized legal advice. Parties involved in an arbitration should consult the rules applicable to their proceeding and seek qualified legal counsel when appropriate.
             </p>
           </motion.div>

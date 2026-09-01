@@ -24,7 +24,7 @@ import litigationImg from "../assets/legitation.jpg";
 import elderlyImg from "../assets/elderly.png";
 import fraudAttorneysBack from "../assets/money.jpg";
 import tieImage from "../assets/tieImage.jpg";
-import introImg from "../assets/joeBanner.png";
+import introImg from "../assets/joebanner.png";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
@@ -162,7 +162,7 @@ const PracticeAreas = () => {
                    initial={{ opacity: 0, y: 30 }}
                    animate={{ opacity: 1, y: 0 }}
                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                   className="font-serif text-5xl sm:text-6xl md:text-[4.25rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
+                   className="font-serif text-4xl sm:text-6xl md:text-[4.25rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
                  >
                    Practice Areas
                  </motion.h1>
@@ -379,7 +379,7 @@ const PracticeAreas = () => {
 
         <h2 className="
           max-w-3xl
-          text-3xl
+          text-2xl
           font-black
           leading-[1.05]
           tracking-tight
@@ -571,7 +571,7 @@ const PracticeAreas = () => {
                     Pursuing Financial Recovery
                   </h2>
       
-                  <div className="mt-7 space-y-5 text-[15px] sm:text-base leading-8 text-gray-600">
+                  <div className="mt-7 space-y-5 text-[15px] text-justify sm:text-base leading-8 text-gray-600">
                     <p>
                       Depending on the circumstances, investors who have suffered
                       losses may be entitled to pursue various forms of legal
@@ -660,7 +660,7 @@ const PracticeAreas = () => {
               style={{ backgroundColor: BRASS }}
             />
 
-            <div className="mt-7 space-y-6 text-[14px] sm:text-[15px] leading-7 text-white/75">
+            <div className="mt-7 space-y-6 text-[14px] text-justify sm:text-[15px] leading-7 text-white/75">
               <p>
                 Financial fraud cases often involve complex transactions,
                 extensive documentation, sophisticated financial products, and
@@ -797,7 +797,7 @@ const PracticeAreas = () => {
 
               {/* Text */}
 
-              <div className="mt-5 space-y-4 text-[13px] leading-6 text-gray-600 sm:text-[14px] sm:leading-7">
+              <div className="mt-5 space-y-4 text-[13px] text-justify leading-6 text-gray-600 sm:text-[14px] sm:leading-7">
                 <p>
                   The increasing use of cryptocurrency and digital-asset
                   platforms has created new challenges for consumers and
@@ -944,7 +944,7 @@ const PracticeAreas = () => {
 
               {/* Main Text */}
 
-              <div className="mt-5 space-y-4 text-[13px] leading-6 text-gray-600 sm:text-[14px] sm:leading-7">
+              <div className="mt-5 space-y-4 text-[13px] text-justify leading-6 text-gray-600 sm:text-[14px] sm:leading-7">
                 <p>
                   Guardian Property Law Group represents clients in investment,
                   securities, consumer, and financial fraud matters across the

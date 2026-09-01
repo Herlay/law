@@ -39,7 +39,7 @@ const BRASS = "#AD8A46";
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
+            className="text-2xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
           >
             Contact Guardian Property Law Group
           </motion.h1>
@@ -70,7 +70,7 @@ const BRASS = "#AD8A46";
     
     {/* Left Column: Disclaimer */}
     <motion.div variants={contactVariants} className="lg:col-span-2">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6 tracking-tight">
+      <h2 className="text-1xl md:text-4xl font-extrabold text-black mb-6 tracking-tight">
         Contact Guardian Property Law Group
       </h2>
       <p className="text-gray-600 text-[15px] sm:text-base leading-relaxed text-justify sm:text-left">

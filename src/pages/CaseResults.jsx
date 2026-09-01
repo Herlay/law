@@ -320,11 +320,11 @@ const ponziScheme = [
               </div>
 
               {/* Attorneys image */}
-              <div className="flex justify-center px-4">
+              <div className="flex justify-center px-2">
                 <img
                   src={attImg}
                   alt="Chicago Investment Fraud Attorneys"
-                  className="w-[75%] object-contain object-bottom"
+                  className="w-[70%] object-contain object-bottom"
                 />
               </div>
 

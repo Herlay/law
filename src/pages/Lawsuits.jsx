@@ -178,7 +178,7 @@ const Lawsuits = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="font-serif text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
+                        className="font-serif text-3xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
                       >
                        Indexed Universal Life (IUL) Insurance Lawsuits
                       </motion.h1>
@@ -212,7 +212,7 @@ const Lawsuits = () => {
             transition={{ duration: 0.6 }}
             className="w-full lg:w-1/2 flex flex-col"
           >
-            <h2 className="text-3xl md:text-2xl font-black text-gray-900 mb-6 tracking-tight leading-tight">
+            <h2 className="text-1xl md:text-2xl font-black text-gray-900 mb-6 tracking-tight leading-tight">
               How Guardian Property Law Group Can Help When an IUL Policy Falls Short of Expectations
             </h2>
             <div className="w-20 h-1.5 bg-brand-yellow mb-8"></div>
@@ -325,7 +325,7 @@ const Lawsuits = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col h-full"
             >
-              <h2 className="text-2xl md:text-2xl font-black text-gray-900 mb-4">
+              <h2 className="text-1xl md:text-2xl font-black text-gray-900 mb-4">
                 When The Policy Does Not Match Expectations
               </h2>
               
@@ -654,7 +654,7 @@ const Lawsuits = () => {
       className="w-full lg:w-[55%] px-6 py-16 md:px-12 lg:py-20 lg:px-16 xl:px-24 flex flex-col justify-center bg-white"
     >
       {/* Heading */}
-      <h2 className="text-3xl sm:text-4xl lg:text-[1.5rem] font-black leading-[1.1] text-gray-900 mb-6 tracking-tight">
+      <h2 className="text-2xl sm:text-4xl lg:text-[1.5rem] font-black leading-[1.1] text-gray-900 mb-6 tracking-tight">
         Potentially Misleading IUL Sales Practices
       </h2>
 
@@ -802,7 +802,7 @@ const Lawsuits = () => {
 
         <div className="mt-8 max-w-3xl space-y-6 text-justify text-[14px] leading-7 text-gray-700 sm:text-[15px] sm:leading-8">
 
-          <p className="text-lg font-semibold leading-8 text-gray-900 sm:text-base sm:leading-9">
+          <p className="text-base font-semibold leading-8 text-gray-900 sm:text-base sm:leading-9">
             When an insurance product does not perform as represented,
             policyholders may be left questioning what went wrong and
             whether they have any available remedies.

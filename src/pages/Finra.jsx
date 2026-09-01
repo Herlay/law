@@ -264,7 +264,7 @@ const Finra = () => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                  className="font-serif text-5xl sm:text-6xl md:text-[3.6rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
+                  className="font-serif text-4xl sm:text-6xl md:text-[3.6rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
                 >
                   FINRA & Securities Attorneys
                 </motion.h1>
@@ -503,7 +503,7 @@ const Finra = () => {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mt-10 max-w-5xl text-[14px] leading-7 text-gray-600 sm:text-[15px] sm:leading-8"
+            className="mt-10 max-w-5xl text-[14px] text-justify leading-7 text-gray-600 sm:text-[15px] sm:leading-8"
           >
             Financial professionals and brokerage firms have legal and
             regulatory obligations to their customers. When those obligations
@@ -571,7 +571,7 @@ const Finra = () => {
 
       <div className="lg:border-l lg:border-gray-200 lg:pl-10">
 
-        <p className="max-w-2xl text-[14px] leading-7 text-gray-600 sm:text-[15px] sm:leading-8">
+        <p className="max-w-2xl text-[14px] text-justify leading-7 text-gray-600 sm:text-[15px] sm:leading-8">
           Investors in Illinois benefit from a combination of state and
           federal securities laws, regulatory oversight, and
           investor-protection mechanisms. These safeguards are intended to
@@ -589,7 +589,7 @@ const Finra = () => {
         REGULATORY INFORMATION
     ================================================= */}
 
-    <div className="mt-10 overflow-hidden border border-gray-200 bg-white">
+    <div className="mt-10 text-justify overflow-hidden border border-gray-200 bg-white">
 
 
       {/* =================================================
@@ -1018,8 +1018,8 @@ const Finra = () => {
       </div>
 
       {/* Right Column: Paragraphs */}
-      <div className="lg:col-span-7 space-y-6 text-[15px] leading-relaxed text-gray-600 sm:text-[16px] lg:border-l lg:border-gray-200 lg:pl-12">
-        <p className="font-bold text-gray-900 text-lg">
+      <div className="lg:col-span-7 space-y-6 text-[15px] text-justify leading-relaxed text-gray-600 sm:text-[16px] lg:border-l lg:border-gray-200 lg:pl-12">
+        <p className="font-bold text-gray-900 text-[15px] sm:text-[16px]">
           A securities arbitration claim begins with understanding exactly what occurred and whether the available evidence supports a legally viable claim.
         </p>
         <p>
@@ -1047,7 +1047,7 @@ const Finra = () => {
         <h3 className="text-2xl font-bold leading-tight text-[#171717] sm:text-3xl mb-6">
           Why Experience in Securities Arbitration Matters
         </h3>
-        <div className="space-y-5 text-[15px] leading-relaxed text-gray-600 sm:text-[16px]">
+        <div className="space-y-5 text-[15px] text-justify leading-relaxed text-gray-600 sm:text-[16px]">
           <p>
             FINRA arbitration operates under a specialized set of procedural rules that differ from traditional courtroom litigation. The process involves specific requirements concerning pleadings, arbitrator selection, discovery, motions, prehearing proceedings, and the presentation of evidence.
           </p>
@@ -1119,13 +1119,13 @@ const Finra = () => {
 
         {/* Content Block */}
         <div className="px-8 py-10 sm:px-12">
-          <p className="text-[15px] font-bold uppercase tracking-[0.2em] text-white mb-2">
+          <p className="text-[13px] font-bold uppercase tracking-[0.2em] text-white mb-2">
             Protect Your Investment Interests
           </p>
-          <h3 className="text-2xl font-bold text-white sm:text-3xl mb-4">
+          <h3 className="text-1xl font-bold text-white sm:text-3xl mb-4">
             Understand Your Rights Before Moving Forward
           </h3>
-          <div className="max-w-4xl space-y-4 text-[14px] leading-relaxed text-gray-300 sm:text-[15px]">
+          <div className="max-w-4xl text-justify space-y-4 text-[14px] leading-relaxed text-gray-300 sm:text-[15px]">
             <p>
               When substantial financial interests are involved, understanding your legal rights is essential. If you believe that a broker, investment adviser, or brokerage firm mishandled your account or provided inappropriate investment advice, an attorney can help determine whether you may have a viable claim.
             </p>
@@ -1430,7 +1430,7 @@ const Finra = () => {
       </div> */}
 
 
-      <p className="text-sm leading-7 text-gray-600 sm:text-[15px] sm:leading-8">
+      <p className="text-sm leading-7 text-gray-600 text-justify sm:text-[15px] sm:leading-8">
         Because FINRA arbitration involves specialized procedures concerning
         claims, discovery, arbitrator selection, motions, hearings, and
         awards, understanding each stage of the process can be important when
@@ -1523,7 +1523,7 @@ information and requesting additional documents.
 
 
     {/* Discovery disputes paragraph */}
-    <p className="mt-8 w-full max-w-6xl text-[14px] leading-7 text-gray-600 sm:text-base sm:leading-8">
+    <p className="mt-8 w-full max-w-6xl text-justify text-[14px] leading-7 text-gray-600 sm:text-base sm:leading-8">
       Discovery disputes can arise when a party believes that relevant
       information has not been produced. Depending on the circumstances,
       an attorney may seek additional discovery or ask the arbitrators to
@@ -1645,7 +1645,7 @@ information and requesting additional documents.
       </div>
 
 
-      <h2 className="text-3xl font-black leading-tight tracking-tight text-[#171717] sm:text-3xl">
+      <h2 className="text-2xl font-black leading-tight tracking-tight text-[#171717] sm:text-3xl">
         Experienced Representation for Securities Disputes
       </h2>
 
@@ -1749,7 +1749,7 @@ information and requesting additional documents.
       src={attImg}
       alt="FINRA securities attorney"
       className="
-        h-[96%]
+        h-[70%]
         w-auto
         max-w-none
         translate-x-[0px]
