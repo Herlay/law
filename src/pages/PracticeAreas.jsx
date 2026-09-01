@@ -24,7 +24,7 @@ import litigationImg from "../assets/legitation.jpg";
 import elderlyImg from "../assets/elderly.png";
 import fraudAttorneysBack from "../assets/money.jpg";
 import tieImage from "../assets/tieImage.jpg";
-import introImg from "../assets/joeBanner.PNG";
+import introImg from "../assets/joeBanner.png";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
