@@ -19,84 +19,18 @@ import bannerImg from "../assets/practice.jpg";
 import investmentImg from "../assets/Investment.jpg";
 import attorneysImg from "../assets/finra1.jpg";
 import coinImg from "../assets/coinbase.png";
-import coinbase from "../assets/coinbase.png";
 import cybercrimeimg from "../assets/cybercrime.jpg";
 import litigationImg from "../assets/legitation.jpg";
 import elderlyImg from "../assets/elderly.png";
-import fraudAttorneysBack from "../assets/Money.jpg";
+import fraudAttorneysBack from "../assets/money.jpg";
 import tieImage from "../assets/tieImage.jpg";
-import introImg from "../assets/joeBanner.png";
+import introImg from "../assets/joeBanner.PNG";
 import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 
 // ============================================================
 // PRACTICE AREAS
 // ============================================================
-
-const practiceAreasList = [
-  {
-    title: "Cybercrime Attorneys",
-    image: cybercrimeimg,
-    content:
-      "Protecting consumers and investors from phishing scams, account takeovers, wire fraud, cryptocurrency scams, and other forms of cyber-enabled financial crime.",
-  },
-
-  {
-    title: "Investment & Securities Fraud",
-    image: investmentImg,
-    content:
-      "Helping investors recover losses caused by broker misconduct, unsuitable investments, fiduciary breaches, Ponzi schemes, misrepresentation, and other forms of securities fraud.",
-  },
-
-  {
-    title: "FINRA Attorneys",
-    image: attorneysImg,
-    content:
-      "Experienced representation for investors pursuing claims involving broker misconduct, securities fraud, unsuitable investments, and FINRA violations.",
-  },
-
-  {
-    title: "Coinbase Fraud",
-    image: coinImg,
-    content:
-      "Helping cryptocurrency investors pursue claims involving account takeovers, unauthorized transactions, data breaches, scams, and security failures.",
-  },
-
-  {
-    title: "Private Credit BDC Attorneys",
-    image: investmentImg,
-    content:
-      "Representing investors harmed by unsuitable BDC investments, valuation issues, disclosure failures, and private credit-related losses.",
-  },
-
-  {
-    title: "Professional Athlete Representation",
-    image: elderlyImg,
-    content:
-      "Representing athletes and high-net-worth individuals in claims involving financial fraud, fiduciary breaches, theft, and advisor misconduct.",
-  },
-
-  {
-    title: "SIM Swap Fraud",
-    image: cybercrimeimg,
-    content:
-      "Legal advocacy for victims of telecom negligence, unauthorized account transfers, identity theft, and digital asset losses.",
-  },
-
-  {
-    title: "Litigation",
-    image: litigationImg,
-    content:
-      "Representing businesses and individuals in contract disputes, business torts, intellectual property matters, real estate conflicts, and complex commercial litigation.",
-  },
-
-  {
-    title: "Class Action Representation",
-    image: fraudAttorneysBack,
-    content:
-      "Representing consumers and investors in class actions and group proceedings involving fraud, misconduct, defective products, and corporate wrongdoing.",
-  },
-];
 
 const INK_DEEP = "#0C1526";
 const INK = "#12203A";
@@ -820,7 +754,7 @@ const PracticeAreas = () => {
                   duration: 0.7,
                   delay: 0.25,
                 }}
-                src={coinbase}
+                src={coinImg}
                 alt="Coinbase"
                 className="absolute bottom-6 left-6 w-28 object-contain brightness-0 invert sm:w-32"
               />
