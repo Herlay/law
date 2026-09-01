@@ -18,6 +18,7 @@ const ContactUs = () => {
   }
 };
 
+const BRASS = "#AD8A46";
   return (
    <div className="min-h-screen bg-white">
       
@@ -38,10 +39,22 @@ const ContactUs = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-[4rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
+            className="text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
           >
             Contact Guardian Property Law Group
           </motion.h1>
+
+             <motion.svg width="220" height="6" viewBox="0 0 220 6" 
+             className="mt-5 mb-6"
+             initial="hidden"
+             animate="visible"
+           >
+            <motion.line
+            x1="2" y1="3" x2="218" y2="3"
+            stroke={BRASS} strokeWidth="3" strokeLinecap="round"
+             variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1, transition: { duration: 0.9, delay: 0.65, ease: "easeInOut" } } }}
+           />
+           </motion.svg>
         </div>
       </header>
       

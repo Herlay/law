@@ -153,8 +153,8 @@ const Navbar = () => {
                 to={link.path}
                 onClick={(e) => handleNavClick(e, link.path)}
                 className={({ isActive }) =>
-                  `transition-colors duration-300 hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded px-1 py-2 ${
-                    isActive ? 'text-brand-yellow' : 'text-white'
+                  `transition-colors duration-300 hover:text-[#AD8A46] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow rounded px-1 py-2 ${
+                    isActive ? 'text-[#AD8A46]' : 'text-white'
                   }`
                 }
               >
@@ -163,7 +163,7 @@ const Navbar = () => {
             ))}
 
             <Link to="/ContactUs" onClick={(e) => handleNavClick(e, '/ContactUs')} tabIndex={-1}>
-              <button className="bg-brand-yellow text-white px-6 py-3 rounded font-bold cursor-pointer hover:bg-white hover:text-brand-yellow focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 shadow-lg hover:-translate-y-1 ml-4">
+              <button className="bg-[#AD8A46] text-white px-6 py-3 rounded font-bold cursor-pointer hover:bg-[white] hover:text-[#AD8A46] focus:outline-none focus-visible:ring-2 focus-visible:ring-white transition-all duration-300 shadow-lg hover:-translate-y-1 ml-4">
                 GET IN TOUCH
               </button>
             </Link>
@@ -195,8 +195,8 @@ const Navbar = () => {
                     onClick={(e) => handleNavClick(e, link.path)}
                     className={`flex items-center w-full py-4 px-2 text-sm font-bold tracking-widest uppercase border-b border-white/10 transition-colors duration-300 min-h-[48px] ${
                       window.location.pathname === link.path 
-                        ? 'text-brand-yellow border-brand-yellow/30' 
-                        : 'text-white hover:text-brand-yellow'
+                        ? 'text-[#AD8A46] border-[#AD8A46]/30' 
+                        : 'text-white hover:text-[#AD8A46]'
                     }`}
                   >
                     {link.name}
@@ -211,7 +211,7 @@ const Navbar = () => {
                 className="mt-8"
               >
                 <a href="/ContactUs" onClick={(e) => handleNavClick(e, '/ContactUs')} tabIndex={-1}>
-                  <button className="bg-brand-yellow text-white w-full py-4 rounded font-bold cursor-pointer hover:bg-white hover:text-brand-yellow transition-all duration-300 shadow-lg tracking-widest text-sm min-h-[48px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow">
+                  <button className="bg-[#AD8A46] text-white w-full py-4 rounded font-bold cursor-pointer hover:bg-white hover:text-[#AD8A46] transition-all duration-300 shadow-lg tracking-widest text-sm min-h-[48px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow">
                     GET IN TOUCH
                   </button>
                 </a>

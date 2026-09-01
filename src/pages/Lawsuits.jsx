@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import bannerImg from '../assets/insurance.jpg';
 import attImg from '../assets/att1.png';
 import arbitrationImg from '../assets/iul.jpg';
+import paymentImg from '../assets/payment.jpg';
+import insuranceImg from '../assets/insure.jpg';
+import policyImg from '../assets/policy.jpg';
+import retireImg from '../assets/retire.jpg';
 import tieImg from '../assets/practice.jpg';
+import salessImg from '../assets/saless.jpg';
+import misleadImg from '../assets/mislead.jpg';
+import policyStatementImg from '../assets/policyStatement.jpg';
+import PolicyholderImg from '../assets/Policyholder.jpg';
+import rolesImg from '../assets/roles.jpg';
+import procedureImg from '../assets/procedure.jpg';
+import futureImg from '../assets/future.jpg';
+import disclosureImg from '../assets/disclosure.jpg';
+import feeImg from '../assets/fees.jpg';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
-
-
+import {FiSearch, FiFileText, FiCheckCircle, FiArrowRight, FiInfo, FiShield   } from "react-icons/fi";
 
 // ==========================================
 // 1. ANIMATION VARIANTS
 // ==========================================
-const sectionVariants = {
+const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -27,271 +39,130 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+const slideInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
 // ==========================================
-// 2. ACCORDION DATA
+// 2. PAGE DATA (Extracted from Write-up)
 // ==========================================
-const iulData = [
-  {
-    title: "What Guardian Property Law Group Wants You to Know",
-    content: (
-      <p className="text-gray-700 leading-relaxed">
-        If you purchased an Ameritas indexed universal life (IUL) policy and the cash value or projected retirement benefit has fallen short of what you were promised, you’re not alone and you may have legal options. At Guardian Property Law Group, we represent policyholders who suspect they were sold IULs using misleading illustrations, deceptive sales tactics, or omissions about costs and risks. Below we explain what an Ameritas IUL Fraud Lawsuit typically alleges, the evidence plaintiffs rely on, recent developments, and how our firm helps clients pursue recovery.
-      </p>
-    )
-  },
-  {
-    title: "What is an Indexed Universal Life (IUL) policy?",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-          An IUL combines permanent life insurance with a cash-value account tied to the performance of a market index (like the S&P 500). Insurers credit interest based on index performance subject to caps, participation rates, and floors. While marketed as providing growth potential with downside protection, actual credited interest depends on policy mechanics and fees sometimes leaving policyholders disappointed when projected values don’t materialize.
-        </p>
-        <p>
-          <strong className="text-black">Why that matters:</strong> many IUL sales rely on performance illustrations showing optimistic long-term returns. When those illustrations omit realistic caps, spreads, or assumed crediting mechanics, buyers can be left with policies that cost more and grow less than promised.
-        </p>
-      </div>
-    )
-  },
-  {
-    title: "Recent case developments and the legal landscape",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-          Litigation over IULs has multiplied in recent years. Plaintiffs’ lawyers, including newly formed national practices focused on IUL litigation, have filed suits alleging misleading marketing and failed expectations; some firms highlight large recoveries in select matters. At the same time, insurers have defended aggressively and courts have produced mixed results. Some courts have dismissed class claims while others have permitted discovery into how carriers prepared illustrations and handled claims.
-        </p>
-        <p>
-          For example, some lawsuits have survived motions to dismiss and moved into discovery where plaintiffs sought internal documents about illustration models and sales practices; other actions have been resolved or dismissed on procedural grounds. The upshot: outcomes vary by jurisdiction, the strength of the evidence, and how the policy and sales process were documented.
-        </p>
-      </div>
-    )
-  },
-  {
-    title: "How deceptive IUL sales typically work (red flags we see)",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>We’ve reviewed hundreds of IUL files and frequently spot the same warning signs:</p>
-        <ul className="list-disc list-outside ml-6 space-y-2">
-          <li><strong>Over-optimistic illustrations</strong> that show sustained 6–8% growth without clear disclosure of caps, spreads, or realistic crediting formulas.</li>
-          <li><strong>Unclear fee structures:</strong> agents emphasize “no fees” or “tax-advantaged growth,” while policies contain mortality charges, admin fees, and costly riders.</li>
-          <li><strong>Rollover pressure:</strong> clients were advised to move qualified funds into an IUL without full disclosure of tax consequences and loss of ERISA protections.</li>
-          <li><strong>Aggressive premium schedules</strong> that require high early payments to achieve the illustrated performance, leaving clients underwater if market results are modest.</li>
-          <li><strong>Sparse or inconsistent documentation</strong> crucial for proving what the agent actually promised.</li>
-        </ul>
-        <p>If you recognize any of these signs in your Ameritas IUL experience, that helps build a claim.</p>
-      </div>
-    )
-  },
-  {
-    title: "Typical damages plaintiffs seek",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>Depending on the case, plaintiffs may pursue:</p>
-        <ul className="list-disc list-outside ml-6 space-y-2">
-          <li>Return of premiums paid (rescission or partial rescission),</li>
-          <li>Compensatory damages for lost growth or increased out-of-pocket costs,</li>
-          <li>Restitution or disgorgement for amounts the insurer retained improperly, and</li>
-          <li>Fees and costs (in limited circumstances or where statutes allow).</li>
-        </ul>
-        <p>Each case is fact-specific. Some clients recover significant sums through negotiated settlements; others proceed to trial. Recent press and firm reports show both recoveries and defense victories which underscores why early, document-driven investigation matters.</p>
-      </div>
-    )
-  },
-  {
-    title: "Why you should get a lawyer experienced in IUL cases",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>IUL litigation depends heavily on technical evidence: the exact illustration used, emails or notes reflecting the sales pitch, internal modeling assumptions, and actuarial or financial expert analysis. Successfully advancing an Ameritas IUL Fraud Lawsuit requires:</p>
-        <ul className="list-disc list-outside ml-6 space-y-2">
-          <li>A careful review of your policy, illustrations, and application materials,</li>
-          <li>Interviews and file requests to determine what the agent said and documented,</li>
-          <li>Economists/actuaries to model realistic policy performance under disclosed caps and participation rates, and</li>
-          <li>Strategic litigation planning (e.g., whether to push for class treatment, focus on individual rescission, or seek negotiated remediation).</li>
-        </ul>
-        <p>At Guardian Property Law Group, we pair investigative rigor with litigation experience so clients can make an informed choice about pursuing claims.</p>
-      </div>
-    )
-  }
+const presentations = [
+  "Source of supplemental retirement income",
+  "Tax-advantaged financial strategy",
+  "Long-term wealth accumulation vehicle",
+  "Alternative to certain traditional retirement or investment strategies",
+  "Life insurance policy with market-linked cash-value growth",
+  "Financial planning tool for estate or legacy objectives"
 ];
 
-const pacificData = [
+const unexpectedIssues = [
+  "Higher-than-expected policy charges",
+  "Increasing insurance costs",
+  "Cash-value growth that differs substantially from projected illustrations",
+  "Changes in credited interest or policy assumptions",
+  "Limitations affecting potential index-linked returns",
+  "Reduced policy values resulting from loans or withdrawals",
+  "Concerns about the policy's ability to remain in force",
+  "Unexpected premium requirements",
+  "Material differences between projected and actual policy performance",
+  "Risks or limitations that were not clearly explained at the time of purchase"
+];
+
+const BRASS = '#AD8A46';
+
+const reviewItems = [
+  "The original insurance application",
+  "Policy illustrations and projections",
+  "Sales presentations and marketing materials",
+  "Communications with agents or advisers",
+  "Premium and payment history",
+  "Policy statements",
+  "Fees, charges, and deductions",
+  "Policy loans and withdrawals",
+  "Representations concerning future performance",
+  "Representations regarding retirement or income planning",
+  "Disclosures provided during the sales process",
+  "The suitability of the product for the policyholder's circumstances"
+];
+
+const misleadingPractices = [
+  "Misrepresentation of policy benefits",
+  "Failure to adequately disclose material risks",
+  "Misleading illustrations or projections",
+  "Misrepresentation of potential returns",
+  "Inadequate explanation of policy charges",
+  "Unsuitable recommendations",
+  "Misrepresentation of tax treatment",
+  "Failure to explain the consequences of policy loans or withdrawals",
+  "Representations that the policy is guaranteed to produce a particular financial outcome",
+  "Recommending a policy primarily for compensation or commission purposes"
+];
+
+const evaluatingItems = [
   {
-    title: "How Guardian Property Law Group Helps with Pacific Life IUL Lawsuits",
-    content: (
-      <div>
- <p className="text-gray-700 leading-relaxed">
-    If you bought an Indexed Universal Life (IUL) policy from Pacific Life because a sales illustration promised steady growth and low risk, and you wound up facing shrinking cash values, rising premiums, or even lapses in coverage, you’re not alone. At Guardian Property Law Group, we investigate whether those decisions were the result of misleading sales practices, faulty illustrations, or undisclosed policy features and we stand ready to hold insurers and advisors accountable on behalf of policyholders.
-          </p>
-      <p className="text-gray-700 mt-5 leading-relaxed">
-    Below we explain what policyholders are alleging about Pacific Life’s IUL products, why certain design features can create big surprises for buyers, and how our team evaluates and pursues Pacific Life IUL lawsuits on a client’s behalf.
-      </p>
-      </div>
-     
-    )
+    title: "The Original Insurance Application",
+    image: insuranceImg,
   },
   {
-    title: "What is a Pacific Life IUL and why are people filing lawsuits?",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-  An Indexed Universal Life policy (IUL) is a life insurance product that combines death benefit protection with a cash-value account tied, in whole or in part, to an equity index. In practice, that means the policy can credit interest based on index performance while also charging various insurance and administrative fees. For some IUL designs, insurance companies and the agents who sell them used illustrations showing high potential returns to make the product look attractive to buyers who might otherwise choose more conservative strategies.
-        </p>
-        <p>
-      Policyholders who later suffered dramatic declines in cash value or who were forced to pay much higher premiums now allege those illustrations were misleading and omitted important details about how certain features like multipliers, performance factors, or “accelerator” strategies could amplify losses as well as gains. These complaints are central to the Pacific Life IUL lawsuits that have been filed in multiple states.
-        </p>
-      </div>
-    )
+    title: "Policy Illustrations and Projections",
+    image: policyImg,
   },
   {
-    title: "The specific concern: leveraged or “Xcelerator” features",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
- One version of Pacific Life’s product that has drawn particular scrutiny reportedly included a component sometimes described as an “Xcelerator” or performance multiplier. While such mechanics can show large upside in ideal market conditions, they also create greater downside risk when the market underperforms. Plaintiffs say the net effect was that many policyholders, some of them older or risk-averse, were left with rapidly eroding cash values and unaffordable premium requirements after buying what they believed to be relatively safe life insurance. Those allegations are a frequent theme in lawsuits and consumer complaints.
-        </p>
-      </div>
-    )
+    title: "Sales Presentations and Marketing Materials",
+    image: salessImg,
   },
   {
-    title: "How improper illustrations and agent representations can create legal claims",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>A central legal theory in many IUL cases is that illustrations and sales pitches misrepresented the likely performance or failed to disclose material risks. Common problems that give rise to claims include:</p>
-        <ul className="list-disc list-outside ml-6 space-y-2">
-          <li>Overly optimistic illustrated returns that ignore multipliers, caps, or participation limits.</li>
-          <li>Failure to clearly disclose fees, cost-of-insurance charges, and how increases will affect cash value and premiums.</li>
-          <li>Concealing the mechanics of special indexing strategies or “performance factors” that make results more volatile.</li>
-          <li>Selling an inappropriate, high-risk product to a retiree or conservative investor who needed guaranteed coverage and predictable reserves.</li>
-        </ul>
-        <p>When these practices are proven, they can support claims such as negligent misrepresentation, breach of fiduciary duty, fraud, or violations of state insurance laws.</p>
-      </div>
-    )
+    title: "Communications with Agents or Advisers",
+    image: rolesImg,
   },
   {
-    title: "Time matters but so does accuracy",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>Insurance and consumer protection laws vary by state, and statutes of limitations can limit how long you have to bring a claim. That said, rushing without a proper review isn’t helpful either. At Guardian Property Law Group we move quickly to preserve evidence, obtain policy documents, and evaluate statutes and deadlines, but we also methodically build a case that fairly presents the economic realities you suffered.</p>
-      </div>
-    )
+    title: "Premium and Payment History",
+    image: paymentImg,
+  },
+  {
+    title: "Policy Statements",
+    image: policyStatementImg,
+  },
+  {
+    title: "Fees, Charges, and Deductions",
+    image: feeImg,
+  },
+  {
+    title: "Policy Loans and Withdrawals",
+    image: procedureImg,
+  },
+  {
+    title: "Representations Concerning Future Performance",
+    image: futureImg,
+  },
+  {
+    title: "Representations Regarding Retirement or Income Planning",
+    image: retireImg,
+  },
+  {
+    title: "Disclosures Provided During the Sales Process",
+    image: disclosureImg,
+  },
+  {
+    title: "The Suitability of the Product for the Policyholder's Circumstances",
+    image: PolicyholderImg,
   },
 ];
 
-const TransData = [
-  {
-    title: "What is a Transamerica IUL (and why do they matter)?",
-    content: (
-      <div>
- <p className="text-gray-700 leading-relaxed">
-An indexed universal life (IUL) policy is a hybrid product: it provides a death benefit like traditional life insurance while offering a cash value component tied (indirectly) to market indexes. Transamerica markets several IUL products including what the company has called the Financial Choice IUL designed to provide tax-advantaged access to cash value while offering index-linked growth options. These products are complex by design, and that complexity is often what creates problems for buyers who expected steady growth or clearer fee disclosures. 
-         </p>
-              </div>
-     
-    )
-  },
-  {
-    title: "The typical complaints in Transamerica IUL lawsuits",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
- Lawsuits against insurers that sell IULs commonly arise from one or more of the following problems:
-        </p>
-        <ul className="list-disc list-outside ml-6 space-y-2">
-          <li>Misleading sales illustrations: insureds rely on glossy projections that assume optimistic crediting rates or ignore realistic caps and spreads.</li>
-          <li>Concealed or confusing fees: multiple embedded fees reduce cash-value growth but were not clearly explained.</li>
-          <li>Improper fee increases after sale: insurers may amend expense structures or adopt new monthly charges that materially change the policy economics.</li>
-          <li>Replacement and suitability issues: a new IUL may have been sold to replace an existing contract without proper analysis showing the replacement was in the client’s best interest.</li>
-          <li>Failure to disclose surrender penalties and loan interest mechanics: when surrender or loan costs are higher than represented, policyholders can suffer surprise losses.</li>
-        </ul>
-        <p>If you recognize any of these scenarios with your Transamerica policy, you should consider speaking with counsel experienced in IUL litigation.</p>
-      </div>
-    )
-  },
-  {
-    title: "How Transamerica IUL fees work",
-    content: (
-      <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-IULs are sold as growth-with-protection products, but they make money for insurers through a web of fees and charges. With Transamerica policies those fees frequently include (and are described in policy contracts and illustrations):
-        </p>
-              <ul className="list-disc list-outside ml-6 space-y-2">
-      <li>Cost of insurance (COI): a charge for the pure life-insurance component that rises as the insured ages.</li>
-      <li>Index account monthly charges: fees assessed against cash-value index accounts these can be percentage-based and compounded over time.</li>
-      <li>Flat monthly policy fees: small recurring monthly charges (for example, $10–$12 per month are typical on many IULs).</li>
-      <li>Per-unit charges: fees assessed per thousand dollars of the face amount or for certain riders.</li>
-      <li>Surrender charges and market value adjustments: heavy penalties if you surrender or partially withdraw early, which can drastically reduce the amount you receive.</li>
-  </ul>
-<p>These multiple layers of fees and periodic expense increases are a frequent source of underperformance in IULs sold years earlier. If you were shown projections without clear, side-by-side expense disclosures, that can form the factual basis for a claim.</p>
-      </div>
-    )
-  },
- 
-];
-
 // ==========================================
-// 3. ACCORDION ITEM COMPONENT (Moved outside)
-// ==========================================
-const AccordionItem = ({ title, content, isOpen, onClick }) => {
-  return (
-    <div className="mb-4 shadow-sm border border-gray-100">
-      <button 
-        onClick={onClick}
-        className="w-full flex items-stretch bg-brand-yellow cursor-pointer transition-colors duration-300 group"
-      >
-        <div className="bg-black w-12 md:w-16 flex items-center justify-center shrink-0">
-          <span className="text-white text-2xl md:text-3xl font-normal leading-none group-hover:scale-110 transition-transform">
-            {isOpen ? '−' : '+'}
-          </span>
-        </div>
-        <div className="flex-1 py-4 px-4 md:px-6 text-left text-white font-extrabold text-[16px] md:text-lg">
-          {title}
-        </div>
-      </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="overflow-hidden bg-white"
-          >
-            <div className="p-6 md:p-8 border-t-0 border border-gray-100">
-              {content}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-
-
-
-
-
-// ==========================================
-// 4. MAIN PAGE COMPONENT
+// 3. MAIN PAGE COMPONENT
 // ==========================================
 const Lawsuits = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-
-    // --- INDEPENDENT STATE FOR EACH SECTION ---
-  const [ameritasOpenIndex, setAmeritasOpenIndex] = useState(0); 
-  const [pacificOpenIndex, setPacificOpenIndex] = useState(0); 
-  const [transOpenIndex, setTransOpenIndex] = useState(0);
-
-  // Notice how Lawsuits NOW has a return statement here!
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans selection:bg-brand-yellow selection:text-white">
       
-      {/* --- HERO BANNER --- */}
+      {/* --- HERO BANNER (Maintained exact structure as requested) --- */}
       <header className="relative w-full h-[400px] bg-[#1a1a1a]">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
@@ -301,311 +172,797 @@ const Lawsuits = () => {
           />
         </div>
         <Navbar />
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto h-full px-6 lg:px-10 flex flex-col justify-end pb-12 lg:pb-16">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-3xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
-          >
-            Indexed Universal Life (IUL) Insurance Lawsuits
-          </motion.h1>
-        </div>
+       <div className="relative z-10 w-full max-w-[1440px] mx-auto h-full min-h-[450px] px-6 lg:px-10 flex flex-col justify-end pb-14 lg:pb-20">
+                     
+                      <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                        className="font-serif text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
+                      >
+                       Indexed Universal Life (IUL) Insurance Lawsuits
+                      </motion.h1>
+                  
+                   {/* the brass rule draws itself under the headline like a signature stroke */}
+                                                      <motion.svg
+                                                        width="220" height="6" viewBox="0 0 220 6"
+                                                        className="mt-5 mb-6"
+                                                        initial="hidden"
+                                                        animate="visible"
+                                                      >
+                                                        <motion.line
+                                                          x1="2" y1="3" x2="218" y2="3"
+                                                          stroke={BRASS} strokeWidth="3" strokeLinecap="round"
+                                                          variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1, transition: { duration: 0.9, delay: 0.65, ease: "easeInOut" } } }}
+                                                        />
+                                                      </motion.svg>
+                    </div>
       </header>
 
-      {/* --- MAIN CONTENT & SIDEBAR SECTION --- */}
-      <section className="bg-white py-16 px-6 md:px-12 lg:px-15 font-sans">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 relative">
+  {/* --- SECTION 1: INTRO & UNDERSTANDING IUL --- */}
+      <section className="py-20 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto">
+        {/* Changed items-center to items-start so the text aligns nicely with the top of the image */}
+        <div className="flex flex-col lg:flex-row gap-16 items-start">
           
-          {/* Left Column */}
+          {/* Left Column: Text (Grouped animation to prevent missing text) */}
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -30 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="w-full lg:w-2/3 flex flex-col gap-8"
+            className="w-full lg:w-1/2 flex flex-col"
           >
-            <div>
-              <p className="text-2xl sm:text-3xl lg:text-2xl font-extrabold text-black mb-6 sm:mb-2 leading-tight tracking-tight">
-                How Guardian Property Law Group Helps When Your IUL Isn’t Delivering
+            <h2 className="text-3xl md:text-2xl font-black text-gray-900 mb-6 tracking-tight leading-tight">
+              How Guardian Property Law Group Can Help When an IUL Policy Falls Short of Expectations
+            </h2>
+            <div className="w-20 h-1.5 bg-brand-yellow mb-8"></div>
+            
+            <h3 className="text-[1.15rem] font-bold text-gray-800 mb-4">
+              When an Indexed Universal Life Policy Does Not Perform as Expected
+            </h3>
+            
+            {/* Standard div wrapping the paragraphs so they are guaranteed to show */}
+            <div className="space-y-5 text-gray-600 text-base text-justify leading-relaxed">
+              <p>
+                Indexed Universal Life insurance, commonly referred to as an IUL, is often presented as a flexible financial product that combines life insurance protection with the opportunity to accumulate cash value. In some sales presentations, prospective policyholders may be told that an IUL can provide retirement income, build long-term wealth, offer tax advantages, or provide market-linked growth while limiting exposure to market losses.
               </p>
-              <p className="text-gray-600 text-[15px] leading-relaxed mb-8 font-medium text-justify">
-                If you purchased an indexed universal life insurance policy (commonly called an IUL) after being told it would serve as “tax-free retirement income,” a “guaranteed lifetime pension” or a “no-risk wealth-building vehicle,” and you’re now seeing troubling results then you’re in the right place. At Guardian Property Law Group, we represent policy-holders who have been misled or sold IUL products under false pretenses.
-                <br /><br />
-                We understand that an IUL can seem like a flexible, promising financial instrument. You may have been told it would outperform market risks, fund itself, and provide a comfortable retirement. Unfortunately, what you may be discovering is very different: steady fees, rising costs, weak growth, shifting policy terms, and increased risk that eating away at your cash value. We know how these products are marketed and we know how to hold the sellers to account.
+            
+              <p className="font-medium text-gray-800">
+                For some policyholders, however, the actual performance and costs of the policy may differ significantly from what they understood when making the purchase.
               </p>
 
-              <p className="text-2xl sm:text-3xl lg:text-2xl font-extrabold text-black mb-6 sm:mb-2 leading-tight tracking-tight">
-                What is an Indexed Universal Life (IUL) Policy?
+              <p>
+                If you purchased an IUL after receiving representations that now appear inaccurate, incomplete, or misleading, Guardian Property Law Group can help you understand your legal options. Our attorneys represent policyholders who believe they may have been misled about the features, risks, costs, performance, or suitability of an insurance product.
               </p>
-              <p className="text-gray-600 text-[15px] leading-relaxed mb-8 font-medium text-justify">
-                An IUL is a life insurance policy with a cash-value component tied, in part, to a market index (such as the S&P 500). The idea: you get the death benefit protection of life insurance, plus the potential to accumulate cash value, and the ability to borrow or withdraw from that cash value. Often these policies are pitched as a hybrid of insurance + investment, with attractive tax-advantaged features, and the notion of upside market growth without downside risk. Agents may describe IULs as:
-              </p>
-
-              <ul className="list-disc list-outside pl-5 sm:pl-8 space-y-1 mb-2 text-gray-600 text-[15px] font-medium text-justify leading-relaxed font-sans marker:text-gray-500">
-                <li className="pl-2">“Tax-free retirement income” vehicles</li>
-                <li className="pl-2">“Private pension plans” for high-net-worth individuals</li>
-                <li className="pl-2">“Wealth-building strategies with no market risk”</li>
-                <li className="pl-2">“Self-funding life insurance that replaces your 401(k) or IRA”</li>
-              </ul>
-
-              <p className="text-gray-600 text-[15px] leading-relaxed mb-8 font-medium text-justify mt-4">
-                These portrayals are widely used in seminars, webinars, social-media influencer outlets, or multi-level marketing (“MLM”)-style networks. But behind that appealing pitch lies complexity, non-guaranteed returns, internal costs, and shifting insurer terms that many policy-holders don’t fully appreciate.
+              
+              <p>
+                We carefully examine how the policy was presented, the representations made during the sales process, the policy documents, illustrations, disclosures, account activity, and the circumstances surrounding the purchase. Where appropriate, we investigate whether the conduct of an insurance agent, financial professional, broker, or other party may have violated applicable laws or regulatory obligations.
               </p>
             </div>
           </motion.div>
 
-          {/* Right Sidebar */}
-          <div className="w-full lg:w-1/3 self-start lg:sticky lg:top-[120px] z-10">
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-col" 
-            >
-              <div className="bg-brand-yellow rounded-2xl flex flex-col h-[680px] overflow-hidden shadow-lg relative pt-10 px-8 pb-0">
-                <h2 className="text-1xl md:text-2xl font-black text-white leading-tight mb-6">
-                  Chicago Investment Fraud Attorneys Offering Nationwide Representation to Investors
-                </h2>
-                <p className="text-white text-[15px] md:text-[15px] leading-relaxed mb-8">
-                  If you have suffered financial losses because of the negligence or fraud of your financial advisor or broker through unsuitable investment recommendations, over-concentration, churning, misrepresenting risks, conversion or selling away, you have legal rights and options to pursue recovery of those losses.
-                </p>
-                <Link to="/ContactUs" className="z-10 self-start block">
-                  <motion.button className="bg-[#d40505] text-white font-bold py-3 px-8 rounded-sm shadow-md hover:bg-white hover:text-black transition-colors duration-300 cursor-pointer">
-                    CONTACT US TODAY
-                  </motion.button>
-                </Link>
-                <div className="mt-8 flex justify-end items-end flex-1 w-full">
-                  <img 
-                    src={attImg} 
-                    alt="Chicago Investment Fraud Attorneys" 
-                    className="w-[50%] sm:w-[60%] lg:w-[70%] mr-[-32px] object-contain object-bottom"
-                  />
+          {/* Right Column: Image with Hover Overlay */}
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full lg:w-1/2"
+          >
+            {/* The 'group' class enables the hover effects on child elements */}
+            <div className="rounded-[2rem] overflow-hidden shadow-2xl relative flex flex-col justify-end min-h-[600px] group cursor-default">
+              
+              {/* Background Image */}
+              <img 
+                src={arbitrationImg} 
+                alt="Reviewing IUL Documents" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+              
+              {/* Black Hover Overlay: Default gradient, turns to solid black/85 on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-colors duration-500 group-hover:bg-black/85"></div>
+              
+              {/* Text Container layered perfectly over the image */}
+              <div className="relative z-10 p-6 md:p-10 flex flex-col gap-4">
+                <h3 className="text-[22px] md:text-[26px] font-black text-white leading-tight transform transition-transform duration-500 group-hover:-translate-y-2">
+                  Understanding Indexed Universal Life Insurance
+                </h3>
+                
+                <div className="space-y-4 opacity-90 transition-opacity duration-500 group-hover:opacity-100">
+                  <p className="text-gray-200 text-sm md:text-[15px] text-justify leading-relaxed">
+                    An Indexed Universal Life policy is a form of permanent life insurance that combines a death benefit with a cash-value component. The amount credited to the policy's cash value may be linked to the performance of a selected market index, subject to the specific terms, limitations, caps, participation rates, spreads, and other provisions contained in the policy.
+                  </p>
+                  <p className="text-gray-200 text-sm md:text-[15px] text-justify leading-relaxed">
+                    Unlike directly investing in a market index, an IUL does not simply track the underlying index. The policy's actual performance depends on its contractual terms, insurance charges, administrative expenses, credited interest methodology, and other factors.
+                  </p>
+                  <p className="text-gray-200 text-sm md:text-[15px] text-justify leading-relaxed font-semibold">
+                    The structure of these policies can be complex, and prospective policyholders may not always appreciate the distinction between illustrated performance and guaranteed policy values.
+                  </p>
                 </div>
               </div>
-            </motion.div>
-          </div>
 
-        </div>
-      </section>
-
-      {/* --- ARBITRATION OVERVIEW SECTION --- */}
-      <section className="bg-[#FDFDFD] py-16 overflow-hidden w-full">
-        <div className="w-full flex flex-col lg:flex-row items-center">
-          
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="w-full lg:w-1/2 relative lg:pr-10"
-          >
-            <div className="relative w-full shadow-2xl rounded-br-[6rem] lg:rounded-br-[3rem] overflow-hidden">
-              <div className="w-full h-6 bg-brand-yellow relative z-10"></div>
-              <div className="relative">
-                <img 
-                  src={arbitrationImg} 
-                  alt="Arbitration Process" 
-                  className="w-full h-[400px] sm:h-[1100px] object-cover"
-                />
-                <div className="absolute inset-0 bg-red-400/20 mix-blend-multiply pointer-events-none"></div>
-              </div>
             </div>
           </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="w-full lg:w-1/2 px-6 sm:px-12 lg:px-5 mt-16 lg:mt-0"
-          >
-            <h2 className="text-2xl sm:text-[1.6rem] font-black text-gray-900 mb-2 tracking-tight leading-tight">
-              Why Does an IUL Often Fail to Deliver?
-            </h2>
-            <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-10 max-w-xl">
-              Despite the marketing hype, many IULs underperform, or even collapse, for reasons that are inherent in how these products are structured and sold. Below are some of the most common issues we investigate:
-            </p>
-
-            <h2 className="text-2xl sm:text-[1.6rem] font-black text-gray-900 mb-2 tracking-tight leading-tight">
-              High Up-Front Commissions and Sales Incentives
-            </h2>
-            <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-10 max-w-xl">
-              Because IULs often carry generous front-loaded commissions, agents may be incentivized to sell them even when the product may not be in the client’s best interests. These incentives can lead to aggressive marketing (e.g., “funds itself after five years,” “guaranteed tax-free income”) rather than full disclosure of risks and fees.          
-            </p>
-
-            <h2 className="text-2xl sm:text-[1.6rem] font-black text-gray-900 mb-2 tracking-tight leading-tight">
-              Hidden, Rising Costs and Insurance Charges
-            </h2>
-            <p className="text-gray-500 text-[0.95rem] leading-relaxed mb-10 max-w-xl">
-              Many policy-holders discover later that the “cost of insurance,” administrative fees, and internal charges steadily eat away at the cash value. What looked like a modest premium may face increased deductions and shrinking net growth or worse, a need for increased premium injections to keep the policy alive.
-            </p>
-
-            <h2 className="text-2xl sm:text-[1.6rem] font-black text-gray-900 mb-2 tracking-tight leading-tight">
-              Illustrations Based on Aggressive Assumptions
-            </h2>
-            <p className="text-gray-500 text-[0.9rem] leading-relaxed mb-10 max-w-xl">
-              Sales illustrations frequently rely on optimistic cap-rates, participation rates, and index credits. These assumptions are presented as future performance even though the insurer retains control and may reduce caps or participation when market conditions change. If the assumptions don’t hold, the gap between promised and actual results can be dramatic.
-            </p>
-
-            <h2 className="text-2xl sm:text-[1.6rem] font-black text-gray-900 mb-2 tracking-tight leading-tight">
-              Loans, Withdrawals and Tax Traps
-            </h2>
-            <p className="text-gray-500 text-[0.9rem] leading-relaxed mb-10 max-w-xl">
-              The “tax-free income” promise often depends on borrowing from the policy. If market credits underperform, or cost of insurance and fees rise, loans can compound, triggering a lapse or taxable event. In other words, the promise of tax-free retirement income may unravel into unexpected tax burdens or losses.             
-            </p>
-
-            <h2 className="text-2xl sm:text-[1.6rem] font-black text-gray-900 mb-2 tracking-tight leading-tight">
-              Unsuitable Sales & Marketing Practices
-            </h2>
-            <p className="text-gray-500 text-[0.9rem] leading-relaxed mb-10 max-w-xl">
-              Policies may be sold as replacement for 401(k)s/IRAs, as “private pension” alternatives, or pitched through complex premium-financed structures. In some cases, agents, advisors or carriers have failed to provide adequate disclosure of costs, risks, alternate options, or conflicts of interest.
-            </p>
-
-            <Link to="/ContactUs" className="w-[200px] block no-underline">
-              <button className="bg-brand-yellow text-white 
-              font-bold py-3.5 px-8 rounded cursor-pointer hover:text-brand-yellow hover:bg-white border-[1px] transition duration-300 text-sm tracking-wide">
-                LEARN MORE
-              </button>
-            </Link>
-          </motion.div>
+          
         </div>
       </section>
 
-      {/* --- RED FLAGS SECTION --- */}
-      <section className="relative py-15 px-6 md:px-12 lg:px-20 bg-gray-100">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <img 
-            src={tieImg} 
-            alt="Writing on paper" 
-            className="w-full h-full object-cover opacity-90"
-          />
-          <div className="absolute inset-0 bg-black/30"></div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative z-10 max-w-7xl mx-auto"
-        >
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-2xl md:text-4xl font-bold text-white mb-8 tracking-tight"
-          >
-            Signs Your Indexed Universal Life (IUL) Insurance Might Be a Problem
-          </motion.h2>
-
-          <div className="space-y-3 text-white leading-relaxed text-sm md:text-[17px] text-justify">
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }} viewport={{ once: true }}>
-              You should consider reaching out to us if you recognize one or more of the following red flags:            
-            </motion.p>
-
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.4 }} viewport={{ once: true }}>
-              <ul className="list-disc list-outside pl-5 sm:pl-8 space-y-1 mb-2 text-gray-200 text-[15px] font-medium text-justify leading-relaxed font-sans marker:text-gray-200">
-                <li className="pl-2">Your IUL policy’s cash value is far lower than what the illustration promised.</li>
-                <li className="pl-2">You were told the policy would “pay for itself” after a certain period, yet you’re required to continue making large premium payments.</li>
-                <li className="pl-2">You were led to believe the policy had no downside and would produce tax-free retirement income, yet you’re facing loans, increased premiums, or a collapse of benefits.</li>
-                <li className="pl-2">You were persuaded to roll over a 401(k), IRA or other retirement account into an IUL.</li>
-                <li className="pl-2">The agent or advisor marketed the IUL as a “private pension,” “business succession tool,” or “premium-financed” strategy.</li>
-                <li className="pl-2">You didn’t receive clear disclosures about cap rates, participation rates, loan terms, surrender charges, or the potential for policy lapse.</li>
-                <li className="pl-2">You feel you were sold the policy based on aggressive sales material, rather than a careful discussion of your goals, risk tolerance, and alternatives.</li>
-                <li className="pl-2">You were solicited through social media, influencer marketing or multi-level marketing (MLM) networks, rather than through a transparent fiduciary process.</li>
-              </ul>
+      {/* --- SECTION 2: THE PRESENTATION VS REALITY --- */}
+      <section className="bg-gray-50 py-20 px-6 md:px-12 lg:px-20 border-y border-gray-200">
+        <div className="max-w-[1440px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            
+            {/* The Pitch */}
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+              <motion.h2 variants={fadeUp} className="text-2xl md:text-2xl font-black text-gray-900 mb-6">
+                How IUL Policies May Be Presented
+              </motion.h2>
+              <motion.p variants={fadeUp} className="text-gray-600 mb-8">
+       During the sales process, an IUL may be described as a potential:
+              </motion.p>
+             
+       
+              <div className="space-y-4">
+                {presentations.map((item, index) => (
+                  <motion.div key={index} variants={fadeUp} className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                    <div className="bg-green-100 text-green-600 p-2 rounded-full shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <p className="text-gray-700 font-medium pt-1">{item}</p>
+                  </motion.div>
+                ))}
+              </div>
+               <motion.p variants={fadeUp} className="text-gray-600 text-justify mt-4">
+  <p>These descriptions may be appropriate in certain circumstances, but they must be considered in light of the specific policy terms, assumptions, risks, costs, and the individual circumstances of the purchaser.</p>
+              </motion.p>
             </motion.div>
 
-            <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.7 }} viewport={{ once: true }}>
-              If any of these statements apply to you, there is a strong possibility you may have a claim, and you should not wait. Delays can diminish documentation, reduce recoverable value, or trigger statute-of-limitations issues.              
-            </motion.p>
-          </div>
-        </motion.div>
-      </section>
+         {/* The Reality */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col h-full"
+            >
+              <h2 className="text-2xl md:text-2xl font-black text-gray-900 mb-4">
+                When The Policy Does Not Match Expectations
+              </h2>
+              
+              <div className="space-y-2 mb-6">
+                <p className="text-gray-600 text-justify leading-relaxed">
+                  Problems arise when a policyholder later discovers that the policy is not performing as anticipated or that important aspects of the product were not adequately explained.
+                </p>
+                <p className="text-gray-800 font-semibold text-justify">
+                  For example, a policyholder may encounter:
+                </p>
+              </div>
 
-      {/* --- ACCORDION SECTION (The Fix!) --- */}
-      <section className="w-full py-16 md:py-24 bg-[#fafafa] px-6 md:px-10">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="mb-12 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4">
-              Ameritas IUL Fraud Lawsuit
-            </h2>
-            <div className="w-20 h-1.5 bg-brand-yellow mx-auto md:mx-0"></div>
-          </div>
-
-          <div className="flex flex-col">
-            {iulData.map((item, index) => (
-              <AccordionItem
-                key={index}
-                title={item.title}
-                content={item.content}
-                // Check against the Ameritas state
-                isOpen={ameritasOpenIndex === index}
-                // Update the Ameritas state
-                onClick={() => setAmeritasOpenIndex(ameritasOpenIndex === index ? null : index)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-       {/* ---Pacific Life IUL Lawsuits --- */}
-  <section className="w-full py-16 md:py-1 bg-[#fafafa] px-6 md:px-10">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="mb-12 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4">
-           Pacific Life IUL Lawsuits
-            </h2>
-            <div className="w-20 h-1.5 bg-brand-yellow mx-auto md:mx-0"></div>
-          </div>
-
-          <div className="flex flex-col">
-            {pacificData.map((item, index) => (
-              <AccordionItem
-                key={index}
-                title={item.title}
-                content={item.content}
-                // Check against the Pacific Life state
-                isOpen={pacificOpenIndex === index}
-                // Update the Pacific Life state
-                onClick={() => setPacificOpenIndex(pacificOpenIndex === index ? null : index)}
-              />
-            ))}
+              {/* Redesigned Grid: Warning Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {unexpectedIssues.map((issue, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-start gap-3 p-4 bg-red-50/50 rounded-xl border border-red-100 hover:border-red-200 transition-colors duration-300"
+                  >
+                    <div className="text-red-500 shrink-0 mt-0.5">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                      </svg>
+                    </div>
+                    <p className="text-gray-800 text-sm leading-snug font-medium">
+                      {issue}
+                    </p>
+                  </div>
+                ))}
+              </div>
+               
+              {/* Highlight Callout Box (Pushed to bottom so columns align) */}
+              <div className="mt-auto p-6 bg-brand-yellow/10 border-l-4 border-brand-yellow rounded-r-xl shadow-sm">
+                <p className="text-sm text-gray-800 font-medium italic leading-relaxed text-justify">
+                  An IUL policy is a contractual financial product. A disappointing result does not automatically establish misconduct. However, circumstances involving misleading representations, material omissions, or unsuitable recommendations may warrant further legal review.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-       {/* ---Transamerica IUL Lawsuits --- */}
-    <section className="w-full py-16 md:py-15 bg-[#fafafa] px-6 md:px-10">
-        <div className="max-w-[1000px] mx-auto">
-          <div className="mb-12 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight mb-4">
-          Transamerica IUL Lawsuits
-            </h2>
-            <div className="w-20 h-1.5 bg-brand-yellow mx-auto md:mx-0"></div>
+{/* =====================================================
+    EVALUATING POTENTIAL IUL MISREPRESENTATION
+===================================================== */}
+
+<section className="relative overflow-hidden bg-[#f5f5f3] py-16 sm:py-20 lg:py-24">
+
+  {/* =================================================
+      BACKGROUND
+  ================================================= */}
+
+  <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full border-[45px] border-brand-yellow/5 sm:h-[420px] sm:w-[420px]" />
+
+  <div className="pointer-events-none absolute -left-24 bottom-[-130px] h-[300px] w-[300px] rounded-full border border-gray-300/40" />
+
+
+  <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-12">
+
+
+    {/* =================================================
+        HEADER
+    ================================================= */}
+
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="mx-auto max-w-4xl text-center"
+    >
+
+      <div className="mb-5 flex items-center justify-center gap-3">
+
+        <span className="h-[2px] w-10 bg-brand-yellow" />
+
+        <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-gray-500 sm:text-xs">
+          Comprehensive Case Review
+        </span>
+
+        <span className="h-[2px] w-10 bg-brand-yellow" />
+
+      </div>
+
+
+      <h2 className="text-3xl font-black leading-tight tracking-tight text-[#171717] sm:text-4xl lg:text-3xl">
+        Evaluating Potential IUL Misrepresentation
+      </h2>
+
+
+      <p className="mx-auto mt-5 max-w-3xl text-[14px] leading-7 text-gray-600 sm:text-[15px] sm:leading-8">
+        At Guardian Property Law Group, we look beyond the policy's current
+        value. We examine the entire transaction to determine how the policy
+        was marketed, recommended, and sold.
+      </p>
+
+
+      <div className="mx-auto mt-6 h-[2px] w-14 bg-brand-yellow" />
+
+    </motion.div>
+
+
+
+    {/* =================================================
+        REVIEW CARDS
+    ================================================= */}
+
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        margin: "-60px",
+      }}
+      variants={{
+        hidden: {},
+
+        visible: {
+          transition: {
+            staggerChildren: 0.08,
+          },
+        },
+      }}
+      className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+    >
+
+      {evaluatingItems.map((item, index) => (
+
+        <motion.article
+          key={item.title}
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 30,
+            },
+
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1],
+              },
+            },
+          }}
+          whileHover={{
+            y: -6,
+          }}
+          className="group relative overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-300"
+        >
+
+          {/* =================================================
+              IMAGE
+          ================================================= */}
+
+          <div className="relative h-[210px] overflow-hidden">
+
+            <motion.img
+              src={item.image}
+              alt={item.title}
+              initial={{
+                scale: 1,
+              }}
+              whileHover={{
+                scale: 1.07,
+              }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+              className="h-full w-full object-cover"
+            />
+
+
+            {/* Image overlay */}
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+
+            {/* Number */}
+{/* 
+            <div className="absolute left-5 top-5 flex h-10 w-10 items-center justify-center bg-brand-yellow text-[10px] font-black text-white shadow-lg">
+              {String(index + 1).padStart(2, "0")}
+            </div> */}
+
           </div>
 
-          <div className="flex flex-col">
-            {TransData.map((item, index) => (
-              <AccordionItem
-                key={index}
-                title={item.title}
-                content={item.content}
-                // Check against the Transamerica state
-                isOpen={transOpenIndex === index}
-                // Update the Transamerica state
-                onClick={() => setTransOpenIndex(transOpenIndex === index ? null : index)}
-              />
-            ))}
+
+
+          {/* =================================================
+              TEXT
+          ================================================= */}
+
+          <div className="relative p-6 sm:p-7">
+
+            {/* Gold top line */}
+
+            <div className="absolute left-0 top-0 h-[3px] w-0 bg-brand-yellow transition-all duration-500 group-hover:w-full" />
+
+
+            <div className="flex items-start gap-4">
+
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#f5f5f3] text-brand-yellow transition-all duration-300 group-hover:bg-brand-yellow group-hover:text-white">
+
+                <FiFileText className="text-sm" />
+
+              </div>
+
+
+              <h3 className="text-sm font-bold leading-6 text-gray-800 sm:text-[15px]">
+                {item.title}
+              </h3>
+
+            </div>
+
           </div>
+
+        </motion.article>
+
+      ))}
+
+    </motion.div>
+
+
+
+    {/* =================================================
+        CLOSING NOTE
+    ================================================= */}
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 25,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 0.7,
+        delay: 0.25,
+      }}
+      className="relative mt-10 overflow-hidden bg-[#171717]"
+    >
+
+      {/* Decorative ring */}
+
+      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full border-[32px] border-brand-yellow/10" />
+
+
+      <div className="relative z-10 flex flex-col gap-5 px-6 py-7 sm:px-8 sm:py-8 md:flex-row md:items-center lg:px-10">
+
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-brand-yellow text-white">
+
+          <FiCheckCircle className="text-xl" />
+
         </div>
-      </section>
 
+
+        <div>
+
+                    <p className="mt-2 max-w-5xl text-sm leading-7 text-gray-300 sm:text-[15px] sm:leading-8">
+            This comprehensive review can help identify whether the
+            policyholder's expectations were based on reasonable
+            representations or whether important risks and limitations may
+            have been inadequately disclosed.
+          </p>
+
+        </div>
+
+      </div>
+
+    </motion.div>
+
+  </div>
+
+</section>
+
+{/* =====================================================
+    POTENTIALLY MISLEADING IUL SALES PRACTICES (Resized & Restyled)
+===================================================== */}
+<section className="w-full bg-white overflow-hidden">
+  {/* Added a max-width wrapper so it doesn't stretch infinitely on ultrawide screens */}
+  <div className="flex flex-col lg:flex-row items-stretch w-full max-w-[1600px] mx-auto">
+
+    {/* =================================================
+        LEFT COLUMN: IMAGE (RESIZED)
+    ================================================= */}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      // Resize: Adjusted width to 45% on large screens, and min-height to 650px
+      className="w-full lg:w-[45%] relative min-h-[300px] sm:min-h-[500px] lg:min-h-[300px]"
+    >
+      {/* Top Yellow Accent Bar */}
+      <div className="absolute top-0 left-0 w-full h-4 bg-brand-yellow z-20" />
       
-            <ContactSection />
-            <Footer />
+      {/* Image with bottom-right rounding */}
+      <img
+        src={misleadImg}
+        alt="Potentially Misleading IUL Sales Practices"
+        className="absolute inset-0 w-full h-full object-cover lg:rounded-br-[4rem] z-0"
+      />
+      
+      {/* Subtle dark overlay for contrast */}
+      <div className="absolute inset-0 bg-black/10 lg:rounded-br-[4rem] z-10" />
+    </motion.div>
 
+    {/* =================================================
+        RIGHT COLUMN: CONTENT (RESTYLED)
+    ================================================= */}
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      // Resize: Adjusted width to 55% on large screens for more text breathing room
+      className="w-full lg:w-[55%] px-6 py-16 md:px-12 lg:py-20 lg:px-16 xl:px-24 flex flex-col justify-center bg-white"
+    >
+      {/* Heading */}
+      <h2 className="text-3xl sm:text-4xl lg:text-[1.5rem] font-black leading-[1.1] text-gray-900 mb-6 tracking-tight">
+        Potentially Misleading IUL Sales Practices
+      </h2>
+
+      {/* Intro Text */}
+      <p className="text-gray-500 text-base lg:text-base text-justify leading-relaxed mb-8">
+        Not every unsuccessful insurance investment is the result of wrongdoing. However, concerns may arise when a financial professional or insurance representative makes representations that are inconsistent with the actual characteristics or risks of the product. Depending on the circumstances, potential issues may include:
+      </p>
+
+      {/* Restyled Scannable List (Now a 2-Column Grid) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-10">
+        {misleadingPractices.map((practice, index) => (
+          <motion.div 
+            key={index}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 + (index * 0.05) }}
+            className="flex items-start gap-3"
+          >
+            <div className="mt-1 flex-shrink-0 text-brand-yellow">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span className="text-gray-700 text-sm font-medium leading-snug">
+              {practice}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Important Legal Note */}
+      <div className="bg-[#fcfcfc] border-l-[3px] border-gray-300 p-5 mb-10">
+        <p className="text-[14px] text-gray-500 leading-relaxed italic">
+          <strong className="text-gray-700 font-semibold not-italic">Important:</strong> The legal issues depend heavily on the facts of each individual transaction. Our attorneys evaluate the available evidence and applicable law before determining whether a viable claim may exist.
+        </p>
+      </div>
+
+      {/* CTA Button (Squared and styled like the screenshot) */}
+      <div>
+        <Link to="/ContactUs" className="inline-block">
+          <button className="bg-brand-yellow text-white font-bold text-[13px] cursor-pointer uppercase tracking-widest py-4 px-10 hover:bg-white hover:text-brand-yellow hover:border-[2px] hover:border-brand-yellow hover:shadow-lg duration-300">
+            Contact Us Today
+          </button>
+        </Link>
+      </div>
+
+    </motion.div>
+  </div>
+</section>
+
+      {/* =====================================================
+    PROTECTING POLICYHOLDERS' INTERESTS
+===================================================== */}
+
+<section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+
+  {/* =================================================
+      BACKGROUND DETAILS
+  ================================================= */}
+
+  <div className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full border-[55px] border-brand-yellow/5" />
+
+  <div className="pointer-events-none absolute -left-24 bottom-[-140px] h-[300px] w-[300px] rounded-full border border-gray-300/40" />
+
+
+  <div className="relative z-10 mx-auto w-full max-w-[1200px] px-6 sm:px-10 lg:px-12">
+
+
+    {/* =================================================
+        MAIN LAYOUT
+    ================================================= */}
+
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+
+
+      {/* =================================================
+          LEFT — MAIN CONTENT
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -40,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          margin: "-80px",
+        }}
+        transition={{
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+
+        {/* Label */}
+
+        <div className="mb-5 flex items-center gap-3">
+
+          <span className="h-[2px] w-10 bg-brand-yellow" />
+
+          <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-gray-500 sm:text-xs">
+            Policyholder Advocacy
+          </span>
+
+        </div>
+
+
+        {/* Heading */}
+
+        <h2 className="max-w-3xl text-4xl font-black leading-[1.02] tracking-[-0.03em] text-[#171717] sm:text-5xl lg:text-[2rem]">
+          Protecting{" "}
+          <span className="text-brand-yellow">
+            Policyholders'
+          </span>{" "}
+          Interests
+        </h2>
+
+
+        {/* Divider */}
+
+        <motion.div
+          initial={{
+            width: 0,
+          }}
+          whileInView={{
+            width: "65px",
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.25,
+          }}
+          className="mt-7 h-[2px] bg-brand-yellow"
+        />
+
+
+        {/* Text */}
+
+        <div className="mt-8 max-w-3xl space-y-6 text-justify text-[14px] leading-7 text-gray-700 sm:text-[15px] sm:leading-8">
+
+          <p className="text-lg font-semibold leading-8 text-gray-900 sm:text-base sm:leading-9">
+            When an insurance product does not perform as represented,
+            policyholders may be left questioning what went wrong and
+            whether they have any available remedies.
+          </p>
+
+
+          <p className="text-base">
+            Our attorneys provide careful, fact-based legal analysis focused
+            on understanding the transaction, identifying potential
+            misconduct, and protecting the legal interests of policyholders.
+          </p>
+
+
+          <p className="text-base">
+            At Guardian Property Law Group, we understand that an IUL is more
+            than a financial product—it can represent an important part of a
+            person's financial planning and long-term security. When concerns
+            arise about how a policy was marketed or sold, obtaining
+            knowledgeable legal guidance can help you make informed decisions
+            about the path forward.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+
+
+      {/* =================================================
+          RIGHT — CONSULTATION PANEL
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 40,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          margin: "-80px",
+        }}
+        transition={{
+          duration: 0.8,
+          delay: 0.15,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="relative overflow-hidden bg-[#171717]"
+      >
+
+        {/* Decorative circle */}
+
+        <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full border-[32px] border-brand-yellow/10" />
+
+
+        {/* Gold accent */}
+
+        <div className="absolute left-0 top-0 h-full w-[3px] bg-brand-yellow" />
+
+
+        <div className="relative z-10 flex h-full flex-col justify-between px-7 py-8 sm:px-9 sm:py-10 lg:px-10 lg:py-11">
+
+
+          {/* Top */}
+
+          <div>
+
+            <div className="flex h-12 w-12 items-center justify-center bg-brand-yellow text-white">
+
+              <FiShield className="text-xl" />
+
+            </div>
+
+
+            <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.22em] text-brand-yellow">
+              Legal Guidance
+            </p>
+
+
+            <h3 className="mt-3 text-2xl font-black leading-tight text-white sm:text-3xl">
+              When You Need to Understand What Happened
+            </h3>
+
+
+            <div className="mt-6 h-[2px] w-12 bg-brand-yellow" />
+
+
+            <p className="mt-6 text-[14px] leading-7 text-gray-300 sm:text-[15px] sm:leading-8">
+              If you believe you were misled about an indexed universal life
+              policy or its potential benefits, Guardian Property Law Group
+              can review the circumstances and help you understand your legal
+              options.
+            </p>
+
+          </div>
+
+
+          {/* Bottom CTA */}
+
+          <div className="mt-10">
+
+            <Link
+              to="/ContactUs"
+              className="group inline-flex w-full items-center justify-center gap-3 bg-brand-yellow px-6 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-white hover:text-[#171717] sm:text-xs"
+            >
+
+              Discuss Your IUL Matter
+
+              <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+
+            </Link>
+
+          </div>
+
+        </div>
+
+
+        {/* Bottom accent */}
+
+        <div className="absolute bottom-0 right-0 h-1 w-24 bg-brand-yellow sm:w-32" />
+
+      </motion.div>
+
+    </div>
+
+
+
+    {/* =================================================
+        CLOSING STATEMENT
+    ================================================= */}
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 0.7,
+        delay: 0.3,
+      }}
+      className="mt-8 border-t border-gray-200 pt-7"
+    >
+    </motion.div>
+
+  </div>
+
+</section>
+
+      <ContactSection />
+      <Footer />
     </div>
   );
 };

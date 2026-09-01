@@ -10,7 +10,7 @@ const Footer = () => {
       {/* Top Footer - Offices */}
   
      {/* Bottom Footer - Dark */}
-      <div className="bg-[#1A1A1A] py-12 px-6 flex flex-col items-center text-center text-white">
+      <div className="bg-[#0b1018] py-12 px-6 flex flex-col items-center text-center text-white">
         
         {/* Navigation Links */}
         {/* <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-xs font-bold tracking-widest uppercase mb-12">

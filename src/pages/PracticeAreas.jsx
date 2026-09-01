@@ -1,381 +1,1503 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
-import bannerImg from '../assets/practice.jpg'; 
-import investmentImg from '../assets/Investment.jpg'
-import attorneysImg from '../assets/finra1.jpg'
-import coinImg from '../assets/Coin.jpg'
-import creditImg from '../assets/credit.jpg'
-import AthleteImg from '../assets/Athlete.jpg'
-import { Link } from 'react-router-dom';
-import coinbase from '../assets/coinbase.png'
-import cybercrimeimg from '../assets/cybercrime.jpg'
-import simImg from '../assets/sim.jpg'
-import litigationImg from '../assets/legitation.jpg'
-import classImg from '../assets/class.jpg'
-import elderlyImg from '../assets/elderly.png'
-import fraudAttorneysBack from '../assets/Securities-Fraud-Attorneys-in-Chicago.jpg'
-import tieImage from '../assets/tieImage.jpg';
-import ContactSection from '../components/ContactSection';
-import Footer from '../components/Footer';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  FiArrowRight,
+  FiCheck,
+  FiShield,
+  FiFileText,
+  FiTrendingUp,
+  FiAlertTriangle,
+  FiGlobe,
+  FiPhone,
+  
+} from "react-icons/fi";
 
+import Navbar from "../components/Navbar";
+
+import bannerImg from "../assets/practice.jpg";
+import investmentImg from "../assets/Investment.jpg";
+import attorneysImg from "../assets/finra1.jpg";
+import coinImg from "../assets/coinbase.png";
+import coinbase from "../assets/coinbase.png";
+import cybercrimeimg from "../assets/cybercrime.jpg";
+import litigationImg from "../assets/legitation.jpg";
+import elderlyImg from "../assets/elderly.png";
+import fraudAttorneysBack from "../assets/Money.jpg";
+import tieImage from "../assets/tieImage.jpg";
+import introImg from "../assets/joeBanner.png";
+import ContactSection from "../components/ContactSection";
+import Footer from "../components/Footer";
+
+// ============================================================
+// PRACTICE AREAS
+// ============================================================
 
 const practiceAreasList = [
-    { 
-    title: "Cybercrime Attorneys", 
+  {
+    title: "Cybercrime Attorneys",
     image: cybercrimeimg,
-    content: "Protecting consumers and investors from phishing scams, account takeovers, wire fraud, cryptocurrency scams, and other forms of cyber-enabled financial crime."
-
+    content:
+      "Protecting consumers and investors from phishing scams, account takeovers, wire fraud, cryptocurrency scams, and other forms of cyber-enabled financial crime.",
   },
-  { 
-    title: "Investment & Securities Fraud", 
+
+  {
+    title: "Investment & Securities Fraud",
     image: investmentImg,
-    content: "Helping investors recover losses caused by broker misconduct, unsuitable investments, fiduciary breaches, Ponzi schemes, misrepresentation, and other forms of securities fraud."
-  },
-  { 
-    title: "FINRA Attorneys", 
-    image:  attorneysImg,
-    content: "Experienced representation for investors pursuing claims involving broker misconduct, securities fraud, unsuitable investments, and FINRA violations."
-  },
-  { 
-    title: "Coinbase Fraud", 
-    image: coinImg,
-    content: "Helping cryptocurrency investors pursue claims involving account takeovers, unauthorized transactions, data breaches, scams, and security failures."
-  },
-  { 
-    title: "Private Credit BDC Attorneys", 
-    image: creditImg,
-    content: "Representing investors harmed by unsuitable BDC investments, valuation issues, disclosure failures, and private credit-related losses."
-  },
-  { 
-    title: "Professional Athlete Representation", 
-    image: AthleteImg,
-    content: "Representing athletes and high-net-worth individuals in claims involving financial fraud, fiduciary breaches, theft, and advisor misconduct."
-  },
-  { 
-    title: "Sim Swap Fraud", 
-    image: simImg,
-    content: "Legal advocacy for victims of telecom negligence, unauthorized account transfers, identity theft, and digital asset losses."
-  },
-  { 
-    title: "Litigation", 
-    image: litigationImg,
-    content: "Representing businesses and individuals in contract disputes, business torts, intellectual property matters, real estate conflicts, and complex commercial litigation."
-  },
-  { 
-    title: "Class Action Representation", 
-    image: classImg,
-    content: "Representing consumers and investors in class actions and group proceedings involving fraud, misconduct, defective products, and corporate wrongdoing."
+    content:
+      "Helping investors recover losses caused by broker misconduct, unsuitable investments, fiduciary breaches, Ponzi schemes, misrepresentation, and other forms of securities fraud.",
   },
 
+  {
+    title: "FINRA Attorneys",
+    image: attorneysImg,
+    content:
+      "Experienced representation for investors pursuing claims involving broker misconduct, securities fraud, unsuitable investments, and FINRA violations.",
+  },
+
+  {
+    title: "Coinbase Fraud",
+    image: coinImg,
+    content:
+      "Helping cryptocurrency investors pursue claims involving account takeovers, unauthorized transactions, data breaches, scams, and security failures.",
+  },
+
+  {
+    title: "Private Credit BDC Attorneys",
+    image: investmentImg,
+    content:
+      "Representing investors harmed by unsuitable BDC investments, valuation issues, disclosure failures, and private credit-related losses.",
+  },
+
+  {
+    title: "Professional Athlete Representation",
+    image: elderlyImg,
+    content:
+      "Representing athletes and high-net-worth individuals in claims involving financial fraud, fiduciary breaches, theft, and advisor misconduct.",
+  },
+
+  {
+    title: "SIM Swap Fraud",
+    image: cybercrimeimg,
+    content:
+      "Legal advocacy for victims of telecom negligence, unauthorized account transfers, identity theft, and digital asset losses.",
+  },
+
+  {
+    title: "Litigation",
+    image: litigationImg,
+    content:
+      "Representing businesses and individuals in contract disputes, business torts, intellectual property matters, real estate conflicts, and complex commercial litigation.",
+  },
+
+  {
+    title: "Class Action Representation",
+    image: fraudAttorneysBack,
+    content:
+      "Representing consumers and investors in class actions and group proceedings involving fraud, misconduct, defective products, and corporate wrongdoing.",
+  },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
+const INK_DEEP = "#0C1526";
+const INK = "#12203A";
+const BRASS = "#AD8A46";
+const BRASS_LIGHT = "#C7A968";
+const CREAM = "#F7F4EC";
+
+// ============================================================
+// ANIMATION VARIANTS
+// ============================================================
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 } // Delays each card popping in
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
 };
 
-  const bannerVariants = {
-    hidden: { opacity: 0, x: 40 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      transition: { duration: 0.8, ease: "easeOut" } 
-    }
-  };
+const fadeLeft = {
+  hidden: {
+    opacity: 0,
+    x: -50,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const fadeRight = {
+  hidden: {
+    opacity: 0,
+    x: 50,
+  },
+
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const staggerContainer = {
+  hidden: {},
+
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const ICONS = {
+ scale: "M12 3v18M5 8l-3 6a4 4 0 0 0 6 0l-3-6zm14 0l-3 6a4 4 0 0 0 6 0l-3-6zM5 8h4M15 8h4M9 21h6",
+};
+
+// ============================================================
+// PAGE
+// ============================================================
+
+const Eyebrow = ({ children, center = false }) => (
+  <div className={`mb-5 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+    <span className="h-[2px] w-9 shrink-0" style={{ backgroundColor: BRASS }} />
+    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+      {children}
+    </span>
+    {center && <span className="h-[2px] w-9 shrink-0" style={{ backgroundColor: BRASS }} />}
+  </div>
+);
+
+const investorIssues = [
+  "Unsuitable or inappropriate investment recommendations",
+  "Misrepresentation or omission of material information",
+  "Investment advisor negligence",
+  "Broker or brokerage firm misconduct",
+  "Unauthorized trading or account activity",
+  "Failure to properly supervise investment professionals",
+  "Securities and investment fraud",
+  "Financial misconduct and deceptive practices",
+  "Consumer fraud and unfair business practices",
+  "Cryptocurrency and digital-asset fraud",
+];
+
 
 const PracticeAreas = () => {
   return (
-    <div className="min-h-screen bg-white">
-     {/* --- HERO BANNER --- */}
-<header className="relative w-full h-[350px] bg-[#1a1a1a]">
-  
-  <div className="absolute inset-0 z-0 overflow-hidden">
-    <img 
-      src={bannerImg} 
-      alt="Guardian Property Law Group Attorneys" 
-      className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
-    />
-  </div>
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
+      {/* ======================================================
+          HERO
+      ====================================================== */}
 
-  <Navbar />
+      <header className="relative h-[360px] sm:h-[420px] w-full overflow-hidden bg-[#111111]">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <img
+            src={bannerImg}
+            alt="Guardian Property Law Group"
+            className="h-full w-full object-cover object-center grayscale opacity-70"
+          />
 
-  {/* Change 2: Removed min-h-[500px] so it stops stretching the header */}
-  <div className="relative z-10 w-full max-w-[1440px] mx-auto h-full px-6 lg:px-10 flex flex-col justify-end pb-12 lg:pb-16">
-    <motion.h1 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className="text-5xl sm:text-6xl md:text-[3rem] font-black text-white tracking-tight drop-shadow-2xl mt-20"
-    >
-      Practice Areas
-    </motion.h1>
-  </div>
-</header>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
 
-{/* --- Chicago-Based Investment Fraud and Consumer Fraud Attorneys --- */}
-       <section className="w-full bg-white py-20 px-6 sm:px-10 text-justify lg:px-16">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-black tracking-tight mb-6">
-          Chicago-Based Investment Fraud and Consumer Fraud Attorneys
-        </h2>
-        
-        <div className="space-y-6 text-gray-800 text-[14px] sm:text-[14px] leading-relaxed">
-          <p>The Chicago-based investment and consumer fraud attorneys at Guardian Property Law Group are time-tested lawyers who have a combined fifty years of experience arbitrating, mediating, and litigating disputes on behalf of victims of investment, securities, and consumer fraud. Investment loss can be devastating. For many, the funds lost due to fraud or incompetence of investment advisors or brokerage firms, can have tragic repercussions on retirement savings and lifestyle. You work your entire life to build a retirement nest egg you deem sufficient to maintain your lifestyle into retirement – You have finally made it. And then an unscrupulous financial advisor sells you unsuitable investments, commits fraud, or does something that loses your retirement nest egg. If you are the victim of financial negligence or fraud, rest assured, the attorneys at Guardian Property Law Group have the experience, the grit, and the determination to secure the settlement, arbitration award, or jury verdict you are entitled to in order to put you back on your financial feet. We offer representation to our clients nationwide and offer contingency fee engagements which mean we do not get paid until you do. </p>
-          <p>If you are the victim of investment or securities fraud or negligence, there are several types of damages you can pursue. Traditionally, compensatory damages in investment cases are referred to as “net out of pocket”. Simply put, if you lost $100,000 in a bad investment that was unsuitable for you or sold to you based on misrepresentations or omissions of material facts, you can bring a claim against the company that sold you that investment. In this example, if you invested $100,000, received $10,000 back in the form of distributions or interest, your “net loss” would be $90,000.</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
         </div>
-        </div>
-        </section>
 
-{/* --- Coinbase Fraud --- */}
-{/* Added overflow-x-hidden on mobile to prevent the logo from creating horizontal scrollbars */}
-<section className="relative w-full min-h-[400px] flex items-center mt-20 lg:mt-12 z-10 bg-[#111111] overflow-x-hidden md:overflow-x-visible">      
-  
-  {/* --- Background Container --- */}
-  <div className="absolute inset-0 z-0 overflow-hidden bg-[#0a0a0a]">
-    <motion.img 
-      initial={{ scale: 1.05 }}
-      whileInView={{ scale: 1 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
-      viewport={{ once: true }}
-      src={coinImg} 
-      alt="Wall Street Background" 
-      className="absolute inset-0 w-full h-full object-cover object-[60%_center] opacity-40 mix-blend-luminosity"
-    />
-  </div>
+        <Navbar />
 
-  {/* --- LAYER 2: Text Content (Left Side) --- */}
-  <div className="relative w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 z-20 py-16 lg:py-24">
-    <motion.div 
-      initial={{ opacity: 0, x: -30 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true }}
-      className="w-full lg:w-[55%] flex flex-col justify-center"
-    >
-      <h2 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-bold text-white mb-4 sm:mb-6 tracking-tight leading-[1.1]">
-        Coinbase Fraud
-      </h2>
-      
-      <p className="text-gray-200 font-sans leading-relaxed text-[0.95rem] sm:text-[1rem] mb-8 max-w-full lg:max-w-xl text-left">
-        If your Coinbase account was hacked, scammed, or accessed without permission, you may have legal rights. Guardian Property Law Group helps crypto users recover losses and hold Coinbase accountable. Learn your options and how our experienced attorneys can help you fight back.
-      </p>
-
-      {/* Buttons Container */}
-      <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2">
-        
-        {/* CONTACT US BUTTON */}
-      <Link to="/ContactUs" className="w-[180px] block no-underline">
-        <div className="w-full flex items-center justify-center bg-brand-yellow text-[#ffffff] font-extrabold py-4 px-10 rounded cursor-pointer hover:bg-[#ffffff] hover:text-brand-yellow transition duration-300 text-[14px] tracking-widest uppercase shadow-md whitespace-nowrap border border-[#e5e7eb]">
-          CONTACT US
-        </div>
-      </Link>
-
-
-      </div>
-    </motion.div>
-  </div>
-
-  {/* --- LAYER 3: Coinbase Logo (Right Side - Overflowing Top) --- */}
-  <motion.div 
-    initial={{ opacity: 0, x: 50 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-    viewport={{ once: true }}
-    // Made the positioning responsive: pulled further right on mobile, sitting perfectly on desktop
-    className="absolute top-[50%] lg:top-[35%] -translate-y-[50%] right-[-28%] sm:right-[-5%] md:right-0 lg:right-[5%] w-[220px] sm:w-[200px] md:w-[350px] lg:w-[450px] z-10 lg:z-30 opacity-10 sm:opacity-20 lg:opacity-100 pointer-events-none"
-  >
-    <img 
-      src={coinbase} 
-      alt="Coinbase Logo" 
-      className="w-[350px] h-auto object-contain drop-shadow-2xl scale-110 lg:scale-125"
-    />
-  </motion.div>
-</section>
-            
-
-      {/* --- PRACTICE AREAS GRID SECTION --- */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 lg:px-10 py-16 lg:py-20">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
-        >
-          {practiceAreasList.map((area, index) => (
-            <motion.div
-              key={index}
-              variants={cardVariants}
-              // Group and specific rounded corners and shape are applied to the entire card
-              className="group flex flex-col h-full bg-white shadow-xl hover:shadow-2xl transition-all duration-300 rounded-br-3xl overflow-hidden"
-            >
-              
-              {/* =========================================
-                  IMAGE SECTION WITH HOVER EFFECT
-              ========================================= */}
-              <div className="w-full h-[300px] lg:h-[200px] overflow-hidden bg-gray-200 shrink-0 relative">
+        {/* Hero Content */}
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto h-full min-h-[450px] px-6 lg:px-10 flex flex-col justify-end pb-14 lg:pb-20">
                 
-                {/* Overlay with subtle colored filter on hover */}
-                <div className="absolute inset-0 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                 <motion.h1
+                   initial={{ opacity: 0, y: 30 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                   className="font-serif text-5xl sm:text-6xl md:text-[4.25rem] font-black text-white tracking-tight drop-shadow-2xl leading-[0.95]"
+                 >
+                   Practice Areas
+                 </motion.h1>
+             
+               {/* the brass rule draws itself under the headline like a signature stroke */}
+                                                                   <motion.svg
+                                                                     width="220" height="6" viewBox="0 0 220 6"
+                                                                     className="mt-5 mb-6"
+                                                                     initial="hidden"
+                                                                     animate="visible"
+                                                                   >
+                                                                     <motion.line
+                                                                       x1="2" y1="3" x2="218" y2="3"
+                                                                       stroke={BRASS} strokeWidth="3" strokeLinecap="round"
+                                                                       variants={{ hidden: { pathLength: 0 }, visible: { pathLength: 1, transition: { duration: 0.9, delay: 0.65, ease: "easeInOut" } } }}
+                                                                     />
+                                                                   </motion.svg>
+               </div>
+      </header>
 
-                <img
-                  src={area.image}
-                  alt={area.title}
-                  p={area.content}
-                  // Responsive sizing and realistic stock photo behavior with object-cover
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 z-0"
-                />
+     {/* ======================================================
+    INTRODUCTION
+====================================================== */}
+
+<section className="relative overflow-hidden bg-white py-14 sm:py-20 lg:py-24">
+
+  {/* Subtle background circle */}
+
+  <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full border-[42px] border-brand-yellow/5 sm:h-[420px] sm:w-[420px]" />
+
+  <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-12">
+
+    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-20">
+
+
+      {/* ==================================================
+          LEFT — IMAGE
+      ================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -50,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          margin: "-80px",
+        }}
+        transition={{
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="relative order-2 lg:order-1"
+      >
+
+        {/* Image frame */}
+
+        <div className="relative overflow-hidden bg-[#111827]">
+
+          <motion.img
+            initial={{
+              scale: 1.08,
+            }}
+            whileInView={{
+              scale: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 1.3,
+              ease: "easeOut",
+            }}
+            src={introImg}
+            alt="Investment and consumer fraud legal representation"
+            className="
+              h-[330px]
+              w-full
+              object-cover
+              object-center
+              sm:h-[420px]
+              lg:h-[500px]
+            "
+          />
+
+
+          {/* Image overlay */}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+
+          {/* Gold accent */}
+
+          <div className="absolute left-0 top-0 h-full w-[3px] bg-brand-yellow" />
+
+
+          {/* Floating information */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.3,
+            }}
+            className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8"
+          >
+
+            <h3 className="mt-2 max-w-md text-2xl font-black leading-tight text-white sm:text-3xl">
+              Experienced Legal Representation
+            </h3>
+
+
+            <div className="mt-4 h-[2px] w-12 bg-brand-yellow" />
+
+          </motion.div>
+
+        </div>
+
+
+        {/* Small floating badge */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: -20,
+          }}
+          whileInView={{
+            opacity: 1,
+            x: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.45,
+          }}
+          className="
+            absolute
+            -bottom-4
+            right-5
+            bg-white
+            px-5
+            py-4
+            shadow-[0_12px_35px_rgba(0,0,0,0.10)]
+            sm:-bottom-5
+            sm:right-8
+          "
+        >
+
+          <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-gray-400">
+            Guardian Property Law Group
+          </p>
+
+        </motion.div>
+
+      </motion.div>
+
+
+
+      {/* ==================================================
+          RIGHT — CONTENT
+      ================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          margin: "-80px",
+        }}
+        transition={{
+          duration: 0.8,
+          delay: 0.12,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="order-1 lg:order-2"
+      >
+
+        {/* Label */}
+
+        <div className="mb-5 flex items-center gap-3">
+
+          <span className="h-[2px] w-10 bg-brand-yellow" />
+
+          <span className="text-[10px] font-bold uppercase tracking-[0.24em] text-gray-500 sm:text-xs">
+            Investment & Consumer Fraud
+          </span>
+
+        </div>
+
+
+        {/* Heading */}
+
+        <h2 className="
+          max-w-3xl
+          text-3xl
+          font-black
+          leading-[1.05]
+          tracking-tight
+          text-[#171717]
+          sm:text-4xl
+          lg:text-[2.9rem]
+          xl:text-[1.8rem]
+        ">
+          Chicago Investment & Consumer Fraud Attorneys
+        </h2>
+
+
+        {/* Gold divider */}
+
+        <motion.div
+          initial={{
+            width: 0,
+          }}
+          whileInView={{
+            width: "65px",
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.25,
+          }}
+          className="mt-6 h-[2px] bg-brand-yellow"
+        />
+
+
+        {/* Subheading */}
+
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+            delay: 0.3,
+          }}
+          className="mt-6 max-w-3xl text-lg font-bold leading-8 text-gray-900 sm:text-xl"
+        >
+          Experienced Legal Representation for Investment, Securities, and
+          Consumer Fraud
+        </motion.p>
+
+
+        {/* Content */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.4,
+          }}
+          className="mt-7 max-w-3xl space-y-5 text-justify text-[14px] leading-7 text-gray-700 sm:text-[15px] sm:leading-8"
+        >
+
+          <p>
+            Investment fraud and financial misconduct can have serious and
+            lasting consequences. When an investment advisor, brokerage firm,
+            financial professional, or other entity acts negligently, makes
+            material misrepresentations, fails to disclose important
+            information, or engages in fraudulent conduct, investors may
+            suffer significant financial losses and uncertainty about their
+            financial future.
+          </p>
+
+
+          <p>
+            At Guardian Property Law Group, our attorneys represent
+            individuals and businesses facing claims involving investment
+            fraud, securities misconduct, consumer fraud, and financial
+            negligence. We draw on extensive experience in litigation,
+            arbitration, mediation, and dispute resolution to develop focused
+            legal strategies tailored to the circumstances of each case.
+          </p>
+
+
+          <p>
+            Our attorneys understand that investment losses are about more
+            than numbers. For many clients, their investments represent years
+            of planning, financial security, retirement objectives, and the
+            ability to provide for themselves and their families. When that
+            security is compromised by misconduct or negligence, we work
+            diligently to investigate what happened, identify responsible
+            parties, and pursue the legal remedies available under applicable
+            law.
+          </p>
+
+        </motion.div>
+
+
+      </motion.div>
+
+    </div>
+
+  </div>
+
+</section>
+
+     {/* ================= PROTECTING INVESTORS ================= */}
+         <section className="bg-white py-16 sm:py-20 lg:py-24">
+           <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-12">
+             <motion.div
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true, margin: "-100px" }}
+               variants={fadeUp}
+               className="mb-12 max-w-3xl"
+             >
+               <Eyebrow>Investor Advocacy</Eyebrow>
+               <h2 className="text-3xl sm:text-4xl font-black tracking-tight" style={{ color: INK_DEEP }}>
+                 Protecting Investors and Consumers
+               </h2>
+               <p className="mt-4 text-[15px] sm:text-base leading-7 text-gray-600">
+                 Investment and securities disputes can arise in many different
+                 circumstances, including:
+               </p>
+             </motion.div>
+   
+             <motion.div
+               variants={staggerContainer}
+               initial="hidden"
+               whileInView="visible"
+               viewport={{ once: true, margin: "-80px" }}
+               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+             >
+               {investorIssues.map((item, index) => (
+                 <motion.div
+                   key={index}
+                   variants={fadeUp}
+                   className="group flex items-start gap-4 border border-gray-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                   style={{ borderColor: undefined }}
+                   onMouseEnter={(e) => (e.currentTarget.style.borderColor = BRASS)}
+                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = "")}
+                 >
+                   <span
+                     className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white"
+                     style={{ backgroundColor: INK }}
+                   >
+                     <FiCheck className="text-sm" />
+                   </span>
+                   <span className="text-sm font-medium leading-6 text-gray-700">{item}</span>
+                 </motion.div>
+               ))}
+             </motion.div>
+   
+             <p className="mt-10 text-[15px] sm:text-base leading-7 text-gray-600 max-w-8xl">
+               Our attorneys carefully examine the facts, financial records,
+               communications, investment recommendations, account activity, and
+               other relevant evidence to determine whether a viable claim exists
+               and what legal options may be available.
+             </p>
+           </div>
+         </section>
+
+      {/* ================= FINANCIAL RECOVERY ================= */}
+            <section className="py-16 sm:py-20 lg:py-24" style={{ backgroundColor: CREAM }}>
+              <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 items-center gap-12 px-6 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-12">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={fadeLeft}
+                >
+                  <Eyebrow>Financial Recovery</Eyebrow>
+                  <h2 className="text-3xl sm:text-4xl font-black tracking-tight" style={{ color: INK_DEEP }}>
+                    Pursuing Financial Recovery
+                  </h2>
+      
+                  <div className="mt-7 space-y-5 text-[15px] sm:text-base leading-8 text-gray-600">
+                    <p>
+                      Depending on the circumstances, investors who have suffered
+                      losses may be entitled to pursue various forms of legal
+                      relief. In investment-related disputes, damages may be based
+                      on the financial losses caused by unsuitable investments,
+                      fraudulent representations, omissions, negligence,
+                      unauthorized conduct, or other wrongful actions.
+                    </p>
+                    <p>
+                      Determining the appropriate measure of damages requires a
+                      careful review of the investment history and the specific
+                      circumstances surrounding the transaction. Our attorneys work
+                      to establish the nature and extent of the loss and pursue
+                      appropriate compensation through negotiation, arbitration,
+                      mediation, or litigation.
+                    </p>
+                  </div>
+                </motion.div>
+      
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={fadeRight}
+                  className="relative overflow-hidden p-8 sm:p-10 lg:p-12"
+                  style={{ backgroundColor: INK_DEEP }}
+                >
+                  <div
+                    className="absolute right-0 top-0 h-32 w-32 rounded-bl-full opacity-10"
+                    style={{ backgroundColor: BRASS }}
+                  />
+                  <FiTrendingUp className="relative mb-8 text-4xl" style={{ color: BRASS_LIGHT }} />
+                  <h3 className="relative text-2xl sm:text-3xl font-bold text-white">
+                    Your Financial Interests Matter
+                  </h3>
+                  <p className="relative mt-5 text-sm sm:text-base leading-7 text-white/70">
+                    Every investment dispute is different. Our attorneys review the
+                    facts, financial history, and circumstances of each matter to
+                    determine the appropriate legal strategy.
+                  </p>
+                  <div className="relative mt-8 h-px w-16" style={{ backgroundColor: BRASS }} />
+                </motion.div>
+              </div>
+            </section>
+            
+     {/* ================= EXPERIENCED ADVOCACY ================= */}
+      <section className="relative min-h-[520px] sm:min-h-[600px] overflow-hidden" style={{ backgroundColor: INK_DEEP }}>
+        <div className="absolute inset-0">
+          <motion.img
+            initial={{ scale: 1.08 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.4, ease: "easeOut" }}
+            src={fraudAttorneysBack}
+            alt="Financial dispute attorneys"
+            className="h-full w-full object-cover object-center opacity-90"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(12,21,38,0.97) 0%, rgba(12,21,38,0.85) 45%, rgba(12,21,38,0.25) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto flex w-full max-w-[1180px] items-center px-6 py-16 sm:px-10 sm:py-20 lg:px-12 lg:py-24 min-h-[520px] sm:min-h-[600px]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeLeft}
+            className="w-full max-w-2xl"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.8rem] font-extrabold leading-[1.08] tracking-tight text-white">
+              Experienced Advocacy in{" "}
+              <span style={{ color: BRASS_LIGHT }}>Financial Disputes</span>
+            </h2>
+
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: "70px", opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="mt-6 h-[2px]"
+              style={{ backgroundColor: BRASS }}
+            />
+
+            <div className="mt-7 space-y-6 text-[14px] sm:text-[15px] leading-7 text-white/75">
+              <p>
+                Financial fraud cases often involve complex transactions,
+                extensive documentation, sophisticated financial products, and
+                opposing parties with substantial resources. Effective
+                representation requires careful investigation, strong legal
+                analysis, and strategic advocacy.
+              </p>
+              <p>
+                At Guardian Property Law Group, we approach each matter with
+                attention to detail and a commitment to protecting our
+                clients&rsquo; legal and financial interests. When
+                appropriate, we pursue negotiated resolutions; when a matter
+                cannot be resolved fairly, we are prepared to advocate for our
+                clients through formal dispute-resolution proceedings or
+                litigation.
+              </p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+            >
+              <Link
+                to="/ContactUs"
+                className="group mt-8 inline-flex items-center gap-3 px-7 py-3.5 text-xs text-white font-semibold uppercase tracking-[0.14em] transition-colors duration-300"
+                style={{ backgroundColor: BRASS }}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BRASS_LIGHT)}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = BRASS)}
+              >
+                <span>Discuss Your Case</span>
+                <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ======================================================
+    CRYPTOCURRENCY + NATIONWIDE REPRESENTATION
+====================================================== */}
+
+      <section className="relative overflow-hidden bg-[#f4f4f1] py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-8 px-6 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-12">
+          {/* ==================================================
+        CRYPTOCURRENCY / COINBASE
+    ================================================== */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="group relative flex h-full flex-col overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
+          >
+            {/* TOP IMAGE */}
+
+            <div className="relative h-[230px] overflow-hidden bg-[#111111] sm:h-[250px]">
+              <motion.img
+                initial={{ scale: 1.08 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1.2,
+                  ease: "easeOut",
+                }}
+                src={coinImg}
+                alt="Cryptocurrency and digital asset fraud"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Dark Overlay */}
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
+
+              {/* Yellow Accent */}
+
+              <div className="absolute left-0 top-0 h-full w-1 bg-brand-yellow" />
+
+              {/* Coinbase Logo */}
+
+              <motion.img
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.25,
+                }}
+                src={coinbase}
+                alt="Coinbase"
+                className="absolute bottom-6 left-6 w-28 object-contain brightness-0 invert sm:w-32"
+              />
+            </div>
+
+            {/* CONTENT */}
+
+            <div className="flex flex-1 flex-col px-6 py-7 sm:px-8 sm:py-8">
+              {/* Label */}
+
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-[2px] w-8 bg-brand-yellow" />
+
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500 sm:text-[10px]">
+                  Digital Asset Disputes
+                </span>
               </div>
 
-              {/* =========================================
-                  TEXT CONTENT (Yellow Section)
-              ========================================= */}
-             <div className="bg-white p-8 flex-1 flex flex-col relative border-b-4 border-brand-yellow">
-              
-              <h3 className="text-xl lg:text-1xl font-extrabold text-gray-900 tracking-tight leading-snug mb-3 group-hover:text-[#1553AB] transition-colors duration-300">
-                {area.title}
-              </h3>
+              {/* Heading */}
 
-              {/* Only render the paragraph if content exists in the array */}
-              {area.content && (
-                <p className="text-gray-600 text-[0.93rem] leading-relaxed text-justify mb-6">
-                  {area.content}
+              <h2 className="text-2xl font-extrabold leading-[1.12] tracking-tight text-[#171717] sm:text-[1.5rem]">
+                Cryptocurrency &{" "}
+                <span className="text-brand-yellow">
+                  Coinbase-Related Fraud
+                </span>
+              </h2>
+
+              {/* Divider */}
+
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "48px" }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.35,
+                }}
+                className="mt-5 h-[2px] bg-brand-yellow"
+              />
+
+              {/* Text */}
+
+              <div className="mt-5 space-y-4 text-[13px] leading-6 text-gray-600 sm:text-[14px] sm:leading-7">
+                <p>
+                  The increasing use of cryptocurrency and digital-asset
+                  platforms has created new challenges for consumers and
+                  investors. Unauthorized account access, fraudulent
+                  transactions, scams, compromised credentials, and other forms
+                  of digital-asset misconduct can result in substantial losses.
                 </p>
-              )}
 
+                <p>
+                  If your Coinbase account has been compromised, accessed
+                  without authorization, or affected by fraudulent activity, you
+                  may have legal options depending on the circumstances.
+                  Guardian Property Law Group assists clients in evaluating
+                  potential claims involving cryptocurrency and digital-asset
+                  losses and determining appropriate legal strategies.
+                </p>
 
+                <p>
+                  Our attorneys can review the circumstances surrounding the
+                  incident, assess potential liability, and advise you regarding
+                  available avenues for pursuing recovery.
+                </p>
+              </div>
+
+              {/* Bottom Accent */}
+
+              <div className="mt-auto pt-7">
+                <div className="h-1 w-16 bg-brand-yellow sm:w-20" />
+              </div>
             </div>
-            </motion.div>
-          ))}
-        </motion.div>
+          </motion.div>
+
+          {/* ==================================================
+        NATIONWIDE REPRESENTATION
+    ================================================== */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{
+              duration: 0.8,
+              delay: 0.15,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="group relative flex h-full flex-col overflow-hidden bg-white shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
+          >
+            {/* TOP VISUAL PANEL */}
+
+            <div className="relative h-[230px] overflow-hidden bg-[#111111] sm:h-[250px]">
+              {/* Subtle Background */}
+
+              <div className="absolute inset-0 bg-gradient-to-br from-[#202020] via-[#111111] to-[#050505]" />
+
+              {/* Large Globe */}
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  delay: 0.2,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                <FiGlobe className="text-[150px] text-white/10 transition-all duration-700 group-hover:scale-110 group-hover:text-brand-yellow/20 sm:text-[180px]" />
+              </motion.div>
+
+              {/* Decorative Circles */}
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.6 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  delay: 0.35,
+                }}
+                className="absolute right-[-60px] top-[-60px] h-52 w-52 rounded-full border-[25px] border-brand-yellow/10"
+              />
+
+              <div className="absolute bottom-[-70px] left-[-70px] h-48 w-48 rounded-full border-[20px] border-white/5" />
+
+              {/* Yellow Accent */}
+
+              <div className="absolute left-0 top-0 h-full w-1 bg-brand-yellow" />
+
+              {/* Center Globe */}
+
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.45,
+                }}
+                className="absolute bottom-6 left-6 flex items-center gap-3"
+              >
+                <div className="flex h-11 w-11 items-center justify-center border border-white/30 bg-black/30 backdrop-blur-sm">
+                  <FiGlobe className="text-xl text-brand-yellow" />
+                </div>
+
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+                  Nationwide Reach
+                </span>
+              </motion.div>
+            </div>
+
+            {/* CONTENT */}
+
+            <div className="flex flex-1 flex-col px-6 py-7 sm:px-8 sm:py-8">
+              {/* Label */}
+
+              <div className="mb-4 flex items-center gap-3">
+                <span className="h-[2px] w-8 bg-brand-yellow" />
+
+                <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500 sm:text-[10px]">
+                  Our Reach
+                </span>
+              </div>
+
+              {/* Heading */}
+
+              <h2 className="text-2xl font-extrabold leading-[1.12] tracking-tight text-[#171717] sm:text-[1.7rem]">
+                Nationwide{" "}
+                <span className="text-brand-yellow">Representation</span>
+              </h2>
+
+              {/* Divider */}
+
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: "48px" }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.35,
+                }}
+                className="mt-5 h-[2px] bg-brand-yellow"
+              />
+
+              {/* Main Text */}
+
+              <div className="mt-5 space-y-4 text-[13px] leading-6 text-gray-600 sm:text-[14px] sm:leading-7">
+                <p>
+                  Guardian Property Law Group represents clients in investment,
+                  securities, consumer, and financial fraud matters across the
+                  country, subject to applicable jurisdictional requirements.
+                </p>
+
+                <p>
+                  In qualifying cases, the firm may offer contingency-fee
+                  representation, meaning attorney fees are generally contingent
+                  upon recovery. The specific terms of representation depend on
+                  the circumstances of each matter and will be explained during
+                  the attorney-client engagement process.
+                </p>
+              </div>
+
+              {/* Bottom Accent */}
+
+              <div className="mt-auto pt-7">
+                <div className="h-1 w-16 bg-brand-yellow sm:w-20" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
- {/* --- ELDERLY SECTION --- */}
-   <section className="relative w-full min-h-[500px] lg:min-h-[300px] flex items-center mt-20 lg:mt-12 z-10 bg-[#1a1a1a]">
-       
-       <div className="absolute inset-0 z-0 overflow-hidden">
-         {/* Animated Background Image - Aligned right so "WALL ST" shows */}
-         <motion.img 
-           initial={{ scale: 1.05 }}
-           whileInView={{ scale: 1 }}
-           transition={{ duration: 1.5, ease: "easeOut" }}
-           viewport={{ once: true }}
-           src={fraudAttorneysBack} 
-           alt="Wall Street" 
-           className="absolute inset-0 w-full h-full object-cover object-[60%_center] opacity-90"
-         />
-         
-         {/* Diagonal line overlay pattern */}
-         <div 
-           className="absolute inset-0 z-20 opacity-10 pointer-events-none" 
-           style={{ backgroundImage: 'repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 2px)' }}
-         ></div>
-       </div>
- 
-       {/* --- LAYER 2: Text Content (Left Side) --- */}
-       <div className="relative w-full max-w-[1440px] mx-auto px-6 sm:px-12 lg:px-20 z-20 py-16 lg:py-24">
-         <motion.div 
-           initial={{ opacity: 0, x: -30 }}
-           whileInView={{ opacity: 1, x: 0 }}
-           transition={{ duration: 0.8, ease: "easeOut" }}
-           viewport={{ once: true }}
-           className="w-full lg:w-[55%] flex flex-col justify-center"
-         >
-           <h2 className="text-3xl sm:text-[2.5rem] font-bold text-white mb-6 tracking-tight leading-[1.1]">
-            Financial Abuse of the Elderly
-           </h2>
-           
-          <p className="text-white font-light leading-relaxed text-[0.95rem] md:text-[1rem] mb-8 md:mb-10 max-w-full lg:max-w-xl text-left md:text-justify hyphens-auto">
-Senior investors are becoming an increasingly large percentage of those utilizing the services of financial services firms and the sad reality is, seniors, especially those who are vulnerable as a result of cognitive decline, are all too often victims of financial exploitation. The attorneys at Guardian Property Law Group will stop at nothing to recover those financial losses. </p>
- 
-     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-6">
-     
-   {/* CONTACT US BUTTON */}
- <Link to="/ContactUs" className="w-[180px] block no-underline">
-   <div className="w-full flex items-center justify-center bg-brand-yellow text-white font-extrabold py-4 px-10 rounded cursor-pointer hover:bg-white hover:text-brand-yellow transition duration-300 text-[14px] tracking-widest uppercase shadow-md whitespace-nowrap border border-[#e5e7eb]">
-     CONTACT US
-   </div>
- </Link>
- 
- </div>
-         </motion.div>
-       </div>
- 
-       <motion.div 
-         initial={{ opacity: 0, y: 50 }}
-         whileInView={{ opacity: 1, y: 0 }}
-         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-         viewport={{ once: true }}
-         className="absolute bottom-0 right-0 lg:right-[3%] w-[90%] sm:w-[60%] lg:w-[55%] h-[45%] sm:h-[65%] lg:h-[110%] z-0 lg:z-30 opacity-40 lg:opacity-100 pointer-events-none flex justify-end items-end"
-       >
-         <div className="relative h-full w-full lg:w-[700px] flex justify-end items-end">
-           <img 
-             src={elderlyImg} 
-             alt="Attorneys Shaking Hands" 
-             className="object-contain object-bottom h-full w-auto max-w-full drop-shadow-2xl"
-           />
-           
-           <div className="absolute inset-0 bg-red-900/1 mix-blend-color pointer-events-none"></div>
-         </div>
-       </motion.div>
- 
-     </section>
+ {/* ======================================================
+    FINAL CTA
+====================================================== */}
 
- {/* --- MISSION / ABOUT FIRM SECTION --- */}
-      <section className="relative w-full">
-        <motion.div 
-          variants={bannerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="relative flex flex-col justify-center overflow-hidden min-h-[400px] py-16 lg:py-24"
+<section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+
+  {/* =================================================
+      SUBTLE BACKGROUND DETAILS
+  ================================================= */}
+
+  <div className="pointer-events-none absolute inset-0">
+
+    {/* Top horizontal line */}
+
+    <div className="absolute left-1/2 top-0 h-px w-[85%] -translate-x-1/2 bg-gray-300/70" />
+
+
+    {/* Bottom horizontal line */}
+
+    <div className="absolute bottom-0 left-1/2 h-px w-[85%] -translate-x-1/2 bg-gray-300/70" />
+
+
+    {/* Existing left circle */}
+
+    <div className="absolute left-[-100px] top-1/2 h-[260px] w-[260px] -translate-y-1/2 rounded-full border border-brand-yellow/10 sm:h-[350px] sm:w-[350px]" />
+
+
+    {/* =================================================
+        NEW TOP-RIGHT CIRCLE
+    ================================================= */}
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.85,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="
+        absolute
+        -right-[110px]
+        -top-[110px]
+        h-[300px]
+        w-[300px]
+        rounded-full
+        border-[28px]
+        border-brand-yellow/10
+
+        sm:-right-[145px]
+        sm:-top-[145px]
+        sm:h-[390px]
+        sm:w-[390px]
+        sm:border-[36px]
+
+        lg:-right-[175px]
+        lg:-top-[175px]
+        lg:h-[480px]
+        lg:w-[480px]
+        lg:border-[44px]
+      "
+    />
+
+
+    {/* Inner ring */}
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.8,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 1,
+        delay: 0.15,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="
+        absolute
+        -right-[30px]
+        -top-[30px]
+        h-[170px]
+        w-[170px]
+        rounded-full
+        border-[10px]
+        border-gray-200/60
+
+        sm:-right-[45px]
+        sm:-top-[45px]
+        sm:h-[230px]
+        sm:w-[230px]
+        sm:border-[13px]
+
+        lg:-right-[55px]
+        lg:-top-[55px]
+        lg:h-[285px]
+        lg:w-[285px]
+        lg:border-[16px]
+      "
+    />
+
+  </div>
+
+
+  {/* =====================================================
+      MAIN CONTENT
+  ===================================================== */}
+
+  <div className="relative z-10 mx-auto w-full max-w-[1150px] px-6 sm:px-10 lg:px-12">
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 35,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        margin: "-80px",
+      }}
+      transition={{
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="
+        relative
+        border
+        border-gray-200
+        bg-white
+        px-7
+        py-10
+        text-center
+        shadow-[0_15px_45px_rgba(0,0,0,0.06)]
+        sm:px-10
+        sm:py-14
+        lg:px-16
+        lg:py-16
+      "
+    >
+
+      {/* =================================================
+          GOLD CORNER ACCENTS
+      ================================================= */}
+
+      <div className="absolute left-0 top-0 h-16 w-px bg-brand-yellow" />
+
+      <div className="absolute left-0 top-0 h-px w-20 bg-brand-yellow" />
+
+      <div className="absolute bottom-0 right-0 h-16 w-px bg-brand-yellow" />
+
+      <div className="absolute bottom-0 right-0 h-px w-20 bg-brand-yellow" />
+
+
+      {/* =================================================
+          TOP LABEL
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 15,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.15,
+        }}
+        className="flex items-center justify-center gap-3"
+      >
+
+        <span className="h-[2px] w-8 bg-brand-yellow sm:w-10" />
+
+        <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-500 sm:text-xs">
+          Legal Consultation
+        </span>
+
+        <span className="h-[2px] w-8 bg-brand-yellow sm:w-10" />
+
+      </motion.div>
+
+
+      {/* =================================================
+          ICON
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.8,
+        }}
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.2,
+        }}
+        className="mx-auto mt-6 flex h-14 w-14 items-center justify-center border border-brand-yellow/40 bg-[#fafaf9] text-brand-yellow"
+      >
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="h-6 w-6 text-brand-yellow"
         >
-          {/* Background Image and Overlays */}
-          <div className="absolute inset-0 z-0">
-            <img 
-              src={tieImage} 
-              alt="Guardian Property Law Group"
-              className="w-full h-full object-cover object-[center_top] grayscale opacity-40"
-            />
-            {/* White gradients to blend the image softly */}
-            <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/90 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-l from-white/80 via-white/60 to-transparent"></div>
-          </div>
-          
-          <div className="relative z-10 p-6 sm:p-10 lg:p-16 flex flex-col justify-center h-full max-w-9xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold  text-black mb-6 sm:mb-8 leading-tight tracking-tight">
-              Guardian Property Law Group prides itself on aggressively prosecuting investment fraud across the country
-            </h2>
-            
-            <p className="text-gray-800 text-base leading-relaxed mb-8 font-light text-left md:text-justify">
-              Our team of lawyers has decades of experience fighting for investor rights in every forum. We use a hands-on approach with our clients and pride ourselves on being extremely diligent communicators. We understand most of our clients have been victimized once by someone they trusted, so we strive to create and maintain a relationship worthy of our clients’ trust and confidence. If you have any issues with your investments, retirement accounts, IRAs, brokerage accounts, financial advisors, or, if you have a business dispute or need more general guidance with litigation, please contact our firm today. We offer services nationwide, including in Chicago, Los Angeles, New York, Seattle, Atlanta, Dallas, Houston, Las Vegas, Pittsburgh, San Antonio, Phoenix, Minneapolis, St. Louis, Indianapolis, San Francisco, Denver, New Orleans, and Boston.    
-            </p>
 
-            {/* Button */}
-            <button className="w-full sm:w-auto self-start bg-brand-yellow text-white px-10 py-4 rounded-sm font-extrabold text-[14px] tracking-widest uppercase hover:bg-gray-800 hover:text-white cursor-pointer transition-colors duration-300 shadow-lg">
-              CONTACT US TODAY
-            </button>
-          </div>
-        </motion.div>
-      </section>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d={ICONS.scale}
+          />
 
- <ContactSection />
+        </svg>
+
+      </motion.div>
+
+
+      {/* =================================================
+          HEADING
+      ================================================= */}
+
+      <motion.h2
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.7,
+          delay: 0.25,
+        }}
+        className="
+          mx-auto
+          mt-6
+          max-w-4xl
+          text-3xl
+          font-black
+          leading-[1.08]
+          tracking-tight
+          text-[#171717]
+          sm:text-4xl
+          md:text-5xl
+          lg:text-[2rem]
+        "
+      >
+
+        Speak With an{" "}
+
+        <span className="text-brand-yellow">
+          Investment Fraud Attorney
+        </span>
+
+      </motion.h2>
+
+
+      {/* =================================================
+          GOLD DIVIDER
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          width: 0,
+        }}
+        whileInView={{
+          width: "70px",
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.7,
+          delay: 0.4,
+        }}
+        className="mx-auto mt-7 h-[2px] bg-brand-yellow"
+      />
+
+
+      {/* =================================================
+          DESCRIPTION
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 15,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.7,
+          delay: 0.45,
+        }}
+        className="mx-auto mt-7 max-w-3xl space-y-4 text-[14px] leading-7 text-gray-600 sm:text-[15px] sm:leading-8"
+      >
+
+        <p>
+          If you believe you have suffered financial losses because of
+          investment fraud, securities misconduct, consumer fraud,
+          negligence, or unauthorized financial activity, it is important
+          to understand your legal rights and options.
+        </p>
+
+
+        <p>
+          Contact Guardian Property Law Group to discuss your
+          circumstances with an experienced attorney and learn whether you
+          may have a claim.
+        </p>
+
+      </motion.div>
+
+
+      {/* =================================================
+          CTA
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 15,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.55,
+        }}
+        className="mt-8 flex justify-center"
+      >
+
+        <Link
+          to="/ContactUs"
+          className="
+            group
+            inline-flex
+            items-center
+            gap-4
+            border
+            border-brand-yellow
+            bg-brand-yellow
+            px-7
+            py-3.5
+            text-[10px]
+            font-bold
+            uppercase
+            tracking-[0.18em]
+            text-white
+            transition-all
+            duration-300
+            hover:border-brand-yellow
+            hover:bg-transparent
+            hover:text-brand-yellow
+            sm:px-9
+            sm:py-4
+            sm:text-xs
+          "
+        >
+
+          <span>
+            Speak With Our Legal Team
+          </span>
+
+          <FiArrowRight
+            className="
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+          />
+
+        </Link>
+
+      </motion.div>
+
+
+      {/* =================================================
+          BOTTOM STATEMENT
+      ================================================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        whileInView={{
+          opacity: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 0.65,
+        }}
+        className="mt-10 border-t border-gray-100 pt-5"
+      >
+
+        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-gray-400 sm:text-[10px]">
+          Guardian Property Law Group.
+        </p>
+
+      </motion.div>
+
+    </motion.div>
+
+  </div>
+
+</section>
+
+      {/* ======================================================
+          CONTACT + FOOTER
+      ====================================================== */}
+
+      <ContactSection />
+
       <Footer />
-
-   </div>
+    </div>
   );
 };
 
